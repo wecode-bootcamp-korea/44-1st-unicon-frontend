@@ -12,7 +12,7 @@ import Cart from './pages/Cart/Cart';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="/detail" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
