@@ -1,0 +1,26 @@
+.count-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 150px;
+  height: 70px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 40px;
+
+  .num {
+    font-size: 26px;
+  }
+
+  .button {
+    margin: 5px;
+    border: none;
+    background-color: rgba(1, 1, 1, 0);
+    color: rgb(211, 211, 211);
+    font-size: 40px;
+  }
+
+  button:hover {
+    color: black;
+  }
+}

@@ -1,0 +1,171 @@
+.order-bar {
+  // position: fixed;
+  // right: 30px;
+  box-sizing: content-box;
+  margin: 0 20px;
+  .title-wrap {
+    // border: 1px solid gray;
+    display: flex;
+    width: 400px;
+    height: 100px;
+    margin: 10px 0;
+
+    .title-text {
+      // border: 1px solid red;
+      display: block;
+      justify-content: baseline;
+      width: 300px;
+      height: 100px;
+      margin: 0;
+      font-size: 20px;
+
+      p {
+        margin: 7px;
+      }
+
+      .text-weight {
+        font-size: 22px;
+        font-weight: 800;
+      }
+    }
+
+    .heart-icon {
+      width: 25px;
+      height: 25px;
+      margin: 7px;
+    }
+  }
+
+  .price-box {
+    width: 400px;
+    height: 40px;
+    // border: 1px solid gray;
+    margin: 10px 0;
+
+    span {
+      margin: 7px;
+      font-size: 35px;
+      font-weight: 700;
+    }
+  }
+
+  .star-box {
+    margin: 7px;
+    background-color: white;
+  }
+
+  .caution {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin: 10px 0;
+    color: gray;
+    font-size: 15px;
+  }
+
+  .together-item-box {
+    width: 400px;
+    height: auto;
+    margin: 10px 7px;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    .together-border-font {
+      margin: 0;
+      padding: 15px;
+      border-bottom: 1px solid gray;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .together-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+
+      .together-item-img {
+        width: 200px;
+        height: 150px;
+        border: 1px solid gray;
+      }
+
+      .plus-icon {
+        width: 60px;
+        height: 60px;
+        color: rgb(1, 88, 170);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .how-border-font {
+    margin: 0;
+    padding: 15px 7px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .border-font {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .how-to-box {
+    width: 400px;
+    height: 150px;
+
+    .how-to-border-box {
+      width: 400px;
+      height: auto;
+      margin: 10px 7px;
+      border: 1px solid rgba(128, 128, 128, 0.45);
+      border-radius: 5px;
+    }
+
+    .bottom-border {
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.45);
+    }
+
+    .how-to-order {
+      display: flex;
+      align-items: center;
+      justify-content: baseline;
+      height: 50%;
+      margin: 10px;
+
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+      }
+    }
+  }
+
+  .how-to-get-box {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 1fr;
+    margin: 2px 15px;
+  }
+
+  .count-btn-box {
+    display: flex;
+    justify-content: baseline;
+
+    .order-btn {
+      width: 150px;
+      height: 70px;
+      margin: 10px;
+      border: none;
+      border-radius: 40px;
+      background-color: rgb(80, 148, 211);
+      color: white;
+      font-weight: 700;
+    }
+    .order-btn:hover {
+      background-color: rgb(1, 88, 170);
+    }
+  }
+}
