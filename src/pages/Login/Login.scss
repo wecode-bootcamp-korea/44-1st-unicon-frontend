@@ -106,6 +106,7 @@
       display: block;
       margin-top: 36px;
       margin-bottom: 4px;
+      font-size: 14px;
     }
 
     input {
@@ -125,6 +126,10 @@
     }
 
     input[type='text'] {
+      font-size: 16px;
+    }
+
+    input[type='password'] {
       font-size: 16px;
     }
 
@@ -187,8 +192,7 @@
     }
 
     .submit-btn.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+      opacity: 0.3;
     }
 
     .signup {
