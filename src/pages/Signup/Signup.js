@@ -285,7 +285,7 @@ const Signup = () => {
               </span>
             </div>
             <button
-              className={allFieldFilled ? 'submit-btn' : 'submit-btn disabled'}
+              className={`submit-btn ${!allFieldFilled && 'disabled'}`}
               onClick={handleSubmit}
             >
               회원 가입하기
