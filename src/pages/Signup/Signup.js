@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AlertCircle, ArrowLeft, CheckCircle } from 'react-feather';
+import {
+  AlertCircle,
+  ArrowLeft,
+  CheckCircle,
+  MessageSquare,
+} from 'react-feather';
 import './Signup.scss';
 
 const Signup = () => {
@@ -34,15 +39,48 @@ const Signup = () => {
     });
   };
 
-  const birthValid = birth.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
-  const phoneValid = phone.match(
-    /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/
-  );
-  const emailValid = email.match(/^\S+@\S+\.\S+$/);
-  const passwordValid = password.length > 7;
+  // const birthValid = birth.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+  // const phoneValid = phone.match(
+  //   /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/
+  // );
+  // const emailValid = email.match(/^\S+@\S+\.\S+$/);
+  // const passwordValid = password.match(/^(?=.*[A-Za-z])(?=.*[0-9])(?=.{8,20})/);
+
+  const validations = {
+    name: name.length >= 3,
+    birth: birth.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/),
+    phone: phone.match(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/),
+    email: email.match(/^\S+@\S+\.\S+$/),
+    address: address.length >= 5,
+    password: password.match(/^(?=.*[A-Za-z])(?=.*[0-9])(?=.{8,20})/),
+  };
+
+  const messages = {
+    name: ['사용 가능한 이름입니다.', '이름을 입력해주세요.'],
+    birth: [
+      '사용 가능한 생일입니다.',
+      '생년월일을 YYYY-MM-DD 형식으로 입력해주세요.',
+    ],
+    phone: [
+      '사용 가능한 핸드폰 번호입니다.',
+      '올바른 핸드폰 번호를 입력해주세요.',
+    ],
+    email: ['사용 가능한 이메일입니다.', '올바른 이메일 정보를 입력해주세요.'],
+    address: ['사용 가능한 주소입니다.', '올바른 주소 정보를 입력해주세요.'],
+    password: [
+      '사용 가능한 비밀번호입니다.',
+      '8자 이상의 영문+숫자 조합 비밀번호를 입력해주세요.',
+    ],
+  };
 
   const allValueValidated =
-    allFieldFilled && birthValid && phoneValid && emailValid && passwordValid;
+    allFieldFilled &&
+    validations.name &&
+    validations.birth &&
+    validations.phone &&
+    validations.phone &&
+    validations.email &&
+    validations.password;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -123,133 +161,51 @@ const Signup = () => {
             </span>
           </fieldset>
           <form onSubmit={() => console.log(inputs)}>
-            <label>
-              이름
-              <input
-                onChange={handleInput}
-                value={name}
-                name="name"
-                type="text"
-                placeholder="이름을 입력해주세요"
-              />
-            </label>
-            {name.length < 3 ? (
-              <div className="warning">
-                <AlertCircle className="icon" /> 이름을 입력해주세요.
-              </div>
-            ) : (
-              <div className="okay">
-                <CheckCircle className="icon" /> 사용 가능한 이름입니다.
-              </div>
-            )}
-            <label>
-              생일
-              <input
-                onChange={handleInput}
-                value={birth}
-                name="birth"
-                type="text"
-                placeholder="YYYY-MM-DD"
-              />
-            </label>
-            {birthValid ? (
-              <div className="okay">
-                <CheckCircle className="icon" /> 사용 가능한 생일입니다.
-              </div>
-            ) : (
-              <div className="warning">
-                <AlertCircle className="icon" /> 생년월일을 YYYY-MM-DD 형식으로
-                입력해주세요.
-              </div>
-            )}
-            <label>
-              휴대폰
-              <input
-                onChange={handleInput}
-                value={phone}
-                name="phone"
-                type="text"
-                placeholder="010-1234-5678"
-                pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-              />
-            </label>
-            {phoneValid ? (
-              <div className="okay">
-                <CheckCircle className="icon" /> 사용 가능한 핸드폰 번호입니다.
-              </div>
-            ) : (
-              <div className="warning">
-                <AlertCircle className="icon" /> 올바른 핸드폰 번호를
-                입력해주세요.
-              </div>
-            )}
-            <label>
-              성별
-              <select
-                onChange={handleInput}
-                name="gender"
-                value={gender}
-                type="select"
-              >
-                <option value={null} />
-                <option value="male">남성</option>
-                <option value="female">여성</option>
-                <option value="deny">응답 거부</option>
-              </select>
-            </label>
-            <label>
-              이메일
-              <input
-                onChange={handleInput}
-                value={email}
-                name="email"
-                type="text"
-                placeholder="이메일을 입력해주세요"
-              />
-            </label>
-            {emailValid ? (
-              <div className="okay">
-                <CheckCircle className="icon" /> 사용 가능한 이메일입니다.
-              </div>
-            ) : (
-              <div className="warning">
-                <AlertCircle className="icon" /> 이메일 필드는 필수 필드입니다.
-              </div>
-            )}
-            <label>
-              주소
-              <input
-                onChange={handleInput}
-                value={address}
-                name="address"
-                type="text"
-                placeholder="주소를 입력해주세요"
-              />
-            </label>
-            {!address && (
-              <div className="warning">
-                <AlertCircle className="icon" /> 주소 필드는 필수 필드입니다.
-              </div>
-            )}
-            <label>
-              비밀번호
-              <input
-                onChange={handleInput}
-                value={password}
-                name="password"
-                type="password"
-                placeholder="비밀번호를 8자 이상 입력해주세요"
-              />
-            </label>
-            {passwordValid ? (
-              <div className="okay">
-                <AlertCircle className="icon" /> 사용 가능한 비밀번호입니다.
-              </div>
-            ) : (
-              <div className="warning">
-                <AlertCircle className="icon" /> 비밀번호를 8자 이상
-                입력해주세요.
-              </div>
+            {USER_INPUT_INFO_LIST.map(
+              ({ id, label, name, type, placeholder }) => {
+                return (
+                  <React.Fragment key={id}>
+                    {label === '성별' ? (
+                      <label>
+                        성별
+                        <select
+                          onChange={handleInput}
+                          name="gender"
+                          value={gender}
+                          type="select"
+                        >
+                          <option value={null} />
+                          <option value="male">남성</option>
+                          <option value="female">여성</option>
+                          <option value="deny">응답 거부</option>
+                        </select>
+                      </label>
+                    ) : (
+                      <React.Fragment key={id}>
+                        <label>
+                          {label}
+                          <input
+                            onChange={handleInput}
+                            value={inputs[name]}
+                            name={name}
+                            type={type}
+                            placeholder={placeholder}
+                          />
+                        </label>
+                        {validations[name] ? (
+                          <div className="okay">
+                            <CheckCircle className="icon" /> {messages[name][0]}
+                          </div>
+                        ) : (
+                          <div className="warning">
+                            <AlertCircle className="icon" /> {messages[name][1]}
+                          </div>
+                        )}
+                      </React.Fragment>
+                    )}
+                  </React.Fragment>
+                );
+              }
             )}
             <div className="checkbox-container">
               <input
@@ -298,3 +254,52 @@ const Signup = () => {
 };
 
 export default Signup;
+
+const USER_INPUT_INFO_LIST = [
+  {
+    id: 1,
+    label: '이름',
+    name: 'name',
+    type: 'text',
+    placeholder: '이름을 입력해주세요',
+  },
+  {
+    id: 2,
+    label: '생일',
+    name: 'birth',
+    type: 'text',
+    placeholder: 'YYYY-MM-DD',
+  },
+  {
+    id: 3,
+    label: '핸드폰',
+    name: 'phone',
+    type: 'text',
+    placeholder: '010-1234-5678',
+  },
+  {
+    id: 4,
+    label: '성별',
+  },
+  {
+    id: 5,
+    label: '이메일',
+    name: 'email',
+    type: 'text',
+    placeholder: '이메일 주소를 입력해주세요',
+  },
+  {
+    id: 6,
+    label: '주소',
+    name: 'address',
+    type: 'text',
+    placeholder: '주소를 입력해주세요',
+  },
+  {
+    id: 7,
+    label: '비밀번호',
+    name: 'password',
+    type: 'password',
+    placeholder: '8자 이상 영문+숫자 조합의 비밀번호를 입력해주세요',
+  },
+];
