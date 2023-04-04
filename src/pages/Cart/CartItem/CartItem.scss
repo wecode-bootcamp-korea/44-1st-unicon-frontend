@@ -1,0 +1,73 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.cart-item {
+  display: flex;
+  width: 100%;
+  padding: 24px 0;
+  border-bottom: 1px solid#dadada;
+
+  .image {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 18px;
+  }
+
+  .text {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .subtext {
+      padding-top: 6px;
+      color: #484848;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  .section-bottom {
+    display: flex;
+    align-items: center;
+
+    .btn-link {
+      margin-left: 24px;
+      color: #484848;
+    }
+  }
+  .counter-component {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 120px;
+    height: 40px;
+    border: 1px solid #d3d3d3;
+    border-radius: 45px;
+
+    .btn {
+      @include flexCenter;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #dadada;
+      }
+    }
+
+    .number {
+      @include flexCenter;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+}
