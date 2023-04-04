@@ -10,13 +10,10 @@
     display: grid;
 
     grid-gap: 10px;
-    // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
   .img-x {
-    // border: 1px solid rgb(1, 88, 170);
-
     margin: 10px 5px;
 
     .back-img {

@@ -1,17 +1,15 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
 .order-bar {
-  // position: fixed;
-  // right: 30px;
   box-sizing: content-box;
   margin: 0 20px;
   .title-wrap {
-    // border: 1px solid gray;
     display: flex;
     width: 400px;
     height: 100px;
     margin: 10px 0;
 
     .title-text {
-      // border: 1px solid red;
       display: block;
       justify-content: baseline;
       width: 300px;
@@ -39,7 +37,6 @@
   .price-box {
     width: 400px;
     height: 40px;
-    // border: 1px solid gray;
     margin: 10px 0;
 
     span {
@@ -67,21 +64,19 @@
     width: 400px;
     height: auto;
     margin: 10px 7px;
-    border: 1px solid gray;
+    border: 1px solid $gray-opacity;
     border-radius: 5px;
 
     .together-border-font {
       margin: 0;
       padding: 15px;
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid $gray-opacity;
       font-size: 18px;
       font-weight: 700;
     }
 
     .together-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flexCenter;
       margin: 20px auto;
 
       .together-item-img {
@@ -119,13 +114,13 @@
       width: 400px;
       height: auto;
       margin: 10px 7px;
-      border: 1px solid rgba(128, 128, 128, 0.45);
+      border: 1px solid $gray-opacity;
       border-radius: 5px;
     }
 
     .bottom-border {
       padding-bottom: 10px;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.45);
+      border-bottom: 1px solid $gray-opacity;
     }
 
     .how-to-order {

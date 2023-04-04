@@ -7,7 +7,7 @@ const StarRating = () => {
 
   return (
     <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
+      {[...Array(5)].map((_, index) => {
         index += 1;
         return (
           <button

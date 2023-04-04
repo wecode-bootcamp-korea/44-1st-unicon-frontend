@@ -9,18 +9,13 @@ function ProductDetail() {
       <div className="product-detail-page">
         <div className="product-page">
           <div className="image-box">
-            <p className="img-x">
-              <p className="back-img" />
-            </p>
-            <p className="img-x">
-              <p className="back-img" />
-            </p>
-            <p className="img-x">
-              <p className="back-img" />
-            </p>
-            <p className="img-x">
-              <p className="back-img" />
-            </p>
+            {IMG.map(imgDate => {
+              return (
+                <p className="img-x" key={imgDate.id}>
+                  <img className="back-img" url={imgDate.adress} />
+                </p>
+              );
+            })}
           </div>
           <div className="detail-box">
             <div className="detail-text-box">
@@ -70,3 +65,26 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
+
+const IMG = [
+  {
+    id: 1,
+    adress:
+      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+  },
+  {
+    id: 2,
+    adress:
+      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+  },
+  {
+    id: 3,
+    adress:
+      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+  },
+  {
+    id: 4,
+    adress:
+      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+  },
+];
