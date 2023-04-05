@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import { Minus, Plus } from 'react-feather';
 import './CartItem.scss';
 
-const CartItem = ({ name, image, cost, description, dimension, count }) => {
+const CartItem = ({
+  name,
+  image,
+  cost,
+  description,
+  dimension,
+  count,
+  handleItemAdd,
+  handleItemDecrease,
+}) => {
   return (
     <div className="cart-item">
       <div
@@ -22,11 +31,11 @@ const CartItem = ({ name, image, cost, description, dimension, count }) => {
         </div>
         <div className="section-bottom">
           <div className="counter-component">
-            <div className="btn">
+            <div onClick={handleItemAdd} className="btn">
               <Minus width={18} height={18} />
             </div>
             <div className="number">{count}</div>
-            <div className="btn">
+            <div onClick={handleItemDecrease} className="btn">
               <Plus width={18} height={18} />
             </div>
           </div>

@@ -26,6 +26,14 @@ const Cart = () => {
       .then(result => setCartData(result));
   }, []);
 
+  const handleItemAdd = () => {
+    console.log('ADD clicked!');
+  };
+
+  const handleItemDecrease = () => {
+    console.log('DECREASE clicked!');
+  };
+
   return (
     <div className="cart">
       <div className="container">
@@ -54,6 +62,8 @@ const Cart = () => {
                 description={cartItem.description}
                 dimension={cartItem.dimension}
                 count={cartItem.count}
+                handleItemAdd={handleItemAdd}
+                handleItemDecrease={handleItemDecrease}
               />
             ))}
           </div>
