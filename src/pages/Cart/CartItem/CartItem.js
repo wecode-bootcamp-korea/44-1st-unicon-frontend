@@ -32,7 +32,10 @@ const CartItem = ({
         </div>
         <div className="section-bottom">
           <div className="counter-component">
-            <div onClick={() => handleAmountChange(id, -1)} className="btn">
+            <div
+              onClick={() => count > 1 && handleAmountChange(id, -1)}
+              className="btn"
+            >
               <Minus width={18} height={18} />
             </div>
             <div className="number">{count}</div>
