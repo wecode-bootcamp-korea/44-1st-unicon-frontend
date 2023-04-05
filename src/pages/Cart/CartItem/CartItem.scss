@@ -45,6 +45,11 @@
     .btn-link {
       margin-left: 24px;
       color: #484848;
+      cursor: pointer;
+
+      &:hover {
+        color: $ikea-blue;
+      }
     }
   }
   .counter-component {

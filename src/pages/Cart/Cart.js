@@ -38,8 +38,14 @@ const Cart = () => {
     setCartData(updatedData);
   };
 
-  console.log(cartData);
-  console.log(totalCost);
+  const handleDelete = id => {
+    const updatedData = cartData.filter(item => item.id !== id);
+    window.confirm('정말 삭제하시겠습니까?') && setCartData(updatedData);
+  };
+
+  const handleSubmit = () => {
+    console.log(cartData);
+  };
 
   return (
     <div className="cart">
@@ -47,32 +53,40 @@ const Cart = () => {
         <div className="left">
           <div className="content-left">
             <div className="page-header">
-              <h1 className="title">장바구니</h1>
+              <h1 className="title">
+                장바구니{!cartData.length && '가 비어있어요'}
+              </h1>
               <MoreHorizontal />
             </div>
-            <div className="sub">주문을 어떻게 받고 싶으세요?</div>
-            <div className="choice">
-              <div className="option">
-                <Truck /> &nbsp;&nbsp; 배송
-              </div>
-              <div className="option">
-                <ShoppingBag />
-                &nbsp;&nbsp; 픽업
-              </div>
-            </div>
-            {cartData?.map(cartItem => (
-              <CartItem
-                id={cartItem.id}
-                key={cartItem.id}
-                name={cartItem.name}
-                image={cartItem.image}
-                cost={cartItem.cost}
-                description={cartItem.description}
-                dimension={cartItem.dimension}
-                count={cartItem.count}
-                handleAmountChange={handleAmountChange}
-              />
-            ))}
+            {cartData.length && (
+              <>
+                <div className="sub">주문을 어떻게 받고 싶으세요?</div>
+                <div className="choice">
+                  <div className="option">
+                    <Truck /> &nbsp;&nbsp; 배송
+                  </div>
+                  <div className="option">
+                    <ShoppingBag />
+                    &nbsp;&nbsp; 픽업
+                  </div>
+                </div>
+              </>
+            )}
+            {cartData &&
+              cartData.map(cartItem => (
+                <CartItem
+                  id={cartItem.id}
+                  key={cartItem.id}
+                  name={cartItem.name}
+                  image={cartItem.image}
+                  cost={cartItem.cost}
+                  description={cartItem.description}
+                  dimension={cartItem.dimension}
+                  count={cartItem.count}
+                  handleAmountChange={handleAmountChange}
+                  handleDelete={handleDelete}
+                />
+              ))}
           </div>
         </div>
         <div className="right">
@@ -112,7 +126,7 @@ const Cart = () => {
                 ₩&nbsp;{totalCost?.toLocaleString()}
               </div>
             </div>
-            <div className="btn-purchase">
+            <div onClick={handleSubmit} className="btn-purchase">
               <div className="btn-content">
                 <div className="btn-text">결제하기</div>
                 <div className="arrow-wrapper">

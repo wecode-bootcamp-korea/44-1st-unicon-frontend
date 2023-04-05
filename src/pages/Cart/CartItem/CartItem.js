@@ -11,6 +11,7 @@ const CartItem = ({
   dimension,
   count,
   handleAmountChange,
+  handleDelete,
 }) => {
   return (
     <div className="cart-item">
@@ -39,7 +40,9 @@ const CartItem = ({
               <Plus width={18} height={18} />
             </div>
           </div>
-          <div className="btn-link">삭제</div>
+          <div onClick={() => handleDelete(id)} className="btn-link">
+            삭제
+          </div>
           <div className="btn-link">위시리스트 저장</div>
         </div>
       </div>
