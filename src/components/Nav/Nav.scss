@@ -1,0 +1,67 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+.nav {
+  font-family: 'Noto Sans KR', sans-serif;
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: 13;
+    padding: 24px 48px;
+    column-gap: 24px;
+
+    .side-nav-container {
+      display: flex;
+      position: absolute;
+      grid-column: 1 / span 1;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        margin-top: 16px;
+        font-size: 14px;
+      }
+    }
+
+    .nav-center-section {
+      grid-column: 2 / span 9;
+
+      .wekea-logo {
+        width: 140px;
+        height: 40px;
+        background-image: url('../../assets/4-ikea-logo-SVG-betterstudio.com_.svg');
+        background-position: center center;
+        background-size: cover;
+      }
+    }
+  }
+
+  .msg-wrapper {
+    @include flexCenter;
+    background-color: #111111;
+
+    .icon-text-wrap {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      cursor: pointer;
+
+      .icon-text {
+        display: flex;
+        align-items: center;
+        margin: 0 36px;
+        color: #ffffff;
+        font-size: 12px;
+
+        p {
+          padding-left: 12px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
