@@ -1,15 +1,13 @@
-@import '../../styles/variables';
+@import '/src/styles/variables';
 .mini-product {
   width: 300px;
   height: auto;
   margin: 20px;
-  border: 1px solid red;
 
   .img {
     width: 280px;
     height: 280px;
     margin: 5px auto;
-    border: 1px solid black;
   }
 
   .text-box {

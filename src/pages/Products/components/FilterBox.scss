@@ -1,0 +1,31 @@
+/* stylelint-disable selector-class-pattern */
+@import '/src/styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+.filter-box {
+  position: relative;
+  transform: translate(-140px);
+  font-family: 'Noto Sans KR', sans-serif;
+
+  .border-Box {
+    position: absolute;
+    top: 30px;
+    width: 200px;
+    height: auto;
+    padding: 20px 30px;
+    border: 2px solid $gray-opacity;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1px 3px 10px rgba(161, 161, 161, 0.726);
+    vertical-align: middle;
+
+    label {
+      display: block;
+      line-height: 2rem;
+
+      span {
+        margin: 0 10px;
+      }
+    }
+  }
+}

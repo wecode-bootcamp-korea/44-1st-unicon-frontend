@@ -1,0 +1,73 @@
+/* stylelint-disable selector-class-pattern */
+@import '/src/styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+.modal {
+  display: flex;
+  // position: relative;
+  align-items: center;
+  justify-content: baseline;
+  width: auto;
+  height: 120px;
+  margin: 70px 0 30px 20px;
+  // border-bottom: 1px solid $gray-opacity;
+
+  .filter-icon {
+    color: $gray-opacity;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    height: 50px;
+    margin: 0 10px;
+    padding: 20px;
+    border: none;
+    border-radius: 60px;
+    background-color: rgba(222, 222, 222, 0.49);
+
+    &:hover {
+      background-color: $ikea-blue;
+      color: white;
+      font-weight: 800;
+
+      .filter-icon {
+        color: white;
+      }
+    }
+  }
+
+  .filter-box {
+    position: relative;
+    transform: translate(-120px);
+    font-family: 'Noto Sans KR', sans-serif;
+
+    .border-Box {
+      position: absolute;
+      top: 30px;
+      width: 170px;
+      height: auto;
+      padding: 10px;
+      border: 2px solid $gray-opacity;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 1px 3px 10px rgba(161, 161, 161, 0.726);
+      vertical-align: middle;
+
+      label {
+        display: block;
+        line-height: 2rem;
+
+        // span {
+        //   margin: 0 10px;
+        // }
+      }
+    }
+  }
+  .text {
+    color: black;
+    font-weight: 400;
+  }
+}
