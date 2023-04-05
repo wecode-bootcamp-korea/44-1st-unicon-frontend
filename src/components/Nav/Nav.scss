@@ -5,35 +5,111 @@
 .nav {
   font-family: 'Noto Sans KR', sans-serif;
 
-  .grid-wrapper {
-    display: grid;
-    grid-template-columns: 13;
-    padding: 24px 48px;
-    column-gap: 24px;
+  .center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 90px 0 180px;
 
     .side-nav-container {
       display: flex;
       position: absolute;
-      grid-column: 1 / span 1;
+      top: 64px;
+      left: 64px;
       flex-direction: column;
       align-items: center;
 
       p {
-        margin-top: 16px;
         font-size: 14px;
+      }
+
+      .menu-icon {
+        padding: 16px;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
       }
     }
 
     .nav-center-section {
-      grid-column: 2 / span 9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 20px;
+
+      .logo-input-wrapper {
+        display: flex;
+        align-items: center;
+        width: 70%;
+      }
 
       .wekea-logo {
-        width: 140px;
+        flex-shrink: 0;
+        width: 100px;
         height: 40px;
-        background-image: url('../../assets/4-ikea-logo-SVG-betterstudio.com_.svg');
+        background-image: url('../../assets/wekea-logo.png');
         background-position: center center;
         background-size: cover;
       }
+
+      .input {
+        width: 100%;
+        height: 55px;
+        margin-left: 30px;
+        padding-inline-start: 24px;
+        border: 0;
+        border-radius: 45px;
+        background-color: #efefef;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .second-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 90px 0px 180px;
+    border-bottom: 1px solid #eaeaea;
+
+    .nav-filter-link {
+      margin-right: 20px;
+      color: #111111;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    align-items: center;
+  }
+  .icon-text-btn {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-radius: 75px;
+
+    p {
+      margin-left: 6px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: #f0f0f0;
+      cursor: pointer;
     }
   }
 
