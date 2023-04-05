@@ -13,7 +13,6 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
-
   useEffect(() => {
     fetch('http://localhost:3000/data/cartData.json', {
       method: 'GET',
@@ -23,16 +22,24 @@ const Cart = () => {
       },
     })
       .then(response => response.json())
-      .then(result => setCartData(result));
+      .then(result => {
+        setCartData(result);
+      });
   }, []);
 
-  const handleItemAdd = () => {
-    console.log('ADD clicked!');
+  const totalCost = cartData
+    .map(item => item.cost * item.count)
+    .reduce((acc, cur) => acc + cur, 0);
+
+  const handleAmountChange = (id, num) => {
+    const updatedData = cartData.map(item =>
+      id === item.id ? { ...item, count: item.count + num } : item
+    );
+    setCartData(updatedData);
   };
 
-  const handleItemDecrease = () => {
-    console.log('DECREASE clicked!');
-  };
+  console.log(cartData);
+  console.log(totalCost);
 
   return (
     <div className="cart">
@@ -55,6 +62,7 @@ const Cart = () => {
             </div>
             {cartData?.map(cartItem => (
               <CartItem
+                id={cartItem.id}
                 key={cartItem.id}
                 name={cartItem.name}
                 image={cartItem.image}
@@ -62,8 +70,7 @@ const Cart = () => {
                 description={cartItem.description}
                 dimension={cartItem.dimension}
                 count={cartItem.count}
-                handleItemAdd={handleItemAdd}
-                handleItemDecrease={handleItemDecrease}
+                handleAmountChange={handleAmountChange}
               />
             ))}
           </div>
@@ -101,7 +108,9 @@ const Cart = () => {
             </div>
             <div className="cost">
               <div className="total">총 주문금액</div>
-              <div className="cost-num">₩&nbsp;104,700</div>
+              <div className="cost-num">
+                ₩&nbsp;{totalCost?.toLocaleString()}
+              </div>
             </div>
             <div className="btn-purchase">
               <div className="btn-content">

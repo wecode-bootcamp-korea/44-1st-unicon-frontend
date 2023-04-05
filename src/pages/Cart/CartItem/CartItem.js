@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Minus, Plus } from 'react-feather';
 import './CartItem.scss';
 
 const CartItem = ({
+  id,
   name,
   image,
   cost,
   description,
   dimension,
   count,
-  handleItemAdd,
-  handleItemDecrease,
+  handleAmountChange,
 }) => {
   return (
     <div className="cart-item">
@@ -24,18 +24,18 @@ const CartItem = ({
         <div className="text">
           <div className="header">
             <div>{name}</div>
-            <div>₩&nbsp;{cost * count}</div>
+            <div>₩&nbsp;{(cost * count).toLocaleString()}</div>
           </div>
           <div className="subtext">{description}</div>
           <div className="subtext">{dimension}</div>
         </div>
         <div className="section-bottom">
           <div className="counter-component">
-            <div onClick={handleItemAdd} className="btn">
+            <div onClick={() => handleAmountChange(id, -1)} className="btn">
               <Minus width={18} height={18} />
             </div>
             <div className="number">{count}</div>
-            <div onClick={handleItemDecrease} className="btn">
+            <div onClick={() => handleAmountChange(id, 1)} className="btn">
               <Plus width={18} height={18} />
             </div>
           </div>
