@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Truck,
@@ -9,11 +9,19 @@ import {
   ShoppingBag,
   Home,
 } from 'react-feather';
+import SideNav from './SideNav/SideNav';
 import './Nav.scss';
 
 const Nav = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <div className="nav">
+      <SideNav
+        navbarOpen={navbarOpen}
+        closeNavbar={() => {
+          setNavbarOpen(false);
+        }}
+      />
       <div className="msg-wrapper">
         <div className="icon-text-wrap">
           <div className="icon-text">
@@ -32,7 +40,12 @@ const Nav = () => {
       </div>
       <div className="center-wrapper">
         <div className="side-nav-container">
-          <div className="menu-icon">
+          <div
+            onClick={() => {
+              setNavbarOpen(!navbarOpen);
+            }}
+            className="menu-icon"
+          >
             <Menu />
           </div>
           <p>메뉴</p>

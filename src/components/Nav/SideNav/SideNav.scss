@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 64px 100px 64px 64px;
+  overflow-y: scroll;
+  transform: translateX(-100%);
+  transition: 0.3s ease-in-out;
+  background: #ffffff;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.wekea-logo {
+  width: 100px;
+  height: 40px;
+  background-image: url('../../../assets/wekea-logo.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+.navbar-content-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr auto;
+}
+
+.navbar-content-container.panel-open {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+.panel {
+  grid-row-start: 2;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    transition: 0.3s;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e2e2e2;
+    }
+  }
+
+  .icon.prev {
+    margin-top: 100px;
+  }
+}
+
+.content {
+  span {
+    background: #ffffff;
+
+    .login-or-signup {
+      display: flex;
+      align-items: center;
+      margin: 24px 0px 10px 0px;
+      padding: 12px;
+      transition: 0.3s;
+      border-bottom: 1px solid #e2e2e2;
+      color: #111111;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e2e2e2;
+      }
+
+      p {
+        margin-left: 6px;
+      }
+    }
+  }
+
+  .menus {
+    height: 100%;
+    margin-top: 40px;
+
+    .header-level-menus {
+      font-size: 36px;
+      font-weight: 700;
+      cursor: pointer;
+
+      div {
+        margin: 16px 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .bold-menus {
+      margin: 30px 0;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+
+      div {
+        margin: 16px 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .reg-menus {
+      margin: 30px 0;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+
+      div {
+        margin: 16px 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
