@@ -23,9 +23,6 @@ const Signup = () => {
 
   const { name, birth, phone, gender, email, address, password } = inputs;
 
-  const allFieldFilled =
-    name && birth && phone && email && address && password && terms && privacy;
-
   const handleInput = event => {
     const { name, value } = event.target;
     setInputs({
@@ -62,25 +59,18 @@ const Signup = () => {
   };
 
   const allValueValidated =
-    allFieldFilled &&
-    validations.name &&
-    validations.birth &&
-    validations.phone &&
-    validations.phone &&
-    validations.email &&
-    validations.password;
+    Object.values(validations).every(valid => valid) &&
+    Object.values(checkboxes).every(valid => valid);
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    allValueValidated
-      ? console.log(inputs)
-      : alert('입력 값을 다시 확인해주세요!');
+    allValueValidated && console.log(inputs);
   };
 
   return (
     <div className="signup">
-      <div className="left">
+      <div className="section-left">
         <div className="column-content">
           <div className="column-top">
             <ArrowLeft className="arrow-left" />
@@ -118,7 +108,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="section-right">
         <div className="column-content">
           <fieldset>
             <legend className="legend">IKEA Family에 가입하시겠어요?</legend>
@@ -229,7 +219,7 @@ const Signup = () => {
               </span>
             </div>
             <button
-              className={`submit-btn ${!allFieldFilled && 'disabled'}`}
+              className={`submit-btn ${!allValueValidated && 'disabled'}`}
               onClick={handleSubmit}
             >
               회원 가입하기
