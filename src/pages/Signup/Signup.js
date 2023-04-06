@@ -65,7 +65,26 @@ const Signup = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    allValueValidated && console.log(inputs);
+    // allValueValidated && console.log(inputs);
+
+    allValueValidated &&
+      fetch('http://10.58.52.106:3000/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          name: inputs.name,
+          email: inputs.email,
+          password: inputs.password,
+          phone: inputs.phone,
+          address: inputs.address,
+          birth: inputs.birth,
+          gender: inputs.gender,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => console.log(result));
   };
 
   return (
