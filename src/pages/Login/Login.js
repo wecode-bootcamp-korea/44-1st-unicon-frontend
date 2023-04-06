@@ -32,6 +32,14 @@ function Login() {
     }));
   };
 
+  const handleWarningMsg = (validation, item) => {
+    validation
+      ? setWarning({ ...warning, [item]: false })
+      : setWarning({ ...warning, [item]: true });
+  };
+
+  console.log(warning);
+
   const handleClick = () => {
     setPasswordVisible(prev => !prev);
   };
@@ -96,9 +104,7 @@ function Login() {
             <input
               onChange={handleInput}
               onBlur={() => {
-                !userIdValid
-                  ? setWarning({ ...warning, idIncorrect: true })
-                  : setWarning({ ...warning, idIncorrect: false });
+                handleWarningMsg(userIdValid, 'idIncorrect');
               }}
               value={userId}
               name="userId"
@@ -121,9 +127,7 @@ function Login() {
               onChange={handleInput}
               value={password}
               onBlur={() => {
-                !passwordValid
-                  ? setWarning({ ...warning, pwIncorrect: true })
-                  : setWarning({ ...warning, pwIncorrect: false });
+                handleWarningMsg(passwordValid, 'pwIncorrect');
               }}
               name="password"
               type={passwordVisible ? 'text' : 'password'}
