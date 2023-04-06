@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
 import './Modal.scss';
 
-const Modal = ({ name, id }) => {
-  const [open, setOpen] = useState(false);
+const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   const [check, setCheck] = useState('');
 
   const returnOpen = id => {
-    if (id === 3) {
-      setOpen(!open);
-    } else {
-      return;
-    }
+    setOpenModalId(id);
   };
 
   const handleChange = e => {
@@ -25,7 +20,7 @@ const Modal = ({ name, id }) => {
           <span className="btn-text">{name}</span>
 
           <ChevronDown className="filter-icon" />
-          {open && (
+          {openModalId === id && (
             <div
               className="filter-box"
               onClick={e => {

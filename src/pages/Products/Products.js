@@ -17,6 +17,7 @@ const Products = () => {
   //   .then(response => response.json())
   //   .then(data => console.log(data));
   const [innerMenu, setInnerMenu] = useState([]);
+  const [openModalId, setOpenModalId] = useState(0);
 
   fetch('/data/Choisunyoung/innerMenu.json', {
     method: 'GET',
@@ -63,7 +64,15 @@ const Products = () => {
       </div>
       <div className="modal-box">
         {FILTER_BTN.map(data => {
-          return <Modal name={data.name} key={data.id} id={data.id} />;
+          return (
+            <Modal
+              setOpenModalId={setOpenModalId}
+              openModalId={openModalId}
+              name={data.name}
+              key={data.id}
+              id={data.id}
+            />
+          );
         })}
       </div>
       <div className="product-box">
