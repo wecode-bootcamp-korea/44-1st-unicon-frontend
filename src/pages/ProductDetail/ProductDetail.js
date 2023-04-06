@@ -19,7 +19,8 @@ function ProductDetail() {
       .then(data => setDetailData(data));
   }, []);
 
-  const { id } = detailData;
+  const { id, names, price, sub_description, image_url, detail, descriptions } =
+    detailData;
 
   return (
     <div className="product-detail">
@@ -36,14 +37,7 @@ function ProductDetail() {
           </div>
           <div className="detail-box">
             <div className="detail-text-box">
-              <p className="detail-text">
-                TÄLLBYN 텔뷘 시리즈의 조명은 메탈과 입으로 불어 만드는 유리
-                소재로 만들어서 클래식하면서도 튼튼한 디자인이에요.
-                <br />
-                멋진 분위기를 연출하는 기능성 조명이죠.
-                <br />
-                집안에 추억을 떠올리게 하는 공간을 만들어보세요.
-              </p>
+              <p className="detail-text"> {descriptions}</p>
               <div className="product-code-box">
                 <p className="text">제품번호</p>
                 <p className="code">{id}</p>
@@ -53,6 +47,7 @@ function ProductDetail() {
             <div className="inner-menu-box">
               <div className="inner-menu-item">
                 <p>제품 설명</p>
+                {/* {detail} */}
                 <button className="inner-btu">
                   <ArrowRight />
                 </button>
@@ -77,14 +72,13 @@ function ProductDetail() {
         </div>
       </div>
       <OrderBar
-        detailData={detailData}
-        // id={id}
-        // names={names}
-        // price={price}
-        // sub_description={sub_description}
-        // image_url={image_url}
-        // detail={detail}
-        // descriptions={descriptions}
+        id={id}
+        names={names}
+        price={price}
+        sub_description={sub_description}
+        image_url={image_url}
+        detail={detail}
+        descriptions={descriptions}
       />
     </div>
   );

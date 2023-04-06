@@ -1,25 +1,17 @@
 import React from 'react';
-import { Heart, AlertCircle, PlusCircle, Truck, Package } from 'react-feather';
+import { Heart, AlertCircle, Truck, Package } from 'react-feather';
 import StarRating from '../components/StarRating/StarRating';
 import CountButton from '../components/CountButton/CountButton';
 import './OrderBar.scss';
 
-const OrderBar = ({
-  id,
-  names,
-  price,
-  sub_description,
-  image_url,
-  detail,
-  descriptions,
-}) => {
+const OrderBar = ({ names, price, sub_description }) => {
   return (
     <div className="order-bar">
       <div className="order-top">
         <div className="title-wrap">
           <div className="title-text">
             <p className="text-weight">{names}</p>
-            <p>탁상스탠드, 니켈 도금/오팔</p>
+            <p>{sub_description}</p>
             <p>화이트 유리, 40 cm</p>
           </div>
           <Heart className="heart-icon" />
@@ -27,7 +19,7 @@ const OrderBar = ({
 
         <div className="price-box">
           <span>￦</span>
-          <span>63,000</span>
+          <span>{price}</span>
         </div>
         <div className="star-box">
           <StarRating />
