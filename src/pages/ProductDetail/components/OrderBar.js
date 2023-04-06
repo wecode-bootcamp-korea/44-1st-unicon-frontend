@@ -4,13 +4,21 @@ import StarRating from '../components/StarRating/StarRating';
 import CountButton from '../components/CountButton/CountButton';
 import './OrderBar.scss';
 
-const OrderBar = () => {
+const OrderBar = ({
+  id,
+  names,
+  price,
+  sub_description,
+  image_url,
+  detail,
+  descriptions,
+}) => {
   return (
     <div className="order-bar">
       <div className="order-top">
         <div className="title-wrap">
           <div className="title-text">
-            <p className="text-weight">TÄLLBYN 텔뷘</p>
+            <p className="text-weight">{names}</p>
             <p>탁상스탠드, 니켈 도금/오팔</p>
             <p>화이트 유리, 40 cm</p>
           </div>
@@ -30,14 +38,6 @@ const OrderBar = () => {
             조명은 별도구매입니다. LED전구 E14 구형 오팔 화이트 사용을
             권장합니다.
           </p>
-        </div>
-      </div>
-
-      <div className="together-item-box">
-        <div className="together-border-font">함께 필요한 제품</div>
-        <div className="together-item">
-          <div className="together-item-img">img</div>
-          <PlusCircle className="plus-icon" />
         </div>
       </div>
 

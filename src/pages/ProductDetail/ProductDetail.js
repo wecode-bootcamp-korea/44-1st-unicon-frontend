@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import './ProductDetail.scss';
 
 function ProductDetail() {
+  const [detailData, setDetailData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://10.58.52.225:3000/products/product/1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      //query: JSON.stringify({filter:"ASC" }),
+      //바디 대신에 query:{"main_"}
+    })
+      .then(response => response.json())
+      .then(data => setDetailData(data));
+  }, []);
+
+  const { id } = detailData;
+
   return (
     <div className="product-detail">
       <div className="product-detail-page">
@@ -29,7 +46,7 @@ function ProductDetail() {
               </p>
               <div className="product-code-box">
                 <p className="text">제품번호</p>
-                <p className="code">504.376.69</p>
+                <p className="code">{id}</p>
               </div>
             </div>
 
@@ -59,7 +76,16 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <OrderBar />
+      <OrderBar
+        detailData={detailData}
+        // id={id}
+        // names={names}
+        // price={price}
+        // sub_description={sub_description}
+        // image_url={image_url}
+        // detail={detail}
+        // descriptions={descriptions}
+      />
     </div>
   );
 }
