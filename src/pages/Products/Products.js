@@ -6,7 +6,16 @@ import Modal from './components/Modal';
 import './Products.scss';
 
 const Products = () => {
-  //map도는 부분은 컴포넌드화 해서 각각의 유즈스테이트를 갖도록!
+  fetch('http://10.58.52.225:3000/products/category?sc=3&filter=DESC', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    //query: JSON.stringify({filter:"ASC" }),
+    //바디 대신에 query:{"main_"}
+  })
+    .then(response => response.json())
+    .then(data => console.log(data));
 
   return (
     <div className="product">
@@ -42,6 +51,7 @@ const Products = () => {
         {PRICE.map(data => (
           <MiniProduct
             key={data.id}
+            id={data.id}
             name={data.name}
             commit={data.commit}
             price={data.price}
@@ -52,23 +62,6 @@ const Products = () => {
     </div>
   );
 };
-
-//<Login data={던질 데이터 이름대문자로}
-
-//=> 자식컴포넌트일때
-//{name === '회원가입' && (추가될 태그값 <input>)}
-
-//=>부모컴포넌트에서 링크태그를 클릭할때 요소가 바뀌는 함수 정의
-//const [ state, setState] = useState(false);
-//<넘겨주는 태그 data={ state값 ? 트루일때 : 거짓일때 }/>
-
-//=> 자식컴포넌트
-//함수형 업데이트 onClick={()=>set((prev)=>{prev + 1})}  스테이트이 이전값을 가져옴!
-
-//---------------------------
-
-//자식컴포넌트에 {children}을 사용해서
-//부모컴포넌트는 <넘겨줄 태그 > children 자리에 들어갈(넘겨줄) 내용 작성 </>
 
 export default Products;
 

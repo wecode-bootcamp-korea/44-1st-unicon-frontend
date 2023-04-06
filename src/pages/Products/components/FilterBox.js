@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Radio } from 'react-feather';
 import './FilterBox.scss';
 
 const FilterBox = props => {

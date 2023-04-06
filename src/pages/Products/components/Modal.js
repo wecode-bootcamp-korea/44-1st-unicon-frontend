@@ -2,28 +2,16 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
 import './Modal.scss';
 
-//map도는 부분은 컴포넌드화 해서 각각의 유즈스테이트를 갖도록!
-
-//지금의 문제! 두번째 클릭한 버튼에 체크박스를 클릭할때 두번 클릭해야됨.
-
-const Modal = ({ id, name }) => {
+const Modal = ({ name, id }) => {
   const [open, setOpen] = useState(false);
   const [check, setCheck] = useState('');
 
   const returnOpen = id => {
-    // if (open === false) {
-    //   setOpen(true);
-    // } else if (open === true) {
-    //   setOpen(false);
-    // }
-    // open ? setOpen(false) : setOpen(true);
-    // setOpen(!open);
-    // if ({ id } == 3) {
-    //   setOpen(prev => !prev);
-    // } else {
-    //   setOpen('');
-    // }
-    setOpen(prev => !prev);
+    if (id === 3) {
+      setOpen(!open);
+    } else {
+      return;
+    }
   };
 
   const handleChange = e => {
@@ -33,8 +21,9 @@ const Modal = ({ id, name }) => {
   return (
     <div className="modal">
       <div className={name}>
-        <button onClick={returnOpen} className="button">
-          {name}
+        <button onClick={() => returnOpen(id)} className="button" id={id}>
+          <span className="btn-text">{name}</span>
+
           <ChevronDown className="filter-icon" />
           {open && (
             <div
@@ -43,13 +32,14 @@ const Modal = ({ id, name }) => {
                 e.stopPropagation();
               }}
             >
-              <div className="border-Box">
+              <div className="border-box">
                 <label>
                   <input
+                    id={id}
                     type="radio"
                     name="contact"
-                    value="hight"
-                    defaultChecked={check === 'hight'}
+                    value="ASC"
+                    defaultChecked={check === 'ASC'}
                     onChange={handleChange}
                   />
                   <span className="text">높은가격순</span>
@@ -59,8 +49,8 @@ const Modal = ({ id, name }) => {
                   <input
                     type="radio"
                     name="contact"
-                    value="low"
-                    checked={check === 'low'}
+                    value="DESC"
+                    checked={check === 'DESC'}
                     onChange={handleChange}
                   />
 
