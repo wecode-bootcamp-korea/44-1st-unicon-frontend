@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "일반 조명",
+    "img": "https://www.ikea.com/global/assets/navigation/images/lamps-li002.jpeg?imwidth=400"
+  },
+  {
+    "id": 2,
+    "name": "장식 조명",
+    "img": "https://www.ikea.com/kr/ko/navigation/images/decorative-lighting-14971.jpeg?imwidth=400"
+  },
+  {
+    "id": 3,
+    "name": "시스템 조명",
+    "img": "https://www.ikea.com/global/assets/navigation/images/integrated-lighting-16280.jpeg?imwidth=400"
+  },
+  {
+    "id": 4,
+    "name": "스마트 조명",
+    "img": "https://www.ikea.com/global/assets/navigation/images/smart-lighting-36812.jpeg?imwidth=400"
+  },
+  {
+    "id": 5,
+    "name": "야외용 조명",
+    "img": "https://www.ikea.com/global/assets/navigation/images/outdoor-lighting-17897.jpeg?imwidth=400"
+  },
+  {
+    "id": 6,
+    "name": "욕실 조명",
+    "img": "https://www.ikea.com/global/assets/navigation/images/bathroom-lighting-10736.jpeg?imwidth=400"
+  },
+  {
+    "id": 7,
+    "name": "LED 전구",
+    "img": "https://www.ikea.com/global/assets/navigation/images/led-bulbs-20514.jpeg?imwidth=400"
+  }
+]
