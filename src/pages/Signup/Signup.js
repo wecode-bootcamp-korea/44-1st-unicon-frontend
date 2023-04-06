@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, CheckCircle } from 'react-feather';
 import './Signup.scss';
+import { SIGNUP_IMAGE_LIST, USER_INPUT_INFO_LIST } from './signupData';
 
 const Signup = () => {
   const [inputs, setInputs] = useState({
@@ -106,17 +107,28 @@ const Signup = () => {
           </div>
           <div className="images-container">
             <div className="images-column">
-              <div className="image-reg" />
-              <div className="image-reg" />
-              <div className="image-short" />
-              <div className="image-reg" />
+              {SIGNUP_IMAGE_LIST[0].image.map(item => {
+                return (
+                  <div
+                    key={item.id}
+                    className={`image-${item.type}`}
+                    style={{
+                      backgroundImage: `url(${item.imagePath})`,
+                    }}
+                  />
+                );
+              })}
             </div>
             <div className="images-column">
-              <div className="image-short" />
-              <div className="image-short" />
-              <div className="image-reg" />
-              <div className="image-short" />
-              <div className="image-reg" />
+              {SIGNUP_IMAGE_LIST[1].image.map(item => (
+                <div
+                  key={item.id}
+                  className={`image-${item.type}`}
+                  style={{
+                    backgroundImage: `url(${item.imagePath})`,
+                  }}
+                />
+              ))}
             </div>
           </div>
           <div className="kiosk-label">
@@ -251,52 +263,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-const USER_INPUT_INFO_LIST = [
-  {
-    id: 1,
-    label: '이름',
-    name: 'name',
-    type: 'text',
-    placeholder: '이름을 입력해주세요',
-  },
-  {
-    id: 2,
-    label: '생일',
-    name: 'birth',
-    type: 'text',
-    placeholder: 'YYYY-MM-DD',
-  },
-  {
-    id: 3,
-    label: '핸드폰',
-    name: 'phone',
-    type: 'text',
-    placeholder: '010-1234-5678',
-  },
-  {
-    id: 4,
-    label: '성별',
-  },
-  {
-    id: 5,
-    label: '이메일',
-    name: 'email',
-    type: 'text',
-    placeholder: '이메일 주소를 입력해주세요',
-  },
-  {
-    id: 6,
-    label: '주소',
-    name: 'address',
-    type: 'text',
-    placeholder: '주소를 입력해주세요',
-  },
-  {
-    id: 7,
-    label: '비밀번호',
-    name: 'password',
-    type: 'password',
-    placeholder: '8자 이상 영문+숫자 조합의 비밀번호를 입력해주세요',
-  },
-];
