@@ -1,4 +1,5 @@
 /* stylelint-disable max-nesting-depth */
+@import '/src/styles/variables';
 .main {
   width: 100%;
   padding: 0 90px 0 180px;
@@ -35,7 +36,7 @@
     }
 
     .text-box {
-      width: 500px;
+      width: 400px;
       height: 100%;
       padding: 60px 50px;
       background-color: black;
@@ -57,7 +58,7 @@
       height: 50px;
       border: none;
       border-radius: 30px;
-      background-color: rgba(255, 255, 255, 0.825);
+      background-color: $white-opacity;
       color: black;
       font-size: 15px;
       font-weight: 700;
@@ -94,10 +95,6 @@
       background-color: #ca5009;
       object-fit: cover;
 
-      // .map-img{
-      //   object-fit: cover;
-      // }
-
       .card-contents {
         display: flex;
         flex-direction: column;
@@ -117,18 +114,34 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 100%;
+          width: 50px;
           height: 50px;
+          padding: 10px;
           border-radius: 50px;
-          background-color: white;
-          font-size: 15px;
+          background-color: $white-opacity;
           font-weight: 700;
           cursor: pointer;
-        }
 
-        // .map-img{
-        //   object-fit: cover;
-        // }
+          &:hover {
+            background-color: white;
+          }
+        }
+        .color-box-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: auto;
+          height: 45px;
+          padding: 10px;
+          border-radius: 50px;
+          background-color: $white-opacity;
+          font-weight: 700;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+          }
+        }
       }
     }
   }

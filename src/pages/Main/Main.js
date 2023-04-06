@@ -107,7 +107,7 @@ function Main() {
                     </span>
                   </div>
                   {/* <div className='event-btn'>→</div> */}
-                  {/* <ArrowRight className="btn;"/> */}
+                  <ArrowRight className="btn;" />
                 </div>
               </div>
             );
