@@ -44,7 +44,6 @@ const Cart = () => {
   };
 
   const handleSubmit = () => {
-    //상품, 수량, 보내는 사람 아이디
     const bodyData = cartData.map(item => {
       return {
         id: item.id,
@@ -52,7 +51,6 @@ const Cart = () => {
         userId: localStorage.getItem('token'),
       };
     });
-    console.log(bodyData);
   };
 
   return (
@@ -66,7 +64,7 @@ const Cart = () => {
               </h1>
               <MoreHorizontal />
             </div>
-            {cartData.length && (
+            {cartData.length > 0 && (
               <>
                 <div className="sub">주문을 어떻게 받고 싶으세요?</div>
                 <div className="choice">
@@ -83,14 +81,8 @@ const Cart = () => {
             {cartData &&
               cartData.map(cartItem => (
                 <CartItem
-                  id={cartItem.id}
                   key={cartItem.id}
-                  name={cartItem.name}
-                  image={cartItem.image}
-                  cost={cartItem.cost}
-                  description={cartItem.description}
-                  dimension={cartItem.dimension}
-                  quantity={cartItem.quantity}
+                  {...cartItem}
                   handleAmountChange={handleAmountChange}
                   handleDelete={handleDelete}
                 />
