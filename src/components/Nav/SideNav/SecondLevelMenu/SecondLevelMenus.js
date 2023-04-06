@@ -6,7 +6,7 @@ const SecondLevelMenus = ({ currentTopMenu, handleSubMenuClick }) => {
   const { headerLevelMenu } = menuData;
   return (
     <div>
-      {currentTopMenu &&
+      {currentTopMenu === (1 || 2 || 3) &&
         headerLevelMenu[currentTopMenu - 1].sub.map(menu => (
           <div
             onClick={handleSubMenuClick}
