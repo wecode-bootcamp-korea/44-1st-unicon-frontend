@@ -33,12 +33,8 @@ function Login() {
   };
 
   const handleWarningMsg = (validation, item) => {
-    validation
-      ? setWarning({ ...warning, [item]: false })
-      : setWarning({ ...warning, [item]: true });
+    setWarning({ ...warning, [item]: !validation });
   };
-
-  console.log(warning);
 
   const handleClick = () => {
     setPasswordVisible(prev => !prev);
@@ -60,8 +56,6 @@ function Login() {
         .then(result => {
           if (result.accesstoken) {
             localStorage.setItem('token', result.accesstoken);
-            // let token = localStorage.getItem('token');
-            // console.log(token);
           }
         });
   };
@@ -149,7 +143,7 @@ function Login() {
           </div>
           <button
             onClick={handleSubmit}
-            className={allInputValid ? 'submit-btn' : 'submit-btn disabled'}
+            className={`submit-btn ${!allInputValid && 'disabled'}`}
           >
             로그인
           </button>
