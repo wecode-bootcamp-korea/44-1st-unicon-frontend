@@ -6,10 +6,10 @@ const CartItem = ({
   id,
   name,
   image,
-  cost,
   description,
   dimension,
-  count,
+  cost,
+  quantity,
   handleAmountChange,
   handleDelete,
 }) => {
@@ -25,7 +25,7 @@ const CartItem = ({
         <div className="text">
           <div className="header">
             <div>{name}</div>
-            <div>₩&nbsp;{(cost * count).toLocaleString()}</div>
+            <div>₩&nbsp;{(cost * quantity).toLocaleString()}</div>
           </div>
           <div className="subtext">{description}</div>
           <div className="subtext">{dimension}</div>
@@ -33,12 +33,12 @@ const CartItem = ({
         <div className="section-bottom">
           <div className="counter-component">
             <div
-              onClick={() => count > 1 && handleAmountChange(id, -1)}
+              onClick={() => quantity > 1 && handleAmountChange(id, -1)}
               className="btn"
             >
               <Minus width={18} height={18} />
             </div>
-            <div className="number">{count}</div>
+            <div className="number">{quantity}</div>
             <div onClick={() => handleAmountChange(id, 1)} className="btn">
               <Plus width={18} height={18} />
             </div>

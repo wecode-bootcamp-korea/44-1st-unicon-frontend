@@ -28,12 +28,12 @@ const Cart = () => {
   }, []);
 
   const totalCost = cartData
-    .map(item => item.cost * item.count)
+    .map(item => item.cost * item.quantity)
     .reduce((acc, cur) => acc + cur, 0);
 
   const handleAmountChange = (id, num) => {
     const updatedData = cartData.map(item =>
-      id === item.id ? { ...item, count: item.count + num } : item
+      id === item.id ? { ...item, quantity: item.quantity + num } : item
     );
     setCartData(updatedData);
   };
@@ -48,7 +48,7 @@ const Cart = () => {
     const bodyData = cartData.map(item => {
       return {
         id: item.id,
-        count: item.count,
+        quantity: item.quantity,
         userId: localStorage.getItem('token'),
       };
     });
@@ -90,7 +90,7 @@ const Cart = () => {
                   cost={cartItem.cost}
                   description={cartItem.description}
                   dimension={cartItem.dimension}
-                  count={cartItem.count}
+                  quantity={cartItem.quantity}
                   handleAmountChange={handleAmountChange}
                   handleDelete={handleDelete}
                 />

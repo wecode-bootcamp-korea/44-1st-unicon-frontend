@@ -6,7 +6,7 @@
     "cost": 45000,
     "description": "온실, 실내겸용/화이트",
     "dimension": "100x60cm",
-    "count": 1
+    "quantity": 1
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "cost": 34900,
     "description": "화분스탠드, 라탄",
     "dimension": "43cm",
-    "count": 1
+    "quantity": 1
   },
   {
     "id": 3,
@@ -24,6 +24,6 @@
     "cost": 14900,
     "description": "걸이화분, 실내외겸용 화이트",
     "dimension": "12cm",
-    "count": 1
+    "quantity": 1
   }
 ]
