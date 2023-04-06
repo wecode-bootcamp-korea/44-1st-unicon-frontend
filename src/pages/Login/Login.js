@@ -37,7 +37,25 @@ function Login() {
   };
 
   const handleSubmit = () => {
-    allInputValid ? console.log(inputs) : alert('정보값을 확인해주세요!');
+    allInputValid &&
+      fetch('http://10.58.52.106:3000/users/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          email: inputs.userId,
+          password: inputs.password,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.accesstoken) {
+            localStorage.setItem('token', result.accesstoken);
+            // let token = localStorage.getItem('token');
+            // console.log(token);
+          }
+        });
   };
 
   const userIdValid = userId.match(/^\S+@\S+\.\S+$/);
