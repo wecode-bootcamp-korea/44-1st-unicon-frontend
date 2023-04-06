@@ -44,7 +44,15 @@ const Cart = () => {
   };
 
   const handleSubmit = () => {
-    console.log(cartData);
+    //상품, 수량, 보내는 사람 아이디
+    const bodyData = cartData.map(item => {
+      return {
+        id: item.id,
+        count: item.count,
+        userId: localStorage.getItem('token'),
+      };
+    });
+    console.log(bodyData);
   };
 
   return (
