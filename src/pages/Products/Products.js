@@ -19,7 +19,7 @@ const Products = () => {
   const [innerMenu, setInnerMenu] = useState([]);
   const [openModalId, setOpenModalId] = useState(0);
 
-  fetch('/data/Choisunyoung/innerMenu.json', {
+  fetch('/data/ProductsData/innerMenu.json', {
     method: 'GET',
   })
     .then(res => res.json())
@@ -29,7 +29,7 @@ const Products = () => {
 
   const [price, setPrice] = useState([]);
 
-  fetch('data/Choisunyoung/price.json', {
+  fetch('data/ProductsData/price.json', {
     method: 'GET',
   })
     .then(res => res.json())
@@ -38,7 +38,7 @@ const Products = () => {
     });
 
   return (
-    <div className="product">
+    <div className="products">
       <h1 className="page-title">조명</h1>
       <div className="inner-menu-box">
         {innerMenu.map(info => {
@@ -50,7 +50,7 @@ const Products = () => {
           );
         })}
       </div>
-      <div className="product-text-box">
+      <div className="products-text-box">
         <h2 className="semi-title">많은 사랑을 받은 조명</h2>
         <p className="semi-text">
           밝기 조절 가능한 등으로 공간을 밝히세요. 온라인 미팅에 참석하거나
@@ -75,7 +75,7 @@ const Products = () => {
           );
         })}
       </div>
-      <div className="product-box">
+      <div className="products-box">
         {price.map(data => (
           <MiniProduct
             key={data.id}

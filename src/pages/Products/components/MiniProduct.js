@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Heart, ShoppingCart } from 'react-feather';
 import './MiniProduct.scss';
@@ -6,7 +5,7 @@ import './MiniProduct.scss';
 const MiniProduct = ({ id, img, name, commit, price }) => {
   return (
     <div className="mini-product" key={id}>
-      <img className="img" src={img} />
+      <img className="img" src={img} alt="mini-img" />
       <div className="text-box">
         <p className="title">{name}</p>
         <p className="commit">{commit}</p>

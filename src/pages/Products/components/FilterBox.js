@@ -1,7 +1,7 @@
 import React from 'react';
 import './FilterBox.scss';
 
-const FilterBox = props => {
+const FilterBox = () => {
   return (
     <div className="filter-box">
       <div className="border-Box">

@@ -2,7 +2,7 @@
 @import '/src/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
-.product {
+.products {
   width: 100%;
   padding: 0 90px 0 180px;
   background-color: white;
@@ -14,7 +14,7 @@
     font-weight: 800;
   }
 
-  .product-text-box {
+  .products-text-box {
     padding: 0 25px;
 
     .semi-title {
@@ -59,7 +59,7 @@
     justify-content: baseline;
   }
 
-  .product-box {
+  .products-box {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
