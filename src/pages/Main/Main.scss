@@ -1,0 +1,182 @@
+/* stylelint-disable max-nesting-depth */
+.main {
+  width: 100%;
+  padding: 0 90px 0 180px;
+  background-color: white;
+
+  .semi-menu {
+    width: auto;
+    margin-bottom: 70px;
+
+    .semi-menu-left {
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+
+      .text {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .main-top {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 70px;
+
+    .main-img {
+      width: 100%;
+      height: 500px;
+      background-image: url('https://www.ikea.com/images/c6/06/c6063dcb8674a4bbeb965419099a808b.jpg?f=xl');
+      background-size: cover;
+    }
+
+    .text-box {
+      width: 500px;
+      height: 100%;
+      padding: 60px 50px;
+      background-color: black;
+      color: white;
+
+      .main-title-text {
+        margin: 20px 0;
+      }
+
+      .main-small-text {
+        display: block;
+        margin: 20px 0;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+    .main-img-btn {
+      width: 260px;
+      height: 50px;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.825);
+      color: black;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  .main-mid {
+    margin-bottom: 100px;
+
+    .mapping-box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      overflow: auto;
+
+      white-space: nowrap;
+    }
+
+    .color-card-map {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      width: 230px;
+      height: 320px;
+      margin: 25px;
+      padding: 40px;
+      background-color: #ca5009;
+      object-fit: cover;
+
+      // .map-img{
+      //   object-fit: cover;
+      // }
+
+      .card-contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+
+        span {
+          color: white;
+          font-weight: 700;
+          line-height: 1.5;
+          word-break: keep-all;
+          white-space: normal;
+        }
+
+        .right-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 50px;
+          border-radius: 50px;
+          background-color: white;
+          font-size: 15px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // .map-img{
+        //   object-fit: cover;
+        // }
+      }
+    }
+  }
+
+  .event-box {
+    .promotion-text {
+      margin: 40px 0px;
+    }
+
+    .event-wrap {
+      display: flex;
+      justify-content: baseline;
+      margin: 40px 0;
+      overflow: scroll;
+      overflow: auto;
+
+      white-space: nowrap;
+    }
+
+    .event-slide {
+      width: 100%;
+      height: 750px;
+      margin: 0 20px;
+      background-color: #edddd3;
+
+      .event-img {
+        width: 100%;
+        height: 53%;
+        background-size: cover;
+      }
+
+      .event-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 400px;
+        height: 47%;
+        padding: 30px;
+        font-size: 15px;
+
+        .event-text-box {
+          span {
+            line-height: 1.5;
+            word-break: keep-all;
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+}
