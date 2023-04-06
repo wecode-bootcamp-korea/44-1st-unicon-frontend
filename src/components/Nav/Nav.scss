@@ -5,6 +5,82 @@
 .nav {
   font-family: 'Noto Sans KR', sans-serif;
 
+  .drawer-container {
+    width: 100%;
+    height: 100%;
+
+    .section-top {
+      padding: 48px;
+      background-color: $ikea-blue;
+
+      .close-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 50px;
+      }
+
+      .close-btn {
+        border-radius: 50%;
+        background-color: #ffffff;
+      }
+
+      .close-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .header-text {
+          color: #ffffff;
+          font-size: 40px;
+          font-weight: 700;
+        }
+
+        .login-btn {
+          padding: 14px 24px;
+          border-radius: 45px;
+          background-color: #ffffff;
+          color: #111111;
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+    }
+    .signup-link-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: $ikea-blue;
+
+      .signup-link {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .drawer-extra {
+      padding: 40px;
+
+      .extra-link {
+        margin-bottom: 36px;
+        font-size: 14px;
+      }
+    }
+    .drawer-icon-btn {
+      @include flexCenter;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+  }
+
   .center-wrapper {
     display: flex;
     align-items: center;

@@ -8,12 +8,17 @@ import {
   Heart,
   ShoppingBag,
   Home,
+  X,
+  ChevronRight,
 } from 'react-feather';
 import SideNav from './SideNav/SideNav';
+import Drawer from '../../pages/components/Drawer/Drawer';
 import './Nav.scss';
 
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <div className="nav">
       <SideNav
@@ -22,6 +27,40 @@ const Nav = () => {
           setNavbarOpen(false);
         }}
       />
+      <Drawer drawerOpen={drawerOpen} closeDrawer={() => setDrawerOpen(false)}>
+        <div className="drawer-container">
+          <div className="section-top">
+            <div className="close-container">
+              <div className="drawer-icon-btn">
+                <X width={24} height={24} className="close-btn" />
+              </div>
+            </div>
+            <div className="close-header">
+              <div className="header-text">Hej</div>
+              <div className="login-btn">로그인</div>
+            </div>
+          </div>
+          <div className="signup-link-container">
+            <div className="signup-link">IKEA 계정 생성하기</div>
+            <div className="drawer-icon-btn">
+              <ChevronRight height={24} width={24} />
+            </div>
+          </div>
+          <div className="signup-link-container">
+            <div className="signup-link">IKEA Business Network 가입하기</div>
+            <div className="drawer-icon-btn">
+              <ChevronRight height={24} width={24} />
+            </div>
+          </div>
+          <div className="drawer-extra">
+            {DRAWER_EXTRA_LINKS.map(link => (
+              <div key={link.id} className="extra-link">
+                {link.title}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Drawer>
       <div className="msg-wrapper">
         <div className="icon-text-wrap">
           <div className="icon-text">
@@ -57,7 +96,10 @@ const Nav = () => {
             <input className="input" type="text" placeholder="검색어 입력" />
           </div>
           <span className="btn-container">
-            <div className="icon-text-btn">
+            <div
+              onClick={() => setDrawerOpen(prev => !prev)}
+              className="icon-text-btn"
+            >
               <User width={20} height={20} />
               <p>Hej! 로그인 또는 가입하기</p>
             </div>
@@ -121,5 +163,24 @@ const NAV_FILTER_LINKS = [
     id: 5,
     name: '서비스',
     path: '/',
+  },
+];
+
+const DRAWER_EXTRA_LINKS = [
+  {
+    id: 1,
+    title: '구매 내역',
+  },
+  {
+    id: 2,
+    title: '위시리스트',
+  },
+  {
+    id: 3,
+    title: '플래너',
+  },
+  {
+    id: 4,
+    title: '배송 조회',
   },
 ];
