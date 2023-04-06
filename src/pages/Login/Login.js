@@ -26,14 +26,14 @@ function Login() {
     const { name, value } = event.target;
     event.preventDefault();
 
-    setInputs({
-      ...inputs,
+    setInputs(prev => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const handleClick = () => {
-    setPasswordVisible(!passwordVisible);
+    setPasswordVisible(prev => !prev);
   };
 
   const handleSubmit = () => {
