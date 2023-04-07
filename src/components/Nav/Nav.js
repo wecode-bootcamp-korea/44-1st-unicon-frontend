@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
-import Drawer from '../../pages/components/Drawer/Drawer';
-import './Nav.scss';
+import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
+import './Nav.scss';
 
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -75,7 +75,7 @@ const Nav = () => {
             }}
             className="menu-icon"
           >
-            <Icons name="Menu" />
+            <Icons name="Menu" width={24} height={24} />
           </div>
           <p>메뉴</p>
         </div>
