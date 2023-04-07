@@ -1,6 +1,6 @@
-/* stylelint-disable selector-class-pattern */
 @import '/src/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@mixin '/src/styles/mixin';
 
 .modal {
   display: flex;
@@ -15,10 +15,7 @@
   }
 
   button {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     width: 150px;
     height: 50px;
     padding: 0 20px;

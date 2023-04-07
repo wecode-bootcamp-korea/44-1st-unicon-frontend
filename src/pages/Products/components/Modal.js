@@ -30,7 +30,6 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
               <div className="border-box">
                 <label>
                   <input
-                    id={id}
                     type="radio"
                     name="contact"
                     value="ASC"

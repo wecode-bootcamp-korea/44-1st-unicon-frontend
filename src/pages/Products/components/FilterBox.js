@@ -4,7 +4,7 @@ import './FilterBox.scss';
 const FilterBox = () => {
   return (
     <div className="filter-box">
-      <div className="border-Box">
+      <div className="border-box">
         <label>
           <input type="radio" name="contect" value="hight" />
           <span>높은가격순</span>

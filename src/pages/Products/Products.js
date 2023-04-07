@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/jsx-key */
 import React, { useState } from 'react';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
 import './Products.scss';
 
 const Products = () => {
+  // TODO : 차후 백앤드와 통신을 할 때 사용할 코드입니다! 잠시 주석처리 하겠습니다!
   // fetch('http://10.58.52.225:3000/products/category?sc=3&filter=DESC', {
   //   method: 'GET',
   //   headers: {
@@ -44,7 +43,7 @@ const Products = () => {
         {innerMenu.map(info => {
           return (
             <div className="inner-menu-item" key={info.id}>
-              <img className="img" src={info.img} />
+              <img className="img" src={info.img} alt="img" />
               <p className="text">{info.name}</p>
             </div>
           );
