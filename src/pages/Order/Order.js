@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Icons from '../../components/Icons/Icons';
 import './Order.scss';
 
 const Order = () => {
+  const [orderData, setOrderData] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/cartData.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then(response => response.json())
+      .then(result => {
+        setOrderData(result);
+      });
+  }, []);
+
+  console.log(orderData);
+
   return (
     <div className="order">
       <div className="section-top">
@@ -19,7 +41,9 @@ const Order = () => {
           </div>
           <div className="delivery-address">배송지:</div>
           <div className="address-text">테헤란로 427</div>
-          <div className="fix-address">수정</div>
+          <div onClick={() => navigate('/cart')} className="fix-address">
+            수정
+          </div>
           <div className="delivery-type-header">배송 방법</div>
           <div className="delivery-option-box">
             <div className="title-wrap">
@@ -41,6 +65,55 @@ const Order = () => {
                 <input type="checkbox" className="checkbox" />
                 <div className="checkbox-label">제품을 현관 앞에 놔두기</div>
               </div>
+            </div>
+          </div>
+          <button className="btn-cta">계속</button>
+        </div>
+        <div className="right">
+          <div className="content-right">
+            <div className="order-item-container">
+              <div className="title-wrapper">
+                <div className="title">주문 정보</div>
+                <div className="fix-link">수정</div>
+              </div>
+              <div className="item-thumb-container">
+                {orderData.map(item => (
+                  <div
+                    key={item.id}
+                    style={{
+                      backgroundImage: `url(${item.image})`,
+                    }}
+                    className="item-thumbnail"
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="order-total">
+              <div className="title">주문 내역</div>
+              <div className="header">
+                <div className="sum-text">
+                  <div>제품 가격(배송비 재외)</div>
+                  <div>₩ 0</div>
+                </div>
+                <div className="sum-text">
+                  <div>배송비</div>
+                  <div>₩ 0</div>
+                </div>
+              </div>
+            </div>
+            <div className="cost">
+              <div className="total">총 주문금액</div>
+              <div className="cost-num">₩ 79,000</div>
+            </div>
+            <div className="extra-info">
+              <Icons name="CreditCard" width={22} height={22} />
+              <div className="info-text">
+                반품 정책 365 이내에 제품 환불 가능
+              </div>
+            </div>
+            <div className="extra-info">
+              <Icons name="Lock" width={22} height={22} />
+              <div className="info-text">SSL 데이터 암호화로 안전한 쇼핑</div>
             </div>
           </div>
         </div>

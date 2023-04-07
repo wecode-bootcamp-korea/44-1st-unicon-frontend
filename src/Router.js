@@ -13,7 +13,7 @@ import Order from './pages/Order/Order';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
