@@ -1,10 +1,15 @@
 import React from 'react';
 import {
+  ArrowRight,
+  Lock,
+  CreditCard,
   Truck,
   Phone,
   Menu,
+  MoreHorizontal,
   Heart,
   User,
+  Tool,
   ShoppingBag,
   Home,
   X,
@@ -13,6 +18,16 @@ import {
 
 const Icons = ({ name, width, height, className = '' }) => {
   const iconList = {
+    ArrowRight: (
+      <ArrowRight width={width} height={height} className={className} />
+    ),
+    Lock: <Lock width={width} height={height} className={className} />,
+    CreditCard: (
+      <CreditCard width={width} height={height} className={className} />
+    ),
+    MoreHorizontal: (
+      <MoreHorizontal width={width} height={height} className={className} />
+    ),
     X: <X width={width} height={height} className={className} />,
     ChevronRight: (
       <ChevronRight width={width} height={height} className={className} />
@@ -23,6 +38,7 @@ const Icons = ({ name, width, height, className = '' }) => {
     Menu: <Menu width={width} height={height} className={className} />,
     User: <User width={width} height={height} className={className} />,
     Heart: <Heart width={width} height={height} className={className} />,
+    Tool: <Tool width={width} height={height} className={className} />,
     ShoppingBag: (
       <ShoppingBag width={width} height={height} className={className} />
     ),
