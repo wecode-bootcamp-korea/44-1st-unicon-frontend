@@ -1,20 +1,13 @@
 import React from 'react';
 import { ArrowRight } from 'react-feather';
+import MiniProduct from './components/MiniProduct';
 import './Main.scss';
 
 function Main() {
   return (
     <div className="main">
-      <div className="semi-menu">
-        <div className="semi-menu-left">
-          <span className="text">모든 제품</span>
-          <span className="text">온라인 쇼룸</span>
-          <span className="text">특별한 가격</span>
-          <span className="text">조립 서비스</span>
-        </div>
-      </div>
       <div className="main-top">
-        <img className="main-img" alt="main img" />
+        <div className="main-img" />
         <div className="img-text">
           <div className="text-box">
             <h2 className="main-title-text">봄맞이 그린테리어</h2>
@@ -33,12 +26,11 @@ function Main() {
         <h2>베스트 카테고리 쇼핑하기</h2>
 
         <div className="card-box">
-          {/* .toLocailstring -> 가격에 컴마 붙이기 */}
           <div className="mapping-box">
             <div className="color-card-map">
-              <div className="card-contents">
+              <div className="card-contents-first">
                 <span>IKEA 신제품 보러가기</span>
-                <ArrowRight className="right-btn" />
+                <ArrowRight className="btn" />
               </div>
             </div>
             {COLOR_BOX.map(({ id, name, img }) => {
@@ -53,10 +45,8 @@ function Main() {
                 >
                   <div className="card-contents">
                     <biv className="color-box-btn">{name}</biv>
-                    {/* <div style={{
-                      backgroundImage: `url(${img})`
-                    }} className='map-img'/> */}
                   </div>
+                  <div className="scroll" />
                 </div>
               );
             })}
@@ -65,16 +55,6 @@ function Main() {
       </div>
       <div className="event-box">
         <h2 className="promotion-text">진행 중인 이벤트 및 프로모션</h2>
-        {/* {EVENT_IMG.map(({id, name, comment, img})=>{
-          return(
-            <div key={id} >
-              <h2>{name}</h2>
-              <span>{comment}</span>
-              <button className='event-btn'>→</button>
-              <img src={img}></img>
-            </div>
-          )
-        })} */}
         <div className="event-wrap">
           {EVENT_IMG.map(({ id, name, color, text, comment, img }) => {
             return (
@@ -95,6 +75,7 @@ function Main() {
                       style={{
                         color: `${text}`,
                       }}
+                      className="event-title"
                     >
                       {name}
                     </h2>
@@ -102,12 +83,12 @@ function Main() {
                       style={{
                         color: `${text}`,
                       }}
+                      className="event-text"
                     >
                       {comment}
                     </span>
                   </div>
-                  {/* <div className='event-btn'>→</div> */}
-                  <ArrowRight className="btn;" />
+                  <ArrowRight className="btn" />
                 </div>
               </div>
             );
@@ -116,7 +97,20 @@ function Main() {
       </div>
       <div>
         <h2>추천 제품</h2>
-        <div>디테일 페이지에 썻던 재사용 컴포넌트</div>
+        <div className="components">
+          {MINI.map(data => {
+            return (
+              <MiniProduct
+                className="items"
+                key={data.id}
+                img={data.img}
+                name={data.name}
+                commit={data.commit}
+                price={data.price}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -125,39 +119,38 @@ function Main() {
 export default Main;
 
 const COLOR_BOX = [
-  // { id: 1, name: 'IKEA 신제품 보러가기', img: '' },
   {
-    id: 2,
+    id: 1,
     name: '침실',
     img: 'https://www.ikea.com/ext/ingkadam/m/3aa319771247890b/original/PH171699-crop001.jpg?f=xxs',
   },
   {
-    id: 3,
+    id: 2,
     name: '수납/정리',
     img: 'https://www.ikea.com/ext/ingkadam/m/57af553408fd829f/original/PE867858-crop001.jpg?f=xxs',
   },
   {
-    id: 4,
+    id: 3,
     name: '홈오피스',
     img: 'https://www.ikea.com/images/f0/87/f087331e4416c4ce01d265d6c4288e9b.jpg?f=xxs',
   },
   {
-    id: 5,
+    id: 4,
     name: '다이닝',
     img: 'https://www.ikea.com/ext/ingkadam/m/206171a86cff819c/original/PH166826-crop001.jpg?f=xxs',
   },
   {
-    id: 6,
+    id: 5,
     name: '거실',
     img: 'https://www.ikea.com/ext/ingkadam/m/7a90f1e0176f5447/original/PH167387-crop001-crop002.jpg?f=xxs',
   },
   {
-    id: 7,
+    id: 6,
     name: '주방',
     img: 'https://www.ikea.com/ext/ingkadam/m/7e56e5a9f682485f/original/PH181607.jpg?f=xxs',
   },
   {
-    id: 8,
+    id: 7,
     name: '홈데코/장식품',
     img: 'https://www.ikea.com/ext/ingkadam/m/2cefdac0dd90b2a3/original/PH159748-crop002.jpg?f=xxs',
   },
@@ -208,5 +201,64 @@ const EVENT_IMG = [
     comment:
       '매주 다른 주제의 IKEA Live를 통해 다양한 홈퍼니싱 아이디어를 알아보고 마음에 드는 제품을 쇼핑하세요. 라이브 중 공개되는  🎁스페셜 할인 쿠폰🎁의 기회도 놓치지 마세요!',
     img: 'https://www.ikea.com/images/6d/8c/6d8c01028ce94de30a5af1c3d3940446.jpg?f=m',
+  },
+];
+
+const MINI = [
+  {
+    id: 1,
+    name: '일반 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/tagarp-floor-uplighter-black-white__0810840_pe771436_s5.jpg?f=xs',
+    commit: '멋진 조명',
+    price: 10000,
+  },
+  {
+    id: 2,
+    name: '장식 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031615_pe836564_s5.jpg?f=xs',
+    commit: '따듯한 조명',
+    price: 42000,
+  },
+  {
+    id: 3,
+    name: '시스템 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/fado-table-lamp-white__0606976_pe682645_s5.jpg?f=xs',
+    commit: '밝다',
+    price: 30000,
+  },
+  {
+    id: 4,
+    name: '스마트 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/rolfstorp-led-lighting-dimmable__1055094_pe847930_s5.jpg?f=xs',
+    commit: '반짝반짝',
+    price: 29000,
+  },
+  {
+    id: 5,
+    name: '야외용 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/dejsa-table-lamp-beige-opal-white-glass__0967540_pe810183_s5.jpg?f=xxxs',
+    commit: '물에 강하다',
+    price: 17000,
+  },
+  {
+    id: 6,
+    name: '욕실 조명',
+    img: 'https://www.ikea.com/kr/ko/images/products/lampan-table-lamp-white__0459937_pe606395_s5.jpg?f=xs',
+    commit: '밝은 조명',
+    price: 72000,
+  },
+  {
+    id: 7,
+    name: 'LED 전구(백색)',
+    img: 'https://www.ikea.com/kr/ko/images/products/tokabo-table-lamp-glass-opal-white__0714489_pe730101_s5.jpg?f=xs',
+    commit: '꼭 필요한 필수품!',
+    price: 13000,
+  },
+  {
+    id: 8,
+    name: 'LED 전구(주광색)',
+    img: 'https://www.ikea.com/kr/ko/images/products/arstid-table-lamp-brass-white__0609329_pe684454_s5.jpg?f=xs',
+    commit: '밝은 빛!',
+    price: 18000,
   },
 ];
