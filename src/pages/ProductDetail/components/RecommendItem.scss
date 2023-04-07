@@ -1,0 +1,33 @@
+.recommend-item {
+  width: 400px;
+  height: auto;
+  margin: 10px 7px;
+  border: 1px solid $gray-opacity;
+  border-radius: 5px;
+
+  .recommend-border-font {
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid $gray-opacity;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .recommend-item {
+    @include flexCenter;
+    margin: 20px auto;
+
+    .recommend-item-img {
+      width: 200px;
+      height: 150px;
+      border: 1px solid gray;
+    }
+
+    .plus-icon {
+      width: 60px;
+      height: 60px;
+      color: rgb(1, 88, 170);
+      cursor: pointer;
+    }
+  }
+}

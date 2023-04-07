@@ -1,0 +1,182 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.cart {
+  @include flexCenter;
+  font-family: 'Noto Sans', sans-serif;
+
+  .container {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    width: 90vw;
+    padding-bottom: 48px;
+    column-gap: 100px;
+    border-bottom: 1px solid #d7d7d7;
+
+    .left {
+      .content-left {
+        margin-top: 60px;
+
+        .page-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 36px;
+        }
+
+        .title {
+          font-size: 32px;
+          font-weight: 700;
+        }
+        .sub {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+
+      .choice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 24px 0;
+        column-gap: 20px;
+
+        .option {
+          display: flex;
+          align-items: center;
+          padding: 24px;
+          border: 1px solid #d3d3d3;
+          border-radius: 10px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+    .right {
+      .content-right {
+        margin-top: 60px;
+
+        .service {
+          display: flex;
+          width: 100%;
+          padding: 24px;
+          border: 1px solid #d3d3d3;
+          border-radius: 10px;
+
+          .text-wrap {
+            margin-left: 12px;
+          }
+
+          .service-title {
+            font-size: 14px;
+            font-weight: 700;
+          }
+
+          .service-content {
+            margin: 18px 0;
+            font-size: 14px;
+          }
+
+          .service-caption {
+            font-size: 12px;
+          }
+
+          .service-extra {
+            margin: 20px 0;
+            font-size: 14px;
+            text-decoration: underline;
+          }
+
+          .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 55px;
+            background-color: #111111;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+
+        .delivery {
+          margin-top: 60px;
+          .title {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 2px solid;
+            font-size: 14px;
+          }
+        }
+        .cost {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 16px;
+          font-weight: 700;
+
+          .total {
+            font-size: 14px;
+          }
+          .cost-num {
+            font-size: 22px;
+          }
+        }
+        .btn-purchase {
+          @include flexCenter;
+          width: 100%;
+          margin: 48px 0;
+          padding: 40px 24px;
+          transition: 0.3s;
+          border-radius: 5px;
+          background-color: $ikea-blue;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+
+          .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+          }
+
+          .arrow-wrapper {
+            @include flexCenter;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ffffff;
+          }
+
+          .arrow {
+            color: $ikea-blue;
+          }
+
+          &:hover {
+            background-color: #0e1c9d;
+          }
+        }
+        .extra-info {
+          display: flex;
+          align-items: center;
+          margin-top: 28px;
+          color: #484848;
+          font-size: 14px;
+
+          .info-text {
+            margin-left: 6px;
+            font-weight: 700;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

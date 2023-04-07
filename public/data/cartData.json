@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "ÅKERBÄR 오케르베르",
+    "image": "https://www.ikea.com/kr/ko/images/products/akerbaer-greenhouse-in-outdoor-white__1122670_pe874640_s3.jpg",
+    "cost": 45000,
+    "description": "온실, 실내겸용/화이트",
+    "dimension": "100x60cm",
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "name": "BUSKBO 부스크보",
+    "image": "https://www.ikea.com/kr/ko/images/products/buskbo-plant-stand-rattan__0784326_pe761720_s3.jpg",
+    "cost": 34900,
+    "description": "화분스탠드, 라탄",
+    "dimension": "43cm",
+    "quantity": 1
+  },
+  {
+    "id": 3,
+    "name": "CHILISTRÅN 실리스트론",
+    "image": "https://www.ikea.com/kr/ko/images/products/chilistran-hanging-planter-in-outdoor-white__0990165_pe820964_s3.jpg",
+    "cost": 14900,
+    "description": "걸이화분, 실내외겸용 화이트",
+    "dimension": "12cm",
+    "quantity": 1
+  }
+]

@@ -1,0 +1,28 @@
+.star-rating {
+  border: none;
+  outline: none;
+  background-color: white;
+
+  button {
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    // margin: 10px 0;
+  }
+
+  .star {
+    width: 25px;
+    height: 25px;
+  }
+
+  .on {
+    padding: 0;
+    color: rgb(255, 207, 18);
+  }
+
+  .off {
+    padding: 0;
+    color: #ccc;
+  }
+}
