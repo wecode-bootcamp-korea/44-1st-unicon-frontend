@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Truck,
-  Phone,
-  Menu,
-  User,
-  Heart,
-  ShoppingBag,
-  Home,
-  X,
-  ChevronRight,
-} from 'react-feather';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../../pages/components/Drawer/Drawer';
 import './Nav.scss';
+import Icons from '../Icons/Icons';
 
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -32,7 +22,7 @@ const Nav = () => {
           <div className="section-top">
             <div className="close-container">
               <div className="drawer-icon-btn">
-                <X width={24} height={24} className="close-btn" />
+                <Icons name="X" width={24} height={24} className="close-btn" />
               </div>
             </div>
             <div className="close-header">
@@ -43,13 +33,13 @@ const Nav = () => {
           <div className="signup-link-container">
             <div className="signup-link">IKEA 계정 생성하기</div>
             <div className="drawer-icon-btn">
-              <ChevronRight height={24} width={24} />
+              <Icons name="ChevronRight" width={24} height={24} />
             </div>
           </div>
           <div className="signup-link-container">
             <div className="signup-link">IKEA Business Network 가입하기</div>
             <div className="drawer-icon-btn">
-              <ChevronRight height={24} width={24} />
+              <Icons name="ChevronRight" width={24} height={24} />
             </div>
           </div>
           <div className="drawer-extra">
@@ -64,15 +54,15 @@ const Nav = () => {
       <div className="msg-wrapper">
         <div className="icon-text-wrap">
           <div className="icon-text">
-            <Truck width={16} height={16} />
+            <Icons name="Truck" width={16} height={16} />
             <p>합리적인 배송 요금</p>
           </div>
           <div className="icon-text">
-            <ShoppingBag width={16} height={16} />
+            <Icons name="ShoppingBag" width={16} height={16} />
             <p>베스트셀러</p>
           </div>
           <div className="icon-text">
-            <Phone width={16} height={16} />
+            <Icons name="Phone" width={16} height={16} />
             <p>쉽고 빠른 주문, 헤이오더</p>
           </div>
         </div>
@@ -85,7 +75,7 @@ const Nav = () => {
             }}
             className="menu-icon"
           >
-            <Menu />
+            <Icons name="Menu" />
           </div>
           <p>메뉴</p>
         </div>
@@ -100,14 +90,14 @@ const Nav = () => {
               onClick={() => setDrawerOpen(prev => !prev)}
               className="icon-text-btn"
             >
-              <User width={20} height={20} />
+              <Icons name="User" width={20} height={20} />
               <p>Hej! 로그인 또는 가입하기</p>
             </div>
             <div className="icon-text-btn">
-              <Heart width={20} height={20} />
+              <Icons name="Heart" width={20} height={20} />
             </div>
             <div className="icon-text-btn">
-              <ShoppingBag width={20} height={20} />
+              <Icons name="ShoppingBag" width={20} height={20} />
             </div>
           </span>
         </div>
@@ -123,11 +113,11 @@ const Nav = () => {
         </div>
         <span className="btn-container">
           <div className="icon-text-btn">
-            <Truck width={20} height={20} />
+            <Icons name="Truck" width={20} height={20} />
             <p>우편 번호 입력</p>
           </div>
           <div className="icon-text-btn">
-            <Home width={20} height={20} />
+            <Icons name="Home" width={20} height={20} />
             <p>매장 선택</p>
           </div>
         </span>
