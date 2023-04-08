@@ -1,10 +1,11 @@
-/* stylelint-disable max-nesting-depth */
 @import '/src/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
 .products {
   width: 100%;
-  padding: 0 90px 0 180px;
+  padding-left: 180px;
+
+  // padding: 0 90px 0 180px;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 
@@ -18,7 +19,9 @@
     padding: 0 25px;
 
     .semi-title {
-      margin: 50px 0 20px 0;
+      display: flex;
+      align-items: center;
+      height: 80px;
       font-size: 30px;
       font-weight: 700;
     }
@@ -32,8 +35,7 @@
 
   .inner-menu-box {
     display: flex;
-    justify-content: baseline;
-    margin: 40px 20px;
+    // justify-content: baseline;
   }
 
   .inner-menu-item {
@@ -61,6 +63,8 @@
 
   .products-box {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    width: 970px;
+    overflow: hidden;
   }
 }
