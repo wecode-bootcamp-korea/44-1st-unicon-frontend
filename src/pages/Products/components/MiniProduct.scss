@@ -1,5 +1,6 @@
-@import '/src/styles/variables';
-@mixin '/src/styles/mixin';
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+
 .mini-product {
   width: 300px;
   height: auto;
