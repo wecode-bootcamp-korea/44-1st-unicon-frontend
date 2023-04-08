@@ -12,6 +12,7 @@ function ProductDetail() {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
+      //TODO: 통신할때 참고할 코드입니다. 잠시 주석 처리 하겠습니다.
       //query: JSON.stringify({filter:"ASC" }),
       //바디 대신에 query:{"main_"}
     })
@@ -27,27 +28,44 @@ function ProductDetail() {
       <div className="product-detail-page">
         <div className="product-page">
           <div className="image-box">
-            {IMG.map(imgDate => {
-              return (
-                <p className="img-x" key={imgDate.id}>
-                  <img className="back-img" url={imgDate.adress} />
-                </p>
-              );
-            })}
+            <div className="img-border">
+              {IMG.map(({ id, left, right }) => {
+                return (
+                  <div className="img-wrap" key={id}>
+                    <div
+                      className="img"
+                      style={{
+                        background: `url(${left})`,
+                        backgroundSize: 'cover',
+                      }}
+                    />
+                    <div
+                      className="img"
+                      style={{
+                        background: `url(${right})`,
+                        backgroundSize: 'cover',
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <div className="detail-box">
             <div className="detail-text-box">
               <p className="detail-text"> {descriptions}</p>
               <div className="product-code-box">
-                <p className="text">제품번호</p>
-                <p className="code">{id}</p>
+                <div className="product-code-wrap">
+                  <p className="text">제품번호</p>
+                  <p className="code">{id}</p>
+                </div>
               </div>
             </div>
 
             <div className="inner-menu-box">
               <div className="inner-menu-item">
                 <p>제품 설명</p>
-                {/* {detail} */}
+                {detail}
                 <button className="inner-btu">
                   <ArrowRight />
                 </button>
@@ -89,22 +107,16 @@ export default ProductDetail;
 const IMG = [
   {
     id: 1,
-    adress:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+    left: 'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031615_pe836564_s5.jpg?f=xl',
+    right:
+      'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031618_pe836565_s5.jpg?f=xl',
+    text: 'detail image',
   },
   {
     id: 2,
-    adress:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
-  },
-  {
-    id: 3,
-    adress:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
-  },
-  {
-    id: 4,
-    adress:
-      'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+    left: 'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031626_pe836581_s5.jpg?f=xl',
+    right:
+      'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031630_pe836584_s5.jpg?f=xl',
+    text: 'detail image',
   },
 ];

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heart, AlertCircle, Truck, Package } from 'react-feather';
-import StarRating from '../components/StarRating/StarRating';
 import CountButton from '../components/CountButton/CountButton';
 import './OrderBar.scss';
 
@@ -22,15 +21,16 @@ const OrderBar = ({ names, price, sub_description }) => {
           <span>{price}</span>
         </div>
         <div className="star-box">
-          <StarRating />
+          <div>★★★★☆ (16)</div>
         </div>
-        <div className="caution">
+        {/* TODO: 조명 디테일 페이지에서만 쓰일 코드입니다. 잠시 주석처리하겠습니다. */}
+        {/* <div className="caution">
           <AlertCircle className="icon" />
           <p>
             조명은 별도구매입니다. LED전구 E14 구형 오팔 화이트 사용을
             권장합니다.
           </p>
-        </div>
+        </div> */}
       </div>
 
       <div className="how-to-box">
