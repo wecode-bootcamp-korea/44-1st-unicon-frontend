@@ -14,14 +14,15 @@ const Showroom = () => {
   return (
     <div className="showroom">
       <div className="header-main">온라인 쇼룸</div>
-      {showroomData.map(({ id, header, description, products }) => {
+      {showroomData.map(({ id, image_url, header, description, products }) => {
         return (
           <ShowroomItem
+            image_url={image_url}
             key={id}
             header={header}
             description={description}
             products={products}
-            rightAligned={id % 2 == 0 ? true : false}
+            rightAligned={id % 2 === 0 ? true : false}
           />
         );
       })}

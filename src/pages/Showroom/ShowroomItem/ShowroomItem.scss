@@ -6,6 +6,7 @@
   display: flex;
   margin-bottom: 100px;
   font-family: 'Noto Sans', sans-serif;
+  user-select: none;
 
   .column-text {
     display: flex;
@@ -67,6 +68,10 @@
         }
 
         .item-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
           .name {
             margin-bottom: 8px;
             font-size: 18px;
@@ -79,6 +84,10 @@
             margin-top: 8px;
             color: #484848;
             font-size: 14px;
+          }
+          .cost {
+            font-size: 16px;
+            font-weight: 700;
           }
         }
       }
