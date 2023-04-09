@@ -11,16 +11,21 @@
     font-size: 36px;
     font-weight: 700;
   }
-  .header-sub {
-    font-size: 24px;
-    font-weight: 700;
-  }
 
-  .image-container {
-    width: 400px;
-    height: 400px;
-    background-image: url('https://drive.google.com/file/d/14eS0y5aKOCw6lmwlkm1Od1eA7yL7Ovy-/preview');
-    background-position: center center;
-    background-size: cover;
+  .showroom-item {
+    display: flex;
+
+    .header-sub {
+      padding-bottom: 24px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .image-container {
+      width: 700px;
+      height: 500px;
+      background-position: center center;
+      background-size: cover;
+    }
   }
 }
