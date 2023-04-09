@@ -8,6 +8,7 @@ import Main from './pages/Main/Main';
 import Products from './pages/Products/Products';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
+import Showroom from './pages/Showroom/Showroom';
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/detail" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/showroom" element={<Showroom />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>

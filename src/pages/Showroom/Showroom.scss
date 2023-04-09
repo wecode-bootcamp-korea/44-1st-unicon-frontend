@@ -1,5 +1,26 @@
 @import '../../styles/mixin';
 @import '../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
 
 .showroom {
+  padding: 0 90px 0 180px;
+  font-family: 'Noto Sans', sans-serif;
+
+  .header-main {
+    padding: 24px 0;
+    font-size: 36px;
+    font-weight: 700;
+  }
+  .header-sub {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .image-container {
+    width: 400px;
+    height: 400px;
+    background-image: url('https://drive.google.com/file/d/14eS0y5aKOCw6lmwlkm1Od1eA7yL7Ovy-/preview');
+    background-position: center center;
+    background-size: cover;
+  }
 }
