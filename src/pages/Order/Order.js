@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icons from '../../components/Icons/Icons';
+import Modal from './Modal/Modal';
 import './Order.scss';
 
 const Order = () => {
@@ -29,26 +30,18 @@ const Order = () => {
       });
   }, []);
 
+  const fomNotComplete = delivery === false || terms === false;
+
   console.log(requirements);
   console.log(orderData);
 
   return (
     <div className="order">
       {modalOpen && (
-        <>
-          <div onClick={() => setModalOpen(!modalOpen)} className="modal" />
-          <div className="modal-box">
-            <div className="header">결제</div>
-            <div className="total-wrapper">
-              <div className="label">총 결제 금액:</div>
-              <div className="cost">₩ 79,000</div>
-            </div>
-            <div className="option-wrapper">
-              <input className="radio" type="radio" />
-              <div className="option">이케아 포인트</div>
-            </div>
-          </div>
-        </>
+        <Modal
+          modalOpen={() => setModalOpen(!modalOpen)}
+          setModalOpen={setModalOpen}
+        />
       )}
 
       <div className="section-top">
@@ -118,7 +111,9 @@ const Order = () => {
             </div>
             <div
               onClick={() => setModalOpen(!modalOpen)}
-              className={`btn-purchase ${(!delivery || !terms) && `disabled`}`}
+              className={`btn-purchase ${
+                (delivery === false || terms === false) && `disabled`
+              }`}
             >
               <div className="btn-content">
                 <div className="btn-text">결제하기</div>

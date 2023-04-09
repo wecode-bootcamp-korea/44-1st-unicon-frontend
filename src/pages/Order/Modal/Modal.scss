@@ -1,0 +1,159 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.modal {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.modal-box {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  left: 50%;
+  width: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #ffffff;
+
+  .header {
+    margin-bottom: 24px;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .blue {
+    color: $ikea-blue;
+  }
+
+  .complete-text {
+    font-size: 20px;
+  }
+
+  .purchased-label {
+    margin: 30px 0 12px 0;
+    font-size: 14px;
+
+    span {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  .complete-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .total-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+
+    .label {
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .cost {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .point {
+      font-weight: 700;
+    }
+  }
+
+  .confirm {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    font-size: 14px;
+
+    input {
+      margin-right: 8px;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  .cta-btn {
+    width: 100%;
+    margin-top: 36px;
+    padding: 16px;
+    transition: 0.3s;
+    border: 0;
+    border-radius: 5px;
+    background-color: $ikea-blue;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0e1c9d;
+    }
+  }
+
+  .subtract-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    color: #ff8787;
+    font-size: 14px;
+  }
+
+  .divider {
+    margin: 16px 0;
+    border: 1px solid #f1f1f1;
+  }
+
+  .payment-type {
+    margin: 16px 0;
+  }
+
+  .option-wrapper {
+    display: flex;
+    align-items: center;
+
+    .wekea-point-logo {
+      width: 32px;
+      height: 16px;
+      margin-left: 10px;
+      border-radius: 3px;
+      background-image: url('../../../assets/order/payment-wekea.png');
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .radio {
+      margin: 0;
+    }
+
+    .option {
+      margin: 0 24px 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+}
