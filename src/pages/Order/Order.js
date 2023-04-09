@@ -17,7 +17,7 @@ const Order = () => {
   const { delivery, terms } = requirements;
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/cartData.json', {
+    fetch('/data/orderData.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,10 +30,11 @@ const Order = () => {
       });
   }, []);
 
-  const fomNotComplete = delivery === false || terms === false;
+  const formNotComplete = delivery === false || terms === false;
 
-  console.log(requirements);
-  console.log(orderData);
+  const { message } = orderData;
+  // const { totalAmount, imageUrl, userInfo } = message;
+  console.log(orderData.message);
 
   return (
     <div className="order">
@@ -53,7 +54,7 @@ const Order = () => {
             <div className="step-header">배송과 픽업 방법</div>
           </div>
           <div className="delivery-address">배송지:</div>
-          <div className="address-text">테헤란로 427</div>
+          <div className="address-text">{message?.userInfo[0].addresses}</div>
           <div onClick={() => navigate('/cart')} className="fix-address">
             수정
           </div>
@@ -97,7 +98,9 @@ const Order = () => {
             </div>
             <div className="cost">
               <div className="total">총 주문금액</div>
-              <div className="cost-num">₩ 79,000</div>
+              <div className="cost-num">
+                ₩&nbsp;{message?.totalAmount.toLocaleString()}
+              </div>
             </div>
             <div className="terms-wrapper">
               <input
@@ -111,9 +114,7 @@ const Order = () => {
             </div>
             <div
               onClick={() => setModalOpen(!modalOpen)}
-              className={`btn-purchase ${
-                (delivery === false || terms === false) && `disabled`
-              }`}
+              className={`btn-purchase ${formNotComplete && `disabled`}`}
             >
               <div className="btn-content">
                 <div className="btn-text">결제하기</div>
@@ -137,11 +138,11 @@ const Order = () => {
                 <div className="fix-link">수정</div>
               </div>
               <div className="item-thumb-container">
-                {orderData.map(item => (
+                {message?.imageUrl.map((link, i) => (
                   <div
-                    key={item.id}
+                    key={i}
                     style={{
-                      backgroundImage: `url(${item.image})`,
+                      backgroundImage: `url(${link})`,
                     }}
                     className="item-thumbnail"
                   />
@@ -153,7 +154,7 @@ const Order = () => {
               <div className="header">
                 <div className="sum-text">
                   <div>제품 가격 (배송비 제외)</div>
-                  <div>₩ 79,000</div>
+                  <div>₩&nbsp;{message?.totalAmount.toLocaleString()}</div>
                 </div>
                 <div className="sum-text">
                   <div>배송비</div>
@@ -163,7 +164,9 @@ const Order = () => {
             </div>
             <div className="cost">
               <div className="total">총 주문금액</div>
-              <div className="cost-num">₩ 79,000</div>
+              <div className="cost-num">
+                ₩&nbsp;{message?.totalAmount.toLocaleString()}
+              </div>
             </div>
             <div className="extra-info">
               <Icons name="CreditCard" width={22} height={22} />
