@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
 import './Products.scss';
@@ -60,6 +60,21 @@ const Products = () => {
   }, []);
 
   console.log(productsList);
+
+  //쿼리스트링 적용, (높은가격순, 낮은 가격순)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const highPrices = searchParams.get('ASC');
+  const lowPrice = searchParams.get('DESC');
+  // 높은가격순 - 3000/products/lists?pricefilter=ASC
+  // 낮은가격순 - 3000/products/lists?pricefilter=DESC
+
+  useEffect(() => {
+    fetch(
+      `http://10.58.52.225:3000/products/lists?pricefilter=${highPrices}||${lowPrice}`
+    )
+      .then(response => response.json())
+      .then(result => console.log(result));
+  }, []);
 
   return (
     <div className="products">
