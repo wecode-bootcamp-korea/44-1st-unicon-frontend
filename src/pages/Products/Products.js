@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
 import './Products.scss';
 
 const Products = () => {
-  // TODO : 차후 백앤드와 통신을 할 때 사용할 코드입니다! 잠시 주석처리 하겠습니다!
+  //TODO : 차후 백앤드와 통신을 할 때 사용할 코드입니다! 잠시 주석처리 하겠습니다!
   // fetch('http://10.58.52.225:3000/products/category?sc=3&filter=DESC', {
   //   method: 'GET',
   //   headers: {
@@ -15,26 +16,50 @@ const Products = () => {
   // })
   //   .then(response => response.json())
   //   .then(data => console.log(data));
+
+  //상단 카테고리 목테이터
   const [innerMenu, setInnerMenu] = useState([]);
   const [openModalId, setOpenModalId] = useState(0);
 
-  fetch('/data/ProductsData/innerMenu.json', {
-    method: 'GET',
-  })
-    .then(res => res.json())
-    .then(data => {
-      setInnerMenu(data);
-    });
+  useEffect(() => {
+    fetch('/data/ProductsData/innerMenu.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setInnerMenu(data);
+      });
+  }, []);
 
-  const [price, setPrice] = useState([]);
+  const [productsList, setProductsList] = useState([]);
 
-  fetch('data/ProductsData/price.json', {
-    method: 'GET',
-  })
-    .then(res => res.json())
-    .then(data => {
-      setPrice(data);
-    });
+  // const params = useParams();
+  // const { id } = params.id;
+
+  // console.log(id);
+
+  //나열 페이지에 반복되는 제품 목데이터
+  // fetch('/data/ProductsData/productsList.json', {
+  //   method: 'GET',
+  // })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setProductsList(data);
+  //   });
+
+  //나열 페이지에 반복되는 제품 백데이터
+  useEffect(() => {
+    fetch('http://10.58.52.225:3000/products/lists', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(data => setProductsList(data));
+  }, []);
+
+  console.log(productsList);
 
   return (
     <div className="products">
@@ -75,16 +100,18 @@ const Products = () => {
         })}
       </div>
       <div className="products-box">
-        {price.map(data => (
-          <MiniProduct
-            key={data.id}
-            id={data.id}
-            name={data.name}
-            commit={data.commit}
-            price={data.price}
-            img={data.img}
-          />
-        ))}
+        {productsList.map(
+          ({ id, names, sub_description, price, image_url }) => (
+            <MiniProduct
+              key={id}
+              id={id}
+              name={names}
+              commit={sub_description}
+              price={price}
+              img={image_url}
+            />
+          )
+        )}
       </div>
     </div>
   );

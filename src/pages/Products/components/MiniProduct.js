@@ -5,13 +5,19 @@ import './MiniProduct.scss';
 const MiniProduct = ({ id, img, name, commit, price }) => {
   return (
     <div className="mini-product" key={id}>
-      <img className="img" src={img} alt="mini-img" />
+      <div
+        className="img"
+        // key={id}
+        style={{
+          backgroundImage: `url(${img})`,
+          // , alt: 'mini-img'
+        }}
+      />
       <div className="text-box">
         <p className="title">{name}</p>
         <p className="commit">{commit}</p>
         <span className="price-box">
-          <p>￦</p>
-          <p>{price}</p>
+          <p>￦ &nbsp;{price.toLocaleString()}</p>
         </span>
         <div className="star-wrap">
           <span className="star">★★★★☆ (16)</span>
