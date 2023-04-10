@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
@@ -9,6 +9,8 @@ const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   return (
     <div className="nav">
       <SideNav navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
@@ -16,18 +18,41 @@ const Nav = () => {
         <div className="drawer-container">
           <div className="section-top">
             <div className="close-container">
-              <div className="drawer-icon-btn">
+              <div
+                onClick={() => setDrawerOpen(false)}
+                className="drawer-icon-btn"
+              >
                 <Icons name="X" width={24} height={24} className="close-btn" />
               </div>
             </div>
-            <div className="close-header">
+            <div
+              onClick={() => {
+                navigate('/login');
+                setDrawerOpen(false);
+              }}
+              className="login-header"
+            >
               <div className="header-text">Hej · 안녕하세요!</div>
               <div className="login-btn">로그인</div>
             </div>
           </div>
           <div className="signup-link-container">
-            <div className="signup-link">IKEA 계정 생성하기</div>
-            <div className="drawer-icon-btn">
+            <div
+              onClick={() => {
+                navigate('/signup');
+                setDrawerOpen(false);
+              }}
+              className="signup-link"
+            >
+              IKEA 계정 생성하기
+            </div>
+            <div
+              onClick={() => {
+                navigate('/signup');
+                setDrawerOpen(false);
+              }}
+              className="drawer-icon-btn"
+            >
               <Icons name="ChevronRight" width={24} height={24} />
             </div>
           </div>
@@ -64,19 +89,21 @@ const Nav = () => {
       </div>
       <div className="center-wrapper">
         <div className="side-nav-container">
-          <div
-            onClick={() => {
-              setNavbarOpen(!navbarOpen);
-            }}
-            className="menu-icon"
-          >
-            <Icons name="Menu" width={24} height={24} />
+          <div className="menu-icon-wrapper">
+            <div
+              onClick={() => {
+                setNavbarOpen(!navbarOpen);
+              }}
+              className="menu-icon"
+            >
+              <Icons name="Menu" width={24} height={24} />
+            </div>
+            <p>메뉴</p>
           </div>
-          <p>메뉴</p>
         </div>
         <div className="nav-center-section">
           <div className="logo-input-wrapper">
-            <div className="wekea-logo" />
+            <div className="wekea-logo" onClick={() => navigate('/')} />
 
             <input className="input" type="text" placeholder="검색어 입력" />
           </div>
@@ -91,7 +118,12 @@ const Nav = () => {
             <div className="icon-text-btn">
               <Icons name="Heart" width={20} height={20} />
             </div>
-            <div className="icon-text-btn">
+            <div
+              onClick={() => {
+                navigate('/cart');
+              }}
+              className="icon-text-btn"
+            >
               <Icons name="ShoppingBag" width={20} height={20} />
             </div>
           </span>
@@ -101,9 +133,13 @@ const Nav = () => {
       <div className="second-row">
         <div>
           {NAV_FILTER_LINKS.map(link => (
-            <Link key={link.id} path={link.path} className="nav-filter-link">
+            <div
+              onClick={() => setNavbarOpen(true)}
+              key={link.id}
+              className="nav-filter-link"
+            >
               {link.name}
-            </Link>
+            </div>
           ))}
         </div>
         <span className="btn-container">
@@ -127,27 +163,22 @@ const NAV_FILTER_LINKS = [
   {
     id: 1,
     name: '모든 제품',
-    path: '/',
   },
   {
     id: 2,
     name: '온라인 쇼룸',
-    path: '/',
   },
   {
     id: 3,
     name: '특별한 가격',
-    path: '/',
   },
   {
     id: 4,
     name: '홈 액세서리',
-    path: '/',
   },
   {
     id: 5,
     name: '서비스',
-    path: '/',
   },
 ];
 

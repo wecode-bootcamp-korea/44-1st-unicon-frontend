@@ -45,7 +45,7 @@
 
 .navbar-content-container.panel-open {
   display: grid;
-  grid-template-columns: 70px 200px 80px;
+  grid-template-columns: 70px 200px auto;
   grid-template-rows: 1fr auto;
 }
 
@@ -58,16 +58,33 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 10px;
+    border-right: 1px solid #ededed;
   }
 
-  .header {
-    font-size: 24px;
-    font-weight: 700;
-  }
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
 
-  .category {
-    margin: 16px 0;
-    font-size: 18px;
+    .header {
+      margin-bottom: 24px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .category {
+      margin: 10px 0;
+      color: #111111;
+      font-size: 18px;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
