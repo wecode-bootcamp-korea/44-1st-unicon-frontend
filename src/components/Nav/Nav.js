@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
@@ -8,8 +8,27 @@ import './Nav.scss';
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    token ? setLoggedIn(true) : setLoggedIn(false);
+  }, [loggedIn]);
 
   const navigate = useNavigate();
+
+  const handleButton = () => {
+    if (loggedIn) {
+      if (window.confirm('정말 로그아웃하시겠습니?')) {
+        localStorage.removeItem('token');
+        navigate('/');
+      }
+    } else {
+      navigate('/login');
+    }
+  };
+
+  console.log(loggedIn);
 
   return (
     <div className="nav">
@@ -32,30 +51,36 @@ const Nav = () => {
               }}
               className="login-header"
             >
-              <div className="header-text">Hej · 안녕하세요!</div>
-              <div className="login-btn">로그인</div>
+              <div className="header-text">
+                {loggedIn ? `Hej ${`정환`}!` : 'Hej · 안녕하세요!'}
+              </div>
+              <div onClick={handleButton} className="login-btn">
+                {loggedIn ? '로그아웃' : '로그인'}
+              </div>
             </div>
           </div>
-          <div className="signup-link-container">
-            <div
-              onClick={() => {
-                navigate('/signup');
-                setDrawerOpen(false);
-              }}
-              className="signup-link"
-            >
-              IKEA 계정 생성하기
+          {!loggedIn && (
+            <div className="signup-link-container">
+              <div
+                onClick={() => {
+                  navigate('/signup');
+                  setDrawerOpen(false);
+                }}
+                className="signup-link"
+              >
+                IKEA 계정 생성하기
+              </div>
+              <div
+                onClick={() => {
+                  navigate('/signup');
+                  setDrawerOpen(false);
+                }}
+                className="drawer-icon-btn"
+              >
+                <Icons name="ChevronRight" width={24} height={24} />
+              </div>
             </div>
-            <div
-              onClick={() => {
-                navigate('/signup');
-                setDrawerOpen(false);
-              }}
-              className="drawer-icon-btn"
-            >
-              <Icons name="ChevronRight" width={24} height={24} />
-            </div>
-          </div>
+          )}
           <div className="signup-link-container">
             <div className="signup-link">IKEA Business Network 가입하기</div>
             <div className="drawer-icon-btn">
@@ -112,8 +137,14 @@ const Nav = () => {
               onClick={() => setDrawerOpen(prev => !prev)}
               className="icon-text-btn"
             >
-              <Icons name="User" width={20} height={20} />
-              <p>Hej! 로그인 또는 가입하기</p>
+              {loggedIn ? (
+                <p>{`Hej ${`정환`}!`}</p>
+              ) : (
+                <>
+                  <Icons name="User" width={20} height={20} />
+                  <p>Hej! 로그인 또는 가입하기</p>
+                </>
+              )}
             </div>
             <div className="icon-text-btn">
               <Icons name="Heart" width={20} height={20} />
