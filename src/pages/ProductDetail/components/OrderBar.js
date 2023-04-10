@@ -18,7 +18,9 @@ const OrderBar = ({ names, price, sub_description }) => {
 
         <div className="price-box">
           <span>￦</span>
-          <span>{price}</span>
+          <span className="price-num">
+            {Math.floor(price).toLocaleString()}
+          </span>
         </div>
         <div className="star-box">
           <div>★★★★☆ (16)</div>
@@ -55,11 +57,10 @@ const OrderBar = ({ names, price, sub_description }) => {
             </div>
           </div>
         </div>
-
-        <div className="count-btn-box">
-          <CountButton className="count-btn" />
-          <button className="order-btn">구매하기</button>
-        </div>
+      </div>
+      <div className="count-btn-box">
+        <CountButton className="count-btn" />
+        <button className="order-btn">구매하기</button>
       </div>
     </div>
   );

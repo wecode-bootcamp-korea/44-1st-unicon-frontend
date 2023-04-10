@@ -1,37 +1,43 @@
+@import '../../styles/mixin';
 .product-detail {
   display: flex;
   justify-content: center;
   margin: 0 100px 0 80px;
 
   .image-box {
-    // display: grid;
-    // grid-gap: 10px;
-    // grid-template-columns: repeat(2, minmax(200px, 1fr));
-    width: fit-content;
-
+    width: 100%;
+    height: 100%;
     .img-border {
       display: flex;
       flex-wrap: wrap;
-      width: fit-content;
-      height: 700px;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
     }
 
     .img-wrap {
-      display: flex;
-      justify-content: space-around;
-      width: 700px;
+      // display: flex;
+      // justify-content: space-around;
+      display: grid;
+      grid-gap: 5px;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      width: 630px;
+      height: 630px;
 
       .img {
-        width: 330px;
-        height: 330px;
+        width: 300px;
+        height: 300px;
       }
     }
   }
 
   .detail-box {
     .detail-text {
-      width: 400px;
-      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 30px 0;
       font-size: 15px;
     }
 
@@ -39,7 +45,7 @@
       display: flex;
       align-items: center;
       width: 100%;
-      height: 100px;
+      height: 50px;
 
       .text {
         display: flex;

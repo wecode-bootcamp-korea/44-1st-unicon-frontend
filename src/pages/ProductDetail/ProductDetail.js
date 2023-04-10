@@ -14,7 +14,6 @@ function ProductDetail() {
 
   useEffect(() => {
     fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}`, {
-      // fetch('http://10.58.52.225:3000/products/detail/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -76,7 +75,10 @@ function ProductDetail() {
               </div>
               <div className="inner-menu-item">
                 <p>치수</p>
-                <button className="inner-btu">
+                <button
+                  onClick={() => setDrawerOpen(!drawerOpen)}
+                  className="inner-btu"
+                >
                   <ArrowRight />
                 </button>
               </div>
@@ -85,7 +87,10 @@ function ProductDetail() {
                   <span className="text">상품평</span>
                   <span className="five-star">★★★★☆ (16)</span>
                 </div>
-                <button className="inner-btu">
+                <button
+                  onClick={() => setDrawerOpen(!drawerOpen)}
+                  className="inner-btu"
+                >
                   <ArrowRight />
                 </button>
               </div>

@@ -10,15 +10,12 @@ const Products = () => {
 
   const [productsData, setProductsData] = useState([]);
 
-  // TODO : 차후 백앤드와 통신을 할 때 사용할 코드입니다! 잠시 주석처리 하겠습니다!
   useEffect(() => {
     fetch('http://10.58.52.225:3000/products', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      //query: JSON.stringify({filter:"ASC" }),
-      //바디 대신에 query:{"main_"}
     })
       .then(response => response.json())
       .then(data => {
@@ -47,7 +44,7 @@ const Products = () => {
   //     setPrice(data);
   //   });
 
-  const { id, image_url, names, price, sub_description } = productsData;
+  // const { id, image_url, names, price, sub_description } = productsData;
 
   return (
     <div className="products">
@@ -88,11 +85,13 @@ const Products = () => {
         })}
       </div>
       <div className="products-box">
-        {/** id, image_url, names, price, sub_description */}
         {productsData?.map(({ id, names, sub_description, price, img_url }) => (
-          <Link key={id} to={`/products/detail/${id}`}>
+          <Link
+            key={id}
+            to={`/products/detail/${id}`}
+            className="mini-product-link"
+          >
             <MiniProduct
-              // productsData={productsData}
               id={id}
               names={names}
               sub_description={sub_description}

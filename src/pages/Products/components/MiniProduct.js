@@ -11,7 +11,7 @@ const MiniProduct = ({ id, img, name, commit, price }) => {
         <p className="commit">{commit}</p>
         <span className="price-box">
           <p>￦</p>
-          <p>{price}</p>
+          <p>{Math.floor(price).toLocaleString()}</p>
         </span>
         <div className="star-wrap">
           <span className="star">★★★★☆ (16)</span>
