@@ -33,8 +33,6 @@ const Order = () => {
   const formNotComplete = delivery === false || terms === false;
 
   const { message } = orderData;
-  // const { totalAmount, imageUrl, userInfo } = message;
-  console.log(orderData.message);
 
   return (
     <div className="order">
@@ -42,6 +40,7 @@ const Order = () => {
         <Modal
           modalOpen={() => setModalOpen(!modalOpen)}
           setModalOpen={setModalOpen}
+          data={message}
         />
       )}
 
@@ -113,7 +112,9 @@ const Order = () => {
               <div>이용 약관을 읽었으며 동의합니다.</div>
             </div>
             <div
-              onClick={() => setModalOpen(!modalOpen)}
+              onClick={() => {
+                setModalOpen(!modalOpen);
+              }}
               className={`btn-purchase ${formNotComplete && `disabled`}`}
             >
               <div className="btn-content">
