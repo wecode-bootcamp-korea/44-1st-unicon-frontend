@@ -2,53 +2,57 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
+import Drawer from '../../components/Drawer/Drawer';
 import './ProductDetail.scss';
 
 function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const paramas = useParams();
   const detailPageId = paramas.id;
 
   useEffect(() => {
-    fetch(`http://10.58.52.225:3000/products/product/${detailPageId}`, {
+    fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}`, {
+      // fetch('http://10.58.52.225:3000/products/detail/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
     })
       .then(response => response.json())
-      .then(data => setDetailData(data));
+      .then(result => setDetailData(result));
   }, [detailPageId]);
 
-  const { id, names, price, sub_description, image_url, detail } = detailData;
+  const { id, names, price, sub_description, image_url, detail, descriptions } =
+    detailData;
+
+  console.log(image_url);
 
   return (
     <div className="product-detail">
+      <Drawer
+        drawerOpen={drawerOpen}
+        closeDrawer={() => setDrawerOpen(!drawerOpen)}
+      />
       <div className="product-detail-page">
         <div className="product-page">
           <div className="image-box">
             <div className="img-border">
-              {detailData.map(({ id, image_url }) => {
-                return (
-                  <div className="img-wrap" key={id}>
+              <div className="img-wrap">
+                {image_url?.map((image, i) => {
+                  return (
                     <div
+                      key={i}
                       className="img"
                       style={{
-                        background: `url(${image_url})`,
+                        background: `url(${image})`,
                         backgroundSize: 'cover',
                       }}
                     />
-                    <div
-                      className="img"
-                      style={{
-                        background: `url(${image_url})`,
-                        backgroundSize: 'cover',
-                      }}
-                    />
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className="detail-box">
@@ -65,8 +69,11 @@ function ProductDetail() {
             <div className="inner-menu-box">
               <div className="inner-menu-item">
                 <p>제품 설명</p>
-                {detail}
-                <button className="inner-btu">
+
+                <button
+                  onClick={() => setDrawerOpen(!drawerOpen)}
+                  className="inner-btu"
+                >
                   <ArrowRight />
                 </button>
               </div>
@@ -91,13 +98,13 @@ function ProductDetail() {
       </div>
       {detailData.id && (
         <OrderBar
-          id={detailData.id}
-          names={detailData.names}
-          price={detailData.price}
-          sub_description={detailData.sub_description}
-          image_url={detailData.image_url}
-          detail={detailData.detail}
-          descriptions={detailData.descriptions}
+          id={id}
+          names={names}
+          price={price}
+          sub_description={sub_description}
+          image_url={image_url}
+          detail={detail}
+          descriptions={descriptions}
         />
       )}
     </div>
