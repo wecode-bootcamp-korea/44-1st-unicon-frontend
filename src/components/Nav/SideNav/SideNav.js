@@ -5,7 +5,7 @@ import SecondLevelMenus from './SecondLevelMenu/SecondLevelMenus';
 import { menuData } from './menuData';
 import './SideNav.scss';
 
-const SideNav = ({ navbarOpen, closeNavbar }) => {
+const SideNav = ({ navbarOpen, setNavbarOpen }) => {
   const [navigationState, setNavigationState] = useState({
     topLevelOpen: true,
     secondLevelOpen: false,
@@ -19,12 +19,15 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
     navigationState;
 
   const handleTopLevelClick = id => {
-    if (id === 1 || id === 2 || id === 3) {
+    if (id === 1 || id === 3) {
       setNavigationState({
         topLevelOpen: false,
         secondLevelOpen: true,
         currentTopLevel: id,
       });
+    } else if (id === 2) {
+      navigate('/showroom');
+      setNavbarOpen(false);
     } else {
       return;
     }
@@ -49,7 +52,9 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
 
   return (
     <div>
-      {navbarOpen ? <div onClick={closeNavbar} className="backdrop" /> : null}
+      {navbarOpen ? (
+        <div onClick={() => setNavbarOpen(false)} className="backdrop" />
+      ) : null}
       <div className={navbarOpen ? 'navbar open' : 'navbar'}>
         <span
           className={
@@ -59,7 +64,12 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
           }
         >
           <div className="left-column">
-            <X width={24} height={24} onClick={closeNavbar} className="icon" />
+            <X
+              width={24}
+              height={24}
+              onClick={() => setNavbarOpen(false)}
+              className="icon"
+            />
             {secondLevelOpen && (
               <ArrowLeft onClick={handleMovePrev} className="icon prev" />
             )}

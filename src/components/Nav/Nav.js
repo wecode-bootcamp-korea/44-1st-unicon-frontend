@@ -11,12 +11,7 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      <SideNav
-        navbarOpen={navbarOpen}
-        closeNavbar={() => {
-          setNavbarOpen(false);
-        }}
-      />
+      <SideNav navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
       <Drawer drawerOpen={drawerOpen} closeDrawer={() => setDrawerOpen(false)}>
         <div className="drawer-container">
           <div className="section-top">
