@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ShowroomItem.scss';
 
 const ShowroomItem = ({
@@ -26,22 +27,26 @@ const ShowroomItem = ({
         <div className="items-container">
           {products?.map(
             ({ id, image_url, name, sub_description, price, product_size }) => (
-              <div key={id} className="item-wrapper">
-                <div
-                  style={{
-                    backgroundImage: `url(${image_url})`,
-                  }}
-                  className="item-thumb"
-                />
-                <div className="item-text">
-                  <span>
-                    <div className="name">{name}</div>
-                    <div className="description">{sub_description}</div>
-                    <div className="dimension">{product_size}</div>
-                  </span>
-                  <div className="price">₩&nbsp;{price?.toLocaleString()}</div>
+              <Link to={`/products/detail/${id}`} key={id} className="link">
+                <div className="item-wrapper">
+                  <div
+                    style={{
+                      backgroundImage: `url(${image_url})`,
+                    }}
+                    className="item-thumb"
+                  />
+                  <div className="item-text">
+                    <span>
+                      <div className="name">{name}</div>
+                      <div className="description">{sub_description}</div>
+                      <div className="dimension">{product_size}</div>
+                    </span>
+                    <div className="price">
+                      ₩&nbsp;{price?.toLocaleString()}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )
           )}
         </div>

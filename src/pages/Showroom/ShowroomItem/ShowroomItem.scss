@@ -36,6 +36,11 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
 
+      .link {
+        color: #111111;
+        text-decoration: none;
+      }
+
       &::-webkit-scrollbar {
         width: 6px;
         height: 6px;

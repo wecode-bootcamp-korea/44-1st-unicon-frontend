@@ -18,8 +18,6 @@ const Showroom = () => {
       });
   }, []);
 
-  console.log(showroomData);
-
   return (
     <div className="showroom">
       <div className="header-main">온라인 쇼룸</div>
