@@ -26,7 +26,7 @@ const Nav = () => {
               </div>
             </div>
             <div className="close-header">
-              <div className="header-text">Hej</div>
+              <div className="header-text">Hej · 안녕하세요!</div>
               <div className="login-btn">로그인</div>
             </div>
           </div>

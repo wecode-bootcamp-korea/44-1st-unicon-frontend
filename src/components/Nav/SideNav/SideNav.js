@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, X, User } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 import SecondLevelMenus from './SecondLevelMenu/SecondLevelMenus';
 import { menuData } from './menuData';
 import './SideNav.scss';
@@ -12,15 +13,21 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
     currentTopLevel: 0,
   });
 
+  const navigate = useNavigate();
+
   const { topLevelOpen, secondLevelOpen, panelOpen, currentTopLevel } =
     navigationState;
 
   const handleTopLevelClick = id => {
-    setNavigationState({
-      topLevelOpen: false,
-      secondLevelOpen: true,
-      currentTopLevel: id,
-    });
+    if (id === 1 || id === 2 || id === 3) {
+      setNavigationState({
+        topLevelOpen: false,
+        secondLevelOpen: true,
+        currentTopLevel: id,
+      });
+    } else {
+      return;
+    }
   };
 
   const handleMovePrev = () => {
@@ -31,7 +38,7 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
     });
   };
 
-  const handleSubMenuClick = () => {
+  const handleSubMenuClick = id => {
     setNavigationState({
       ...navigationState,
       panelOpen: true,
