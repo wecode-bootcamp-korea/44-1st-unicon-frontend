@@ -1,0 +1,67 @@
+@import '/src/styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import '../../../styles/mixin';
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 120px;
+  margin: 70px 0 30px 20px;
+
+  .filter-icon {
+    color: $gray-opacity;
+  }
+
+  button {
+    @include flexCenter;
+    width: 150px;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 60px;
+    background-color: rgba(222, 222, 222, 0.49);
+
+    .btn-text {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: $ikea-blue;
+      color: white;
+      font-weight: 800;
+
+      .filter-icon {
+        color: white;
+      }
+    }
+  }
+
+  .filter-box {
+    position: relative;
+    transform: translate(-110px);
+    font-family: 'Noto Sans KR', sans-serif;
+
+    .border-box {
+      position: absolute;
+      top: 30px;
+      width: 170px;
+      height: auto;
+      padding: 10px;
+      border: 2px solid $gray-opacity;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 1px 3px 10px rgba(161, 161, 161, 0.726);
+
+      label {
+        display: block;
+        line-height: 2rem;
+      }
+    }
+  }
+  .text {
+    color: black;
+    font-weight: 400;
+  }
+}
