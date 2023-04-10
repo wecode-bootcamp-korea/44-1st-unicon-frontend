@@ -6,26 +6,38 @@ const Showroom = () => {
   const [showroomData, setShowroomData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/showroomData.json')
+    fetch('http://10.58.52.225:3000/products/showRoom', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(response => response.json())
-      .then(result => setShowroomData(result));
+      .then(result => {
+        setShowroomData(result);
+      });
   }, []);
+
+  console.log(showroomData);
 
   return (
     <div className="showroom">
       <div className="header-main">온라인 쇼룸</div>
-      {showroomData.map(({ id, image_url, header, description, products }) => {
-        return (
-          <ShowroomItem
-            image_url={image_url}
-            key={id}
-            header={header}
-            description={description}
-            products={products}
-            rightAligned={id % 2 === 0 ? true : false}
-          />
-        );
-      })}
+      {showroomData.map(
+        ({ id, image_url, header, descriptions, products, price }) => {
+          return (
+            <ShowroomItem
+              image_url={image_url}
+              key={id}
+              header={header}
+              descriptions={descriptions}
+              products={products}
+              price={price}
+              rightAligned={id % 2 === 0 ? true : false}
+            />
+          );
+        }
+      )}
     </div>
   );
 };

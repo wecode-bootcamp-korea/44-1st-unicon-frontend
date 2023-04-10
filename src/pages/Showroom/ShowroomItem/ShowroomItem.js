@@ -4,7 +4,7 @@ import './ShowroomItem.scss';
 const ShowroomItem = ({
   header,
   image_url,
-  description,
+  descriptions,
   products,
   rightAligned,
 }) => {
@@ -21,11 +21,11 @@ const ShowroomItem = ({
       <div className="column-text">
         <div>
           <div className="header-sub">{header}</div>
-          <p>{description}</p>
+          <p>{descriptions}</p>
         </div>
         <div className="items-container">
           {products?.map(
-            ({ id, image_url, name, description, cost, dimension }) => (
+            ({ id, image_url, name, sub_description, price, product_size }) => (
               <div key={id} className="item-wrapper">
                 <div
                   style={{
@@ -36,10 +36,10 @@ const ShowroomItem = ({
                 <div className="item-text">
                   <span>
                     <div className="name">{name}</div>
-                    <div className="description">{description}</div>
-                    <div className="dimension">{dimension}</div>
+                    <div className="description">{sub_description}</div>
+                    <div className="dimension">{product_size}</div>
                   </span>
-                  <div className="cost">₩&nbsp;{cost?.toLocaleString()}</div>
+                  <div className="price">₩&nbsp;{price?.toLocaleString()}</div>
                 </div>
               </div>
             )
