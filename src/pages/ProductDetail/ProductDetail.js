@@ -9,8 +9,8 @@ function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const paramas = useParams();
-  const detailPageId = paramas.id;
+  const params = useParams();
+  const detailPageId = params.id;
 
   useEffect(() => {
     fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}`, {
@@ -26,9 +26,6 @@ function ProductDetail() {
 
   const { id, names, price, sub_description, image_url, detail, descriptions } =
     detailData;
-
-  console.log(image_url);
-
   return (
     <div className="product-detail">
       <Drawer
