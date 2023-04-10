@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, X, User } from 'react-feather';
+import { ArrowLeft, X, User, ChevronRight } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import SecondLevelMenus from './SecondLevelMenu/SecondLevelMenus';
 import { menuData } from './menuData';
@@ -113,7 +113,19 @@ const SideNav = ({ navbarOpen, setNavbarOpen }) => {
               )}
             </div>
           </div>
-          {panelOpen && <div className="panel">PANEL</div>}
+          {panelOpen && (
+            <div className="panel">
+              <div className="chevron-container">
+                <ChevronRight />
+              </div>
+              <div className="text-section">
+                <div className="header">가구</div>
+                <div className="category">의자</div>
+                <div className="category">소파</div>
+                <div className="category">조명</div>
+              </div>
+            </div>
+          )}
         </span>
       </div>
     </div>
