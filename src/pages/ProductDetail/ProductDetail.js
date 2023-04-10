@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import './ProductDetail.scss';
@@ -6,22 +7,21 @@ import './ProductDetail.scss';
 function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
 
+  const paramas = useParams();
+  const detailPageId = paramas.id;
+
   useEffect(() => {
-    fetch('http://10.58.52.225:3000/products/product/1', {
+    fetch(`http://10.58.52.225:3000/products/product/${detailPageId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      //TODO: 통신할때 참고할 코드입니다. 잠시 주석 처리 하겠습니다.
-      //query: JSON.stringify({filter:"ASC" }),
-      //바디 대신에 query:{"main_"}
     })
       .then(response => response.json())
       .then(data => setDetailData(data));
-  }, []);
+  }, [detailPageId]);
 
-  const { id, names, price, sub_description, image_url, detail, descriptions } =
-    detailData;
+  const { id, names, price, sub_description, image_url, detail } = detailData;
 
   return (
     <div className="product-detail">
@@ -29,20 +29,20 @@ function ProductDetail() {
         <div className="product-page">
           <div className="image-box">
             <div className="img-border">
-              {IMG.map(({ id, left, right }) => {
+              {detailData.map(({ id, image_url }) => {
                 return (
                   <div className="img-wrap" key={id}>
                     <div
                       className="img"
                       style={{
-                        background: `url(${left})`,
+                        background: `url(${image_url})`,
                         backgroundSize: 'cover',
                       }}
                     />
                     <div
                       className="img"
                       style={{
-                        background: `url(${right})`,
+                        background: `url(${image_url})`,
                         backgroundSize: 'cover',
                       }}
                     />
@@ -53,7 +53,7 @@ function ProductDetail() {
           </div>
           <div className="detail-box">
             <div className="detail-text-box">
-              <p className="detail-text"> {descriptions}</p>
+              <p className="detail-text"> {sub_description}</p>
               <div className="product-code-box">
                 <div className="product-code-wrap">
                   <p className="text">제품번호</p>
@@ -89,34 +89,19 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <OrderBar
-        id={id}
-        names={names}
-        price={price}
-        sub_description={sub_description}
-        image_url={image_url}
-        detail={detail}
-        descriptions={descriptions}
-      />
+      {detailData.id && (
+        <OrderBar
+          id={detailData.id}
+          names={detailData.names}
+          price={detailData.price}
+          sub_description={detailData.sub_description}
+          image_url={detailData.image_url}
+          detail={detailData.detail}
+          descriptions={detailData.descriptions}
+        />
+      )}
     </div>
   );
 }
 
 export default ProductDetail;
-
-const IMG = [
-  {
-    id: 1,
-    left: 'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031615_pe836564_s5.jpg?f=xl',
-    right:
-      'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031618_pe836565_s5.jpg?f=xl',
-    text: 'detail image',
-  },
-  {
-    id: 2,
-    left: 'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031626_pe836581_s5.jpg?f=xl',
-    right:
-      'https://www.ikea.com/kr/ko/images/products/forsa-work-lamp-beige__1031630_pe836584_s5.jpg?f=xl',
-    text: 'detail image',
-  },
-];
