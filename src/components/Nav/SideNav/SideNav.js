@@ -60,10 +60,6 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
           <div className="content">
             <span>
               <div className="wekea-logo" />
-              <div className="login-or-signup">
-                <User width={22} height={22} />
-                <p>Hej! 로그인 또는 가입하기</p>
-              </div>
             </span>
             <div className="menus">
               {/* 메뉴 최상단 레벨일 경우 아래 부분 렌더 */}

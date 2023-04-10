@@ -74,26 +74,6 @@
 .content {
   span {
     background: #ffffff;
-
-    .login-or-signup {
-      display: flex;
-      align-items: center;
-      margin: 24px 0px 10px 0px;
-      padding: 12px;
-      transition: 0.3s;
-      border-bottom: 1px solid #e2e2e2;
-      color: #111111;
-      font-size: 16px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #e2e2e2;
-      }
-
-      p {
-        margin-left: 6px;
-      }
-    }
   }
 
   .menus {
