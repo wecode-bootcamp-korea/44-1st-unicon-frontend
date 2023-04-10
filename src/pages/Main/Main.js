@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'react-feather';
 import MiniProduct from './components/MiniProduct';
-import { COLOR_BOX } from './COLOR_BOX';
-import { EVENT_IMG } from './EVENT_IMG';
-import { MINI } from './MINI';
 import './Main.scss';
 
 function Main() {
+  const [mainPageData, setMainPageData] = useState([]);
+  useEffect(() => {
+    fetch('/data/mainPageData.json')
+      .then(response => response.json())
+      .then(result => setMainPageData(result));
+  }, []);
+
   return (
     <div className="main">
       <div className="main-top">
@@ -36,7 +40,7 @@ function Main() {
                 <ArrowRight className="btn" />
               </div>
             </div>
-            {COLOR_BOX.map(({ id, name, img }) => {
+            {mainPageData[0]?.map(({ id, name, img }) => {
               return (
                 <div
                   key={id}
@@ -47,7 +51,7 @@ function Main() {
                   }}
                 >
                   <div className="card-contents">
-                    <biv className="color-box-btn">{name}</biv>
+                    <div className="color-box-btn">{name}</div>
                   </div>
                   <div className="scroll" />
                 </div>
@@ -59,7 +63,7 @@ function Main() {
       <div className="event-box">
         <h2 className="promotion-text">진행 중인 이벤트 및 프로모션</h2>
         <div className="event-wrap">
-          {EVENT_IMG.map(({ id, name, color, text, comment, img }) => {
+          {mainPageData[1]?.map(({ id, name, color, text, comment, img }) => {
             return (
               <div
                 className="event-slide"
@@ -101,7 +105,7 @@ function Main() {
       <div>
         <h2>추천 제품</h2>
         <div className="components">
-          {MINI.map(data => {
+          {mainPageData[2]?.map(data => {
             return (
               <MiniProduct
                 className="items"
