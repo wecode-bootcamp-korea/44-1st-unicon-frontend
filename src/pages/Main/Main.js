@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'react-feather';
 import { Link } from 'react-router-dom';
 import MiniProduct from './components/MiniProduct';
+import { APIS } from '../../config';
 import './Main.scss';
 
 function Main() {
@@ -15,7 +16,7 @@ function Main() {
   const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.225:3000/products', {
+    fetch(`${APIS.productsMain}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

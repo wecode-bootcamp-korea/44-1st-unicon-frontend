@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { APIS } from '../../../config';
 import './Modal.scss';
 
 const Modal = ({ modalOpen, setModalOpen, data }) => {
@@ -12,7 +13,7 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
   const { point, terms } = checkboxes;
 
   useEffect(() => {
-    fetch('/data/paymentData.json', {
+    fetch(`${APIS.payment}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

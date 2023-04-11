@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
+import { APIS } from '../../config';
 import './Nav.scss';
 
 const Nav = () => {
@@ -15,7 +16,7 @@ const Nav = () => {
     const { value } = event.target;
     setSearchInputValue(value);
 
-    fetch('http://10.58.52.225:3000/products/search', {
+    fetch(`${APIS.search}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

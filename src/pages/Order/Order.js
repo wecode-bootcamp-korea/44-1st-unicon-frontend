@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icons from '../../components/Icons/Icons';
 import Modal from './Modal/Modal';
+import { APIS } from '../../config';
 import './Order.scss';
 
 const Order = () => {
@@ -17,7 +18,7 @@ const Order = () => {
   const { delivery, terms } = requirements;
 
   useEffect(() => {
-    fetch('/data/orderData.json', {
+    fetch(`${APIS.order}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

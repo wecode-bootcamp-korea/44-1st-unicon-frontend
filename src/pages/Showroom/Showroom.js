@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ShowroomItem from './ShowroomItem/ShowroomItem';
+import { APIS } from '../../config';
 import './Showroom.scss';
 
 const Showroom = () => {
   const [showroomData, setShowroomData] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.225:3000/products/showRoom', {
+    fetch(`${APIS.showRoom}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
