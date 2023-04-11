@@ -21,21 +21,15 @@ const Showroom = () => {
   return (
     <div className="showroom">
       <div className="header-main">온라인 쇼룸</div>
-      {showroomData.map(
-        ({ id, image_url, header, descriptions, products, price }) => {
-          return (
-            <ShowroomItem
-              image_url={image_url}
-              key={id}
-              header={header}
-              descriptions={descriptions}
-              products={products}
-              price={price}
-              rightAligned={id % 2 === 0 ? true : false}
-            />
-          );
-        }
-      )}
+      {showroomData.map(showroom => {
+        return (
+          <ShowroomItem
+            key={showroom.id}
+            {...showroom}
+            rightAligned={showroom.id % 2 === 0 ? true : false}
+          />
+        );
+      })}
     </div>
   );
 };

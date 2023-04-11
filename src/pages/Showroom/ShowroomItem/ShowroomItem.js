@@ -22,7 +22,7 @@ const ShowroomItem = ({
       <div className="column-text">
         <div>
           <div className="header-sub">{header}</div>
-          <p>{descriptions}</p>
+          <p className="description">{descriptions}</p>
         </div>
         <div className="items-container">
           {products?.map(
