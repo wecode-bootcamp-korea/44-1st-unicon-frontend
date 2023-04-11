@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
@@ -8,14 +8,19 @@ import './Nav.scss';
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const pagesWithNoNav =
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    location.pathname === '/order';
 
   const token = localStorage.getItem('token');
 
   const handleButton = () => {
     if (token) {
-      if (window.confirm('정말 로그아웃하시겠습니?')) {
+      if (window.confirm('정말 로그아웃하시겠습니까?')) {
         localStorage.removeItem('token');
         navigate('/');
       }
@@ -23,6 +28,8 @@ const Nav = () => {
       navigate('/login');
     }
   };
+
+  if (pagesWithNoNav) return null;
 
   return (
     <div className="nav">

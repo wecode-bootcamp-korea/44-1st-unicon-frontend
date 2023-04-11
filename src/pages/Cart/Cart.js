@@ -45,6 +45,10 @@ const Cart = () => {
     });
   };
 
+  const token = localStorage.getItem('token');
+
+  if (!token) return <div>잘못된 페이지 입니다.</div>;
+
   return (
     <div className="cart">
       <div className="container">
