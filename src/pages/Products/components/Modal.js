@@ -8,7 +8,8 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const returnOpen = id => {
-    setOpenModalId(id);
+    openModalId === id ? setOpenModalId(0) : setOpenModalId(id);
+    // setOpenModalId(id);
   };
 
   const handleChange = value => {
