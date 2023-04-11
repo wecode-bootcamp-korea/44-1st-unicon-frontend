@@ -29,13 +29,10 @@ const Order = () => {
         setOrderData(result);
       });
   }, []);
-  3;
 
   const formNotComplete = delivery === false || terms === false;
 
   const { message } = orderData;
-  // const { totalAmount, imageUrl, userInfo } = message;
-  console.log(orderData.message);
 
   return (
     <div className="order">
@@ -43,6 +40,7 @@ const Order = () => {
         <Modal
           modalOpen={() => setModalOpen(!modalOpen)}
           setModalOpen={setModalOpen}
+          data={message}
         />
       )}
 
@@ -88,7 +86,7 @@ const Order = () => {
               </div>
             </div>
           </div>
-          <div className={!delivery && 'inactive'}>
+          <div className={!delivery ? 'inactive' : ''}>
             <div className="section-header">
               <div className="step-header">결제</div>
             </div>
