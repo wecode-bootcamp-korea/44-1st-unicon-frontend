@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'react-feather';
+import { Link } from 'react-router-dom';
 import MiniProduct from './components/MiniProduct';
 import './Main.scss';
 
@@ -9,6 +10,22 @@ function Main() {
     fetch('/data/mainPageData.json')
       .then(response => response.json())
       .then(result => setMainPageData(result));
+  }, []);
+
+  const [productsData, setProductsData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://10.58.52.225:3000/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setProductsData(data);
+      });
   }, []);
 
   return (
@@ -47,7 +64,6 @@ function Main() {
                   className="color-card-map"
                   style={{
                     backgroundImage: `url(${img})`,
-                    alt: 'img',
                   }}
                 >
                   <div className="card-contents">
@@ -105,18 +121,26 @@ function Main() {
       <div>
         <h2>추천 제품</h2>
         <div className="components">
-          {mainPageData[2]?.map(data => {
-            return (
-              <MiniProduct
-                className="items"
-                key={data.id}
-                img={data.img}
-                name={data.name}
-                commit={data.commit}
-                price={data.price}
-              />
-            );
-          })}
+          {productsData?.map(
+            ({ id, names, sub_description, price, img_url }) => {
+              return (
+                <Link
+                  key={id}
+                  to={`/products/detail/${id}`}
+                  className="product-link"
+                >
+                  <MiniProduct
+                    className="items"
+                    key={id}
+                    img={img_url}
+                    name={names}
+                    commit={sub_description}
+                    price={price}
+                  />
+                </Link>
+              );
+            }
+          )}
         </div>
       </div>
     </div>

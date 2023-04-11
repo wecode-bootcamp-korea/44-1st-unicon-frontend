@@ -1,40 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
 import './Products.scss';
 
 const Products = () => {
-  // TODO : 차후 백앤드와 통신을 할 때 사용할 코드입니다! 잠시 주석처리 하겠습니다!
-  // fetch('http://10.58.52.225:3000/products/category?sc=3&filter=DESC', {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json;charset=utf-8',
-  //   },
-  //   //query: JSON.stringify({filter:"ASC" }),
-  //   //바디 대신에 query:{"main_"}
-  // })
-  //   .then(response => response.json())
-  //   .then(data => console.log(data));
   const [innerMenu, setInnerMenu] = useState([]);
   const [openModalId, setOpenModalId] = useState(0);
+  const [productsData, setProductsData] = useState([]);
 
-  fetch('/data/ProductsData/innerMenu.json', {
-    method: 'GET',
-  })
-    .then(res => res.json())
-    .then(data => {
-      setInnerMenu(data);
-    });
+  const location = useLocation();
 
-  const [price, setPrice] = useState([]);
+  useEffect(() => {
+    fetch('/data/ProductsData/innerMenu.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setInnerMenu(data);
+      });
+  }, []);
 
-  fetch('data/ProductsData/price.json', {
-    method: 'GET',
-  })
-    .then(res => res.json())
-    .then(data => {
-      setPrice(data);
-    });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pricefilter = searchParams.get('pricefilter');
+
+  useEffect(() => {
+    fetch(`http://10.58.52.225:3000/products${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setProductsData(data);
+      });
+  }, [pricefilter]);
 
   return (
     <div className="products">
@@ -75,16 +76,24 @@ const Products = () => {
         })}
       </div>
       <div className="products-box">
-        {price.map(data => (
-          <MiniProduct
-            key={data.id}
-            id={data.id}
-            name={data.name}
-            commit={data.commit}
-            price={data.price}
-            img={data.img}
-          />
-        ))}
+        {productsData.length > 0 &&
+          productsData.map(
+            ({ id, names, sub_description, price, image_url }) => (
+              <Link
+                key={id}
+                to={`/products/detail/${id}`}
+                className="mini-product-link"
+              >
+                <MiniProduct
+                  id={id}
+                  names={names}
+                  sub_description={sub_description}
+                  price={price}
+                  image_url={image_url}
+                />
+              </Link>
+            )
+          )}
       </div>
     </div>
   );

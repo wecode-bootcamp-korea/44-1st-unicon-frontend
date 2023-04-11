@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
@@ -8,6 +8,26 @@ import './Nav.scss';
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchData, setSearchData] = useState([]);
+  const [searchInputValue, setSearchInputValue] = useState('');
+
+  const handleInput = event => {
+    const { value } = event.target;
+    setSearchInputValue(value);
+
+    fetch('http://10.58.52.225:3000/products/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        word: value,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => setSearchData(result));
+  };
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -131,7 +151,54 @@ const Nav = () => {
           <div className="logo-input-wrapper">
             <div className="wekea-logo" onClick={() => navigate('/')} />
 
-            <input className="input" type="text" placeholder="검색어 입력" />
+            <div className="input-wrapper">
+              <input
+                onChange={handleInput}
+                value={searchInputValue}
+                className="input"
+                type="text"
+                placeholder="검색어 입력"
+              />
+              <div
+                className={`search-result-container ${
+                  !searchInputValue.length && `hidden`
+                }`}
+              >
+                {searchData.map(
+                  ({
+                    id,
+                    name,
+                    image_url,
+                    sub_description,
+                    subCategory,
+                    mainCategory,
+                  }) => (
+                    <Link
+                      key={id}
+                      to={`products/detail/${id}`}
+                      style={{
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <div className="search-result-item">
+                        <div
+                          style={{
+                            backgroundImage: `url(${image_url})`,
+                          }}
+                          className="image"
+                        />
+                        <div className="text-section">
+                          <div className="name">{name}</div>
+                          <div className="properties">
+                            {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
           </div>
           <span className="btn-container">
             <div
