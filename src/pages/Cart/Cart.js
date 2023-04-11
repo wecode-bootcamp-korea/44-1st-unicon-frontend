@@ -20,16 +20,17 @@ const Cart = () => {
     })
       .then(response => response.json())
       .then(result => {
-        setCartData(result);
+        const { cartList } = result;
+        setCartData(cartList);
       });
   }, []);
 
   const totalCost = cartData
-    .map(item => item.cost * item.quantity)
+    ?.map(item => item.cost * item.quantity)
     .reduce((acc, cur) => acc + cur, 0);
 
   const handleAmountChange = (id, num) => {
-    const updatedData = cartData.map(item =>
+    const updatedData = cartData?.map(item =>
       id === item.id ? { ...item, quantity: item.quantity + num } : item
     );
     setCartData(updatedData);
@@ -41,7 +42,7 @@ const Cart = () => {
   };
 
   const handleSubmit = () => {
-    const bodyData = cartData.map(item => {
+    const bodyData = cartData?.map(item => {
       return {
         id: item.id,
         quantity: item.quantity,
@@ -50,6 +51,8 @@ const Cart = () => {
     });
   };
   if (!token) return <div>잘못된 페이지 입니다.</div>;
+
+  console.log(cartData);
 
   return (
     <div className="cart">
@@ -77,15 +80,14 @@ const Cart = () => {
                 </div>
               </>
             )}
-            {cartData &&
-              cartData.map(cartItem => (
-                <CartItem
-                  key={cartItem.id}
-                  {...cartItem}
-                  handleAmountChange={handleAmountChange}
-                  handleDelete={handleDelete}
-                />
-              ))}
+            {cartData?.map(cartItem => (
+              <CartItem
+                key={cartItem.id}
+                {...cartItem}
+                handleAmountChange={handleAmountChange}
+                handleDelete={handleDelete}
+              />
+            ))}
           </div>
         </div>
         <div className="right">
