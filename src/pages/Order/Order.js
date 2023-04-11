@@ -86,7 +86,7 @@ const Order = () => {
               </div>
             </div>
           </div>
-          <div className={!delivery && 'inactive'}>
+          <div className={!delivery ? 'inactive' : ''}>
             <div className="section-header">
               <div className="step-header">결제</div>
             </div>
