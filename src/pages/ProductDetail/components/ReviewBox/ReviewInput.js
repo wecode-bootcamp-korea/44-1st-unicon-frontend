@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ReviewInput.scss';
 
 const ReviewInput = () => {
-  const uploadReview = () => {};
+  const [inputValue, setInputValue] = useState('');
+  const [listData, setListData] = useState([]);
+
+  const addReview = () => {
+    return setListData([...listData], inputValue);
+  };
   return (
     <div className="review-input">
       <input
-        onChange={e => e.target.value}
-        className="input"
+        value={inputValue}
+        onChange={e => setInputValue(e.target.value)}
+        className="input-value"
         type="text"
-        placeholder="WEKEA 상품은 만족스러우셨나요?"
+        placeholder="WEKEA의 상품은 만족스러우셨나요?"
       />
       <button
         className="btn"
         onClick={() => {
-          uploadReview();
+          addReview();
         }}
       >
         상품 리뷰 올리기
