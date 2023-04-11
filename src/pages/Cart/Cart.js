@@ -6,12 +6,16 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     fetch(`${APIS.cart}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: token,
       },
     })
       .then(response => response.json())
@@ -45,9 +49,6 @@ const Cart = () => {
       };
     });
   };
-
-  const token = localStorage.getItem('token');
-
   if (!token) return <div>잘못된 페이지 입니다.</div>;
 
   return (
