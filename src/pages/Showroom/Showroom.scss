@@ -1,0 +1,14 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.showroom {
+  padding: 0 90px 0 180px;
+  font-family: 'Noto Sans', sans-serif;
+
+  .header-main {
+    padding: 60px 0 50px 0;
+    font-size: 36px;
+    font-weight: 700;
+  }
+}

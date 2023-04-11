@@ -35,7 +35,6 @@
 
   .inner-menu-box {
     display: flex;
-    // justify-content: baseline;
   }
 
   .inner-menu-item {
@@ -68,5 +67,10 @@
     min-width: 600px;
     max-width: 1200px;
     overflow: hidden;
+  }
+
+  .mini-product-link {
+    color: black;
+    text-decoration: none;
   }
 }

@@ -1,25 +1,35 @@
 @import '../../../styles/mixin';
 @import '../../../styles/variables';
 .order-bar {
-  box-sizing: content-box;
-  margin: 0 20px;
+  // box-sizing: content-box;
+  width: auto;
+  height: 500px;
+  padding-top: 20px;
+
+  // .order-top {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-around;
+  //   height: 230px;
+  // }
+
   .title-wrap {
     display: flex;
     width: 400px;
     height: 100px;
-    margin: 10px 0;
+    padding: 7px;
 
     .title-text {
-      display: block;
-      justify-content: baseline;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       width: 300px;
       height: 100px;
-      margin: 0;
       font-size: 20px;
 
-      p {
-        margin: 7px;
-      }
+      // p {
+      //   margin: 7px;
+      // }
 
       .text-weight {
         font-size: 22px;
@@ -35,19 +45,25 @@
   }
 
   .price-box {
+    // margin: 10px 0;
+    display: flex;
     width: 400px;
-    height: 40px;
-    margin: 10px 0;
+    height: auto;
+    padding: 20px 0 10px 0;
 
     span {
-      margin: 7px;
+      padding: 10px 5px;
+      font-size: 25px;
+    }
+
+    .price-num {
       font-size: 35px;
-      font-weight: 700;
+      font-weight: 800;
     }
   }
 
   .star-box {
-    margin: 7px;
+    padding: 7px;
     background-color: white;
   }
 
@@ -61,7 +77,7 @@
   }
 
   .how-border-font {
-    margin-top: 30px;
+    // margin-top: 30px;
     padding: 15px 7px;
     font-size: 18px;
     font-weight: 700;
@@ -74,12 +90,13 @@
 
   .how-to-box {
     width: 400px;
-    height: 150px;
+
+    padding: 10px 0;
 
     .how-to-border-box {
       width: 400px;
       height: auto;
-      margin: 10px 7px;
+      // margin: 10px 7px;
       border: 1px solid $gray-opacity;
       border-radius: 5px;
     }
@@ -108,7 +125,7 @@
     display: grid;
     grid-gap: 2px;
     grid-template-columns: 1fr;
-    margin: 2px 15px;
+    // margin: 2px 15px;
   }
 
   .count-btn-box {

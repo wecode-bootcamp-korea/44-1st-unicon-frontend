@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
 import './Products.scss';
@@ -20,6 +20,9 @@ const Products = () => {
   //상단 카테고리 목테이터
   const [innerMenu, setInnerMenu] = useState([]);
   const [openModalId, setOpenModalId] = useState(0);
+  const [productsData, setProductsData] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     fetch('/data/ProductsData/innerMenu.json', {
@@ -31,50 +34,21 @@ const Products = () => {
       });
   }, []);
 
-  const [productsList, setProductsList] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pricefilter = searchParams.get('pricefilter');
 
-  // const params = useParams();
-  // const { id } = params.id;
-
-  // console.log(id);
-
-  //나열 페이지에 반복되는 제품 목데이터
-  // fetch('/data/ProductsData/productsList.json', {
-  //   method: 'GET',
-  // })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setProductsList(data);
-  //   });
-
-  //나열 페이지에 반복되는 제품 백데이터
   useEffect(() => {
-    fetch('http://10.58.52.225:3000/products/lists', {
+    fetch(`http://10.58.52.225:3000/products${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
     })
       .then(response => response.json())
-      .then(data => setProductsList(data));
-  }, []);
-
-  console.log(productsList);
-
-  //쿼리스트링 적용, (높은가격순, 낮은 가격순)
-  const [searchParams, setSearchParams] = useSearchParams();
-  const highPrices = searchParams.get('ASC');
-  const lowPrice = searchParams.get('DESC');
-  // 높은가격순 - 3000/products/lists?pricefilter=ASC
-  // 낮은가격순 - 3000/products/lists?pricefilter=DESC
-
-  useEffect(() => {
-    fetch(
-      `http://10.58.52.225:3000/products/lists?pricefilter=${highPrices}||${lowPrice}`
-    )
-      .then(response => response.json())
-      .then(result => console.log(result));
-  }, []);
+      .then(data => {
+        setProductsData(data);
+      });
+  }, [pricefilter]);
 
   return (
     <div className="products">
@@ -115,18 +89,24 @@ const Products = () => {
         })}
       </div>
       <div className="products-box">
-        {productsList.map(
-          ({ id, names, sub_description, price, image_url }) => (
-            <MiniProduct
-              key={id}
-              id={id}
-              name={names}
-              commit={sub_description}
-              price={price}
-              img={image_url}
-            />
-          )
-        )}
+        {productsData.length > 0 &&
+          productsData.map(
+            ({ id, names, sub_description, price, image_url }) => (
+              <Link
+                key={id}
+                to={`/products/detail/${id}`}
+                className="mini-product-link"
+              >
+                <MiniProduct
+                  id={id}
+                  names={names}
+                  sub_description={sub_description}
+                  price={price}
+                  image_url={image_url}
+                />
+              </Link>
+            )
+          )}
       </div>
     </div>
   );

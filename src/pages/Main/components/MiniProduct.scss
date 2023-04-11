@@ -1,41 +1,19 @@
-@import '../../../styles/mixin';
-@import '../../../styles/variables';
-
+@import '/src/styles/variables';
 .mini-product {
-  width: 200px;
-  min-width: 180px;
-  max-width: 250px;
+  width: 300px;
   height: auto;
   margin: 20px;
 
   .img {
-    width: 200px;
-    min-width: 180px;
-    max-width: 250px;
-    height: 200px;
-    min-height: 180px;
-    max-height: 250px;
+    width: 280px;
+    height: 280px;
     margin: 5px auto;
-<<<<<<< HEAD
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    cursor: pointer;
-
-    &:hover {
-      border: 1.5px solid $ikea-blue;
-    }
-=======
-    background-position: center center;
-    background-size: cover;
->>>>>>> main
   }
 
   .text-box {
     margin: 10px;
 
     .title {
-      font-size: 19px;
       font-weight: 800;
     }
 
@@ -69,7 +47,10 @@
     margin-right: 10px;
 
     .cart-btn {
-      @include flexCenter;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 50px;
       height: 50px;
       border: none;
