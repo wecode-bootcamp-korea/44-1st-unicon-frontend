@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, Eye } from 'react-feather';
+import { APIS } from '../../config';
 import './Login.scss';
 
 function Login() {
@@ -42,7 +43,7 @@ function Login() {
 
   const handleSubmit = () => {
     allInputValid &&
-      fetch('http://10.58.52.106:3000/users/signin', {
+      fetch(`${APIS.signin}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
