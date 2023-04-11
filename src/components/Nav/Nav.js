@@ -8,17 +8,13 @@ import './Nav.scss';
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    token ? setLoggedIn(true) : setLoggedIn(false);
-  }, [loggedIn]);
 
   const navigate = useNavigate();
 
+  const token = localStorage.getItem('token');
+
   const handleButton = () => {
-    if (loggedIn) {
+    if (token) {
       if (window.confirm('정말 로그아웃하시겠습니?')) {
         localStorage.removeItem('token');
         navigate('/');
@@ -27,8 +23,6 @@ const Nav = () => {
       navigate('/login');
     }
   };
-
-  console.log(loggedIn);
 
   return (
     <div className="nav">
@@ -52,14 +46,14 @@ const Nav = () => {
               className="login-header"
             >
               <div className="header-text">
-                {loggedIn ? `Hej ${`정환`}!` : 'Hej · 안녕하세요!'}
+                {token ? `Hej ${`정환`}!` : 'Hej · 안녕하세요!'}
               </div>
               <div onClick={handleButton} className="login-btn">
-                {loggedIn ? '로그아웃' : '로그인'}
+                {token ? '로그아웃' : '로그인'}
               </div>
             </div>
           </div>
-          {!loggedIn && (
+          {!token && (
             <div className="signup-link-container">
               <div
                 onClick={() => {
@@ -137,7 +131,7 @@ const Nav = () => {
               onClick={() => setDrawerOpen(prev => !prev)}
               className="icon-text-btn"
             >
-              {loggedIn ? (
+              {token ? (
                 <p>{`Hej ${`정환`}!`}</p>
               ) : (
                 <>
