@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
+import { useSearchParams } from 'react-router-dom';
 import './Modal.scss';
 
 const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   const [check, setCheck] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  // console.log(check);
   const returnOpen = id => {
     setOpenModalId(id);
   };
+  const returnClose = () => {
+    setOpenModalId(0);
+  };
 
-  const handleChange = e => {
-    setCheck(e.target.value);
+  const handleChange = value => {
+    setCheck(value);
+    searchParams.set('pricefilter', value);
+    setSearchParams(searchParams);
   };
 
   return (
@@ -34,7 +42,7 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
                     name="contact"
                     value="ASC"
                     defaultChecked={check === 'ASC'}
-                    onChange={handleChange}
+                    onChange={() => handleChange('ASC')}
                   />
                   <span className="text">높은가격순</span>
                 </label>
@@ -45,7 +53,7 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
                     name="contact"
                     value="DESC"
                     checked={check === 'DESC'}
-                    onChange={handleChange}
+                    onChange={() => handleChange('DESC')}
                   />
 
                   <span className="text">낮은가격순</span>
