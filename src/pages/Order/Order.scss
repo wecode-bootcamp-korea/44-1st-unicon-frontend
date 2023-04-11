@@ -1,0 +1,301 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.order {
+  position: relative;
+  padding: 0px 90px 0px 180px;
+  font-family: 'Noto Sans', sans-serif;
+  user-select: none;
+
+  .section-top {
+    padding: 28px 0;
+  }
+  .logo {
+    width: 100px;
+    height: 40px;
+    background-image: url('../../assets/wekea-logo.png');
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .section-main {
+    display: flex;
+    margin-top: 24px;
+
+    .cost {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 16px 0 60px 0;
+
+      font-weight: 700;
+
+      .total {
+        font-size: 14px;
+      }
+      .cost-num {
+        font-size: 22px;
+      }
+    }
+
+    .section-text {
+      width: 50%;
+
+      .section-header {
+        display: flex;
+        align-items: center;
+
+        .step-header {
+          font-size: 36px;
+          font-weight: 700;
+        }
+      }
+
+      .delivery-address {
+        margin-top: 30px;
+      }
+
+      .address-text {
+        margin: 12px 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .fix-address {
+        color: #484848;
+        font-size: 16px;
+        text-decoration: underline;
+      }
+
+      .delivery-type-header {
+        margin-top: 48px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .delivery-option-box {
+        margin: 20px 0 60px 0;
+        padding: 24px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+
+        .title-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .delivery-option-title {
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        .delivery-time {
+          margin-top: 20px;
+          color: #484848;
+          font-size: 14px;
+        }
+
+        .no-contact-box {
+          margin-top: 16px;
+          padding: 20px;
+          border: 1px solid #e6e6e6;
+          border-radius: 5px;
+          cursor: pointer;
+
+          .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+          }
+
+          .checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+          }
+
+          .checkbox-label {
+            color: #484848;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .active {
+        border: 2px solid $ikea-blue;
+      }
+
+      .inactive {
+        opacity: 0.3;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .payment-options {
+        display: flex;
+        align-items: center;
+        padding: 24px 0;
+
+        .payment-text {
+          margin-right: 16px;
+          color: #484848;
+          font-size: 14px;
+        }
+
+        .option-thumbs-1 {
+          width: 33px;
+          height: 20px;
+          margin-right: 8px;
+          border: 1px solid #cccccc;
+          border-radius: 3px;
+          background-image: url('../../assets/order/payment-wekea.png');
+          background-position: center center;
+          background-size: cover;
+        }
+        .option-thumbs-2 {
+          width: 33px;
+          height: 20px;
+          border: 1px solid #cccccc;
+          border-radius: 3px;
+          background-image: url('../../assets/order/payment-wekea-family.png');
+          background-position: center center;
+          background-size: cover;
+        }
+      }
+
+      .terms-wrapper {
+        display: flex;
+        align-items: center;
+
+        .terms {
+          width: 20px;
+          height: 20px;
+          margin-right: 16px;
+        }
+      }
+
+      .btn-purchase {
+        @include flexCenter;
+        width: 100%;
+        margin: 48px 0;
+        padding: 40px 24px;
+        transition: 0.3s;
+        border-radius: 5px;
+        background-color: $ikea-blue;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+
+        .btn-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          color: white;
+        }
+
+        .arrow-wrapper {
+          @include flexCenter;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #ffffff;
+        }
+
+        .arrow {
+          color: $ikea-blue;
+        }
+
+        &:hover {
+          background-color: #0e1c9d;
+        }
+      }
+
+      .disabled {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .right {
+    position: fixed;
+    right: 5%;
+    width: 30%;
+
+    .content-right {
+      .order-item-container {
+        font-size: 16px;
+        font-weight: 700;
+
+        .title-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .title {
+            font-size: 16px;
+            font-weight: 700;
+          }
+
+          .fix-link {
+            color: #484848;
+            font-size: 14px;
+            font-weight: 300;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        .item-thumb-container {
+          display: flex;
+          align-items: center;
+          margin: 16px 0 30px 0;
+
+          .item-thumbnail {
+            width: 64px;
+            height: 64px;
+            margin-right: 10px;
+            background-position: center center;
+            background-size: cover;
+          }
+        }
+      }
+      .order-total {
+        margin-top: 48px;
+        .title {
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .header {
+          padding: 16px 0;
+          border-bottom: 2px solid;
+          font-size: 14px;
+
+          .sum-text {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+          }
+        }
+      }
+
+      .extra-info {
+        display: flex;
+        align-items: center;
+        margin-top: 28px;
+        color: #484848;
+        font-size: 14px;
+
+        .info-text {
+          margin-left: 6px;
+          font-weight: 700;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

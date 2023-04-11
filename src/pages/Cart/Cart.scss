@@ -5,6 +5,7 @@
 .cart {
   @include flexCenter;
   font-family: 'Noto Sans', sans-serif;
+  user-select: none;
 
   .container {
     display: grid;
