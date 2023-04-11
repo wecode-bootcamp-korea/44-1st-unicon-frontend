@@ -6,32 +6,18 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
   return (
     <div className="mini-product" key={id}>
       <div
-<<<<<<< HEAD
-        className="img"
-        // key={id}
-        style={{
-          backgroundImage: `url(${img})`,
-          // , alt: 'mini-img'
-        }}
-      />
-=======
         style={{
           backgroundImage: `url(${image_url})`,
         }}
         className="img"
       />
 
->>>>>>> main
       <div className="text-box">
         <p className="title">{names}</p>
         <p className="commit">{sub_description}</p>
         <span className="price-box">
-<<<<<<< HEAD
-          <p>￦ &nbsp;{price.toLocaleString()}</p>
-=======
           <p>￦</p>
           <p>{Math.floor(price).toLocaleString()}</p>
->>>>>>> main
         </span>
         <div className="star-wrap">
           <span className="star">★★★★☆ (16)</span>

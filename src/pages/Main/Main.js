@@ -23,7 +23,6 @@ function Main() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setProductsData(data);
       });
   }, []);
@@ -122,7 +121,7 @@ function Main() {
         <h2>추천 제품</h2>
         <div className="components">
           {productsData?.map(
-            ({ id, names, sub_description, price, img_url }) => {
+            ({ id, names, sub_description, price, image_url }) => {
               return (
                 <Link
                   key={id}
@@ -132,9 +131,9 @@ function Main() {
                   <MiniProduct
                     className="items"
                     key={id}
-                    img={img_url}
-                    name={names}
-                    commit={sub_description}
+                    image_url={image_url}
+                    names={names}
+                    sub_description={sub_description}
                     price={price}
                   />
                 </Link>
