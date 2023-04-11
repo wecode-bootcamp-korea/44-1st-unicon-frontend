@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icons from '../../components/Icons/Icons';
 import CartItem from './CartItem/CartItem';
 import { APIS } from '../../config';
@@ -9,7 +10,7 @@ const Cart = () => {
   useEffect(() => {
     fetch(`${APIS.cart}`, {
       method: 'GET',
-      headers: {
+      heas: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
@@ -19,6 +20,8 @@ const Cart = () => {
         setCartData(result);
       });
   }, []);
+
+  const navigate = useNavigate();
 
   const totalCost = cartData
     .map(item => item.cost * item.quantity)
@@ -48,7 +51,10 @@ const Cart = () => {
 
   const token = localStorage.getItem('token');
 
-  if (!token) return <div>잘못된 페이지 입니다.</div>;
+  if (!token) {
+    alert('장바구니를 이용하려면 로그인 해주세요!');
+    return <button>로그인 페이지로 이동하기</button>;
+  }
 
   return (
     <div className="cart">
