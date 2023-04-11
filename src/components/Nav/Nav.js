@@ -11,31 +11,22 @@ const Nav = () => {
   const [searchData, setSearchData] = useState([]);
   const [searchInputValue, setSearchInputValue] = useState('');
 
-  useEffect(() => {
-    // TODO: 데이터 fetch용 엔드포인트
-    // fetch('http://10.58.52.225:3000/products/search', {
-    fetch('/data/searchData.json', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(response => response.json())
-      .then(result => setSearchData(result));
-  }, []);
-
   const handleInput = event => {
     const { value } = event.target;
     setSearchInputValue(value);
-  };
 
-  const matchingItems = searchData.filter(
-    ({ name, sub_description, subCategory, mainCategory }) =>
-      name.toLowerCase().includes(searchInputValue.toLowerCase()) ||
-      sub_description.toLowerCase().includes(searchInputValue.toLowerCase()) ||
-      subCategory.toLowerCase().includes(searchInputValue.toLowerCase()) ||
-      mainCategory.toLowerCase().includes(searchInputValue.toLowerCase())
-  );
+    fetch('http://10.58.52.225:3000/products/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        word: value,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => setSearchData(result));
+  };
 
   return (
     <div className="nav">
@@ -124,7 +115,7 @@ const Nav = () => {
                   !searchInputValue.length && `hidden`
                 }`}
               >
-                {matchingItems.map(
+                {searchData.map(
                   ({
                     id,
                     name,
