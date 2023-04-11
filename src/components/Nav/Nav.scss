@@ -141,7 +141,7 @@
         background-color: #efefef;
 
         &:focus {
-          outline: none;
+          border: 2px solid $ikea-blue;
         }
       }
     }

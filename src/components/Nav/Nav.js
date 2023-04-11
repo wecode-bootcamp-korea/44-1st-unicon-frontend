@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
@@ -8,6 +8,34 @@ import './Nav.scss';
 const Nav = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchData, setSearchData] = useState([]);
+  const [searchInputValue, setSearchInputValue] = useState('');
+
+  useEffect(() => {
+    fetch('/data/searchData.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(result => setSearchData(result));
+  }, []);
+
+  const handleInput = event => {
+    const { value } = event.target;
+    setSearchInputValue(value);
+  };
+
+  const matchingItems = searchData.filter(
+    ({ name, sub_description, subCategory, mainCategory }) =>
+      name.toLowerCase().includes(searchInputValue.toLowerCase()) ||
+      sub_description.toLowerCase().includes(searchInputValue.toLowerCase()) ||
+      subCategory.toLowerCase().includes(searchInputValue.toLowerCase()) ||
+      mainCategory.toLowerCase().includes(searchInputValue.toLowerCase())
+  );
+
+  console.log(matchingItems);
 
   return (
     <div className="nav">
@@ -83,7 +111,13 @@ const Nav = () => {
           <div className="logo-input-wrapper">
             <div className="wekea-logo" />
 
-            <input className="input" type="text" placeholder="검색어 입력" />
+            <input
+              onChange={handleInput}
+              value={searchInputValue}
+              className="input"
+              type="text"
+              placeholder="검색어 입력"
+            />
           </div>
           <span className="btn-container">
             <div
