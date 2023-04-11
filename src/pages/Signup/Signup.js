@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, CheckCircle } from 'react-feather';
+import { APIS } from '../../config';
 import './Signup.scss';
 import { SIGNUP_IMAGE_LIST, USER_INPUT_INFO_LIST } from './signupData';
 
@@ -69,7 +70,7 @@ const Signup = () => {
     // allValueValidated && console.log(inputs);
 
     allValueValidated &&
-      fetch('http://10.58.52.106:3000/users/signup', {
+      fetch(`${APIS.signup}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

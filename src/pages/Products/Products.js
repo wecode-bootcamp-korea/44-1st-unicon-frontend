@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
+import { APIS } from '../../config';
 import './Products.scss';
 
 const Products = () => {
@@ -25,7 +26,7 @@ const Products = () => {
   const pricefilter = searchParams.get('pricefilter');
 
   useEffect(() => {
-    fetch(`http://10.58.52.225:3000/products${location.search}`, {
+    fetch(`${APIS.products}${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

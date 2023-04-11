@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Icons from '../../components/Icons/Icons';
 import CartItem from './CartItem/CartItem';
+import { APIS } from '../../config';
 import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/data/cartData.json', {
+    fetch(`${APIS.cart}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -44,6 +45,10 @@ const Cart = () => {
       };
     });
   };
+
+  const token = localStorage.getItem('token');
+
+  if (!token) return <div>잘못된 페이지 입니다.</div>;
 
   return (
     <div className="cart">
