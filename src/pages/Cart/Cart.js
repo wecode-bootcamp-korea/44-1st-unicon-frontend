@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ArrowRight,
-  CreditCard,
-  Lock,
-  MoreHorizontal,
-  Tool,
-  Truck,
-  ShoppingBag,
-} from 'react-feather';
+import Icons from '../../components/Icons/Icons';
 import CartItem from './CartItem/CartItem';
 import './Cart.scss';
 
@@ -62,17 +54,18 @@ const Cart = () => {
               <h1 className="title">
                 장바구니{!cartData.length && '가 비어있어요'}
               </h1>
-              <MoreHorizontal />
+              <Icons name="MoreHorizontal" width={24} height={24} />
             </div>
             {cartData.length > 0 && (
               <>
                 <div className="sub">주문을 어떻게 받고 싶으세요?</div>
                 <div className="choice">
                   <div className="option">
-                    <Truck /> &nbsp;&nbsp; 배송
+                    <Icons name="Truck" width={24} height={24} /> &nbsp;&nbsp;
+                    배송
                   </div>
                   <div className="option">
-                    <ShoppingBag />
+                    <Icons name="ShoppingBag" width={24} height={24} />
                     &nbsp;&nbsp; 픽업
                   </div>
                 </div>
@@ -92,7 +85,8 @@ const Cart = () => {
         <div className="right">
           <div className="content-right">
             <div className="service">
-              <Tool
+              <Icons
+                name="Tool"
                 style={{
                   flexShrink: 0,
                 }}
@@ -130,18 +124,23 @@ const Cart = () => {
               <div className="btn-content">
                 <div className="btn-text">결제하기</div>
                 <div className="arrow-wrapper">
-                  <ArrowRight className="arrow" width={24} height={24} />
+                  <Icons
+                    name="ArrowRight"
+                    className="arrow"
+                    width={24}
+                    height={24}
+                  />
                 </div>
               </div>
             </div>
             <div className="extra-info">
-              <CreditCard width={22} height={22} />
+              <Icons name="CreditCard" width={22} height={22} />
               <div className="info-text">
                 반품 정책 365 이내에 제품 환불 가능
               </div>
             </div>
             <div className="extra-info">
-              <Lock width={22} height={22} />
+              <Icons name="Lock" width={22} height={22} />
               <div className="info-text">SSL 데이터 암호화로 안전한 쇼핑</div>
             </div>
           </div>
