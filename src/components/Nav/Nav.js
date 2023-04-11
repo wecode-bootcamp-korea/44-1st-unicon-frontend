@@ -12,6 +12,8 @@ const Nav = () => {
   const [searchInputValue, setSearchInputValue] = useState('');
 
   useEffect(() => {
+    // TODO: 데이터 fetch용 엔드포인트
+    // fetch('http://10.58.52.225:3000/products/search', {
     fetch('/data/searchData.json', {
       method: 'GET',
       headers: {
@@ -34,8 +36,6 @@ const Nav = () => {
       subCategory.toLowerCase().includes(searchInputValue.toLowerCase()) ||
       mainCategory.toLowerCase().includes(searchInputValue.toLowerCase())
   );
-
-  console.log(matchingItems);
 
   return (
     <div className="nav">
@@ -111,13 +111,54 @@ const Nav = () => {
           <div className="logo-input-wrapper">
             <div className="wekea-logo" />
 
-            <input
-              onChange={handleInput}
-              value={searchInputValue}
-              className="input"
-              type="text"
-              placeholder="검색어 입력"
-            />
+            <div className="input-wrapper">
+              <input
+                onChange={handleInput}
+                value={searchInputValue}
+                className="input"
+                type="text"
+                placeholder="검색어 입력"
+              />
+              <div
+                className={`search-result-container ${
+                  !searchInputValue.length && `hidden`
+                }`}
+              >
+                {matchingItems.map(
+                  ({
+                    id,
+                    name,
+                    image_url,
+                    sub_description,
+                    subCategory,
+                    mainCategory,
+                  }) => (
+                    <Link
+                      key={id}
+                      to={`products/detail/${id}`}
+                      style={{
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <div className="search-result-item">
+                        <div
+                          style={{
+                            backgroundImage: `url(${image_url})`,
+                          }}
+                          className="image"
+                        />
+                        <div className="text-section">
+                          <div className="name">{name}</div>
+                          <div className="properties">
+                            {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
           </div>
           <span className="btn-container">
             <div
