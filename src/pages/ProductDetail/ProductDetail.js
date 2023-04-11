@@ -98,17 +98,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      {detailData.id && (
-        <OrderBar
-          id={id}
-          names={names}
-          price={price}
-          sub_description={sub_description}
-          image_url={image_url}
-          detail={detail}
-          descriptions={descriptions}
-        />
-      )}
+      {detailData.id && <OrderBar {...detailData} />}
     </div>
   );
 }

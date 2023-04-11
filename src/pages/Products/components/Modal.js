@@ -7,12 +7,8 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   const [check, setCheck] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // console.log(check);
   const returnOpen = id => {
     setOpenModalId(id);
-  };
-  const returnClose = () => {
-    setOpenModalId(0);
   };
 
   const handleChange = value => {
@@ -41,8 +37,8 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
                     type="radio"
                     name="contact"
                     value="ASC"
-                    defaultChecked={check === 'ASC'}
-                    onChange={() => handleChange('ASC')}
+                    defaultChecked={check === 'DESC'}
+                    onChange={() => handleChange('DESC')}
                   />
                   <span className="text">높은가격순</span>
                 </label>
@@ -52,8 +48,8 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
                     type="radio"
                     name="contact"
                     value="DESC"
-                    checked={check === 'DESC'}
-                    onChange={() => handleChange('DESC')}
+                    checked={check === 'ASC'}
+                    onChange={() => handleChange('ASC')}
                   />
 
                   <span className="text">낮은가격순</span>
