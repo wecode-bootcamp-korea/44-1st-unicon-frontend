@@ -5,7 +5,7 @@ const ReviewInput = () => {
   return (
     <div className="review-input">
       <input className="input" />
-      <button className="btn" />
+      <button className="btn">상품 리뷰 올리기</button>
     </div>
   );
 };
