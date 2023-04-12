@@ -24,7 +24,6 @@ function Main() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setProductsData(data);
       });
   }, []);
@@ -41,9 +40,9 @@ function Main() {
               <br />
               새로운 계절, 집에서 시작될 푸르른 행복을 IKEA가 응원합니다.
             </span>
-            <button className="main-img-btn">
-              집에 활기를 더할 제품 보러가기
-            </button>
+            <Link to="/showroom" className="product-link">
+              <button className="main-img-btn">온라인 쇼룸 보러가기</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -123,7 +122,7 @@ function Main() {
         <h2>추천 제품</h2>
         <div className="components">
           {productsData?.map(
-            ({ id, names, sub_description, price, img_url }) => {
+            ({ id, names, sub_description, price, image_url }) => {
               return (
                 <Link
                   key={id}
@@ -133,9 +132,9 @@ function Main() {
                   <MiniProduct
                     className="items"
                     key={id}
-                    img={img_url}
-                    name={names}
-                    commit={sub_description}
+                    image_url={image_url}
+                    names={names}
+                    sub_description={sub_description}
                     price={price}
                   />
                 </Link>
