@@ -57,6 +57,7 @@ function Login() {
         .then(result => {
           if (result.accesstoken) {
             localStorage.setItem('token', result.accesstoken);
+            navigate('/');
           }
         });
   };

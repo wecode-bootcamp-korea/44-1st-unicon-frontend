@@ -20,7 +20,7 @@ const Products = () => {
   const queryString = location.search;
 
   useEffect(() => {
-    fetch(`http://10.58.52.225:3000/products${queryString}`, {
+    fetch(`${APIS.products}${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

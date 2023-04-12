@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icons from '../../components/Icons/Icons';
 import CartItem from './CartItem/CartItem';
 import { APIS } from '../../config';
@@ -6,12 +7,25 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      alert('먼저 로그인해주세요');
+      navigate('/login');
+    }
+  }, []);
+
   useEffect(() => {
     fetch(`${APIS.cart}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: token,
       },
     })
       .then(response => response.json())
@@ -19,13 +33,12 @@ const Cart = () => {
         setCartData(result);
       });
   }, []);
-
   const totalCost = cartData
-    .map(item => item.cost * item.quantity)
+    ?.map(({ quantity, price }) => quantity * price)
     .reduce((acc, cur) => acc + cur, 0);
 
   const handleAmountChange = (id, num) => {
-    const updatedData = cartData.map(item =>
+    const updatedData = cartData?.map(item =>
       id === item.id ? { ...item, quantity: item.quantity + num } : item
     );
     setCartData(updatedData);
@@ -37,19 +50,32 @@ const Cart = () => {
   };
 
   const handleSubmit = () => {
-    const bodyData = cartData.map(item => {
-      return {
-        id: item.id,
-        quantity: item.quantity,
-        userId: localStorage.getItem('token'),
-      };
-    });
+    // TODO: 아래 fetch함수를 위한 변수 선언
+    // const bodyData = cartData?.map(item => {
+    //   return {
+    //     id: item.id,
+    //     quantity: item.quantity,
+    //   };
+    // });
+
+    fetch(`${APIS.cart}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token,
+      },
+      body: {
+        // TODO: 백엔드가 받기 원하는 게 아이디와 수량뿐일 경우, 위 bodyData 변수를 사용
+        whateverthekeyis: cartData,
+      },
+    })
+      .then(response => response.json())
+      .then(result => {
+        setCartData(result);
+        navigate('/order');
+      });
   };
-
-  const token = localStorage.getItem('token');
-
-  if (!token) return <div>잘못된 페이지 입니다.</div>;
-
   return (
     <div className="cart">
       <div className="container">
@@ -76,15 +102,14 @@ const Cart = () => {
                 </div>
               </>
             )}
-            {cartData &&
-              cartData.map(cartItem => (
-                <CartItem
-                  key={cartItem.id}
-                  {...cartItem}
-                  handleAmountChange={handleAmountChange}
-                  handleDelete={handleDelete}
-                />
-              ))}
+            {cartData?.map(cartItem => (
+              <CartItem
+                key={cartItem.id}
+                {...cartItem}
+                handleAmountChange={handleAmountChange}
+                handleDelete={handleDelete}
+              />
+            ))}
           </div>
         </div>
         <div className="right">

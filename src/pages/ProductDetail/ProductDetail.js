@@ -19,7 +19,7 @@ function ProductDetail() {
   const detailPageId = params.id;
 
   useEffect(() => {
-    fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}}`, {
+    fetch(`${APIS.productDetail}${detailPageId}}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
