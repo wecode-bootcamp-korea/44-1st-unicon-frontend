@@ -24,13 +24,13 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
 
   return (
     <div className="mini-product" key={id}>
+      -
       <div
         style={{
           backgroundImage: `url(${image_url})`,
         }}
         className="img"
       />
-
       <div className="text-box">
         <p className="title">{names}</p>
         <p className="commit">{sub_description}</p>
