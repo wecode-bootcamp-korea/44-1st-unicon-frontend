@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import Drawer from '../../components/Drawer/Drawer';
+import { APIS } from '../../config';
 import './ProductDetail.scss';
 
 function ProductDetail() {
@@ -13,7 +14,7 @@ function ProductDetail() {
   const detailPageId = params.id;
 
   useEffect(() => {
-    fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}`, {
+    fetch(`${APIS.productDetail}${detailPageId}}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -98,17 +99,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      {detailData.id && (
-        <OrderBar
-          id={id}
-          names={names}
-          price={price}
-          sub_description={sub_description}
-          image_url={image_url}
-          detail={detail}
-          descriptions={descriptions}
-        />
-      )}
+      {detailData.id && <OrderBar {...detailData} />}
     </div>
   );
 }

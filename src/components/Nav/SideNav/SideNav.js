@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowLeft, X, User } from 'react-feather';
+import { ArrowLeft, X, ChevronRight } from 'react-feather';
+import { useNavigate, Link } from 'react-router-dom';
 import SecondLevelMenus from './SecondLevelMenu/SecondLevelMenus';
 import { menuData } from './menuData';
 import './SideNav.scss';
 
-const SideNav = ({ navbarOpen, closeNavbar }) => {
+const SideNav = ({ navbarOpen, setNavbarOpen }) => {
   const [navigationState, setNavigationState] = useState({
     topLevelOpen: true,
     secondLevelOpen: false,
@@ -12,15 +13,24 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
     currentTopLevel: 0,
   });
 
+  const navigate = useNavigate();
+
   const { topLevelOpen, secondLevelOpen, panelOpen, currentTopLevel } =
     navigationState;
 
   const handleTopLevelClick = id => {
-    setNavigationState({
-      topLevelOpen: false,
-      secondLevelOpen: true,
-      currentTopLevel: id,
-    });
+    if (id === 1 || id === 3) {
+      setNavigationState({
+        topLevelOpen: false,
+        secondLevelOpen: true,
+        currentTopLevel: id,
+      });
+    } else if (id === 2) {
+      navigate('/showroom');
+      setNavbarOpen(false);
+    } else {
+      return;
+    }
   };
 
   const handleMovePrev = () => {
@@ -31,7 +41,7 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
     });
   };
 
-  const handleSubMenuClick = () => {
+  const handleSubMenuClick = id => {
     setNavigationState({
       ...navigationState,
       panelOpen: true,
@@ -42,7 +52,9 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
 
   return (
     <div>
-      {navbarOpen ? <div onClick={closeNavbar} className="backdrop" /> : null}
+      {navbarOpen ? (
+        <div onClick={() => setNavbarOpen(false)} className="backdrop" />
+      ) : null}
       <div className={navbarOpen ? 'navbar open' : 'navbar'}>
         <span
           className={
@@ -52,18 +64,25 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
           }
         >
           <div className="left-column">
-            <X width={24} height={24} onClick={closeNavbar} className="icon" />
+            <X
+              width={24}
+              height={24}
+              onClick={() => setNavbarOpen(false)}
+              className="icon"
+            />
             {secondLevelOpen && (
               <ArrowLeft onClick={handleMovePrev} className="icon prev" />
             )}
           </div>
           <div className="content">
             <span>
-              <div className="wekea-logo" />
-              <div className="login-or-signup">
-                <User width={22} height={22} />
-                <p>Hej! 로그인 또는 가입하기</p>
-              </div>
+              <div
+                onClick={() => {
+                  navigate('/');
+                  setNavbarOpen(false);
+                }}
+                className="wekea-logo"
+              />
             </span>
             <div className="menus">
               {/* 메뉴 최상단 레벨일 경우 아래 부분 렌더 */}
@@ -100,7 +119,26 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
               )}
             </div>
           </div>
-          {panelOpen && <div className="panel">PANEL</div>}
+          {panelOpen && (
+            <div className="panel">
+              <div className="chevron-container">
+                <ChevronRight />
+              </div>
+              <div className="text-section">
+                <div className="header">가구</div>
+                {FURNITURE_PAGES_LINK.map(link => (
+                  <Link
+                    onClick={() => setNavbarOpen(false)}
+                    to={link.path}
+                    key={link.id}
+                    className="category"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </span>
       </div>
     </div>
@@ -108,3 +146,21 @@ const SideNav = ({ navbarOpen, closeNavbar }) => {
 };
 
 export default SideNav;
+
+const FURNITURE_PAGES_LINK = [
+  {
+    id: 1,
+    name: '의자',
+    path: '/products?mainCategory=1',
+  },
+  {
+    id: 2,
+    name: '소파',
+    path: '/products?mainCategory=2',
+  },
+  {
+    id: 3,
+    name: '조명',
+    path: '/products?mainCategory=3',
+  },
+];

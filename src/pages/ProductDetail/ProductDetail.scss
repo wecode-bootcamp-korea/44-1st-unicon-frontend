@@ -16,8 +16,6 @@
     }
 
     .img-wrap {
-      // display: flex;
-      // justify-content: space-around;
       display: grid;
       grid-gap: 5px;
       grid-template-columns: repeat(2, minmax(180px, 1fr));

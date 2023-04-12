@@ -1,28 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import Modal from './components/Modal';
+import { APIS } from '../../config';
 import './Products.scss';
 
 const Products = () => {
   const [innerMenu, setInnerMenu] = useState([]);
   const [openModalId, setOpenModalId] = useState(0);
-
   const [productsData, setProductsData] = useState([]);
 
-  useEffect(() => {
-    fetch('http://10.58.52.225:3000/products', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setProductsData(data);
-      });
-  }, []);
+  const location = useLocation();
 
   useEffect(() => {
     fetch('/data/ProductsData/innerMenu.json', {
@@ -34,17 +22,21 @@ const Products = () => {
       });
   }, []);
 
-  // const [price, setPrice] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pricefilter = searchParams.get('pricefilter');
 
-  // fetch('data/ProductsData/price.json', {
-  //   method: 'GET',
-  // })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setPrice(data);
-  //   });
-
-  // const { id, image_url, names, price, sub_description } = productsData;
+  useEffect(() => {
+    fetch(`${APIS.products}${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setProductsData(data);
+      });
+  }, [pricefilter]);
 
   return (
     <div className="products">
@@ -85,21 +77,24 @@ const Products = () => {
         })}
       </div>
       <div className="products-box">
-        {productsData?.map(({ id, names, sub_description, price, img_url }) => (
-          <Link
-            key={id}
-            to={`/products/detail/${id}`}
-            className="mini-product-link"
-          >
-            <MiniProduct
-              id={id}
-              names={names}
-              sub_description={sub_description}
-              price={price}
-              img={img_url}
-            />
-          </Link>
-        ))}
+        {productsData.length > 0 &&
+          productsData.map(
+            ({ id, names, sub_description, price, image_url }) => (
+              <Link
+                key={id}
+                to={`/products/detail/${id}`}
+                className="mini-product-link"
+              >
+                <MiniProduct
+                  id={id}
+                  names={names}
+                  sub_description={sub_description}
+                  price={price}
+                  image_url={image_url}
+                />
+              </Link>
+            )
+          )}
       </div>
     </div>
   );

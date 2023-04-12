@@ -1,0 +1,114 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.showroom-item {
+  display: flex;
+  margin-bottom: 100px;
+  font-family: 'Noto Sans', sans-serif;
+  user-select: none;
+
+  .column-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 20px;
+
+    .header-sub {
+      padding-bottom: 24px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .description {
+      width: 600px;
+      color: #484848;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .items-container {
+      display: flex;
+      position: relative;
+      width: 600px;
+      height: 140px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+
+      .link {
+        color: #111111;
+        text-decoration: none;
+      }
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        width: 5px;
+        border-radius: 5px;
+        background: $ikea-blue;
+      }
+
+      .item-wrapper {
+        display: flex;
+        flex-shrink: 0;
+        width: 440px;
+        height: 120px;
+        margin-bottom: 16px;
+
+        .item-thumb {
+          width: 120px;
+          height: 120px;
+          margin-right: 16px;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+        }
+
+        .item-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .name {
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 700;
+          }
+          .description {
+            font-size: 14px;
+          }
+          .dimension {
+            margin-top: 8px;
+            color: #484848;
+            font-size: 14px;
+          }
+          .cost {
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  .image-container {
+    width: 600px;
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.right-aligned {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}

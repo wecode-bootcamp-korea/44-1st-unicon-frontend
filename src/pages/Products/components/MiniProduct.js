@@ -2,13 +2,19 @@ import React from 'react';
 import { Heart, ShoppingCart } from 'react-feather';
 import './MiniProduct.scss';
 
-const MiniProduct = ({ id, img, name, commit, price }) => {
+const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
   return (
     <div className="mini-product" key={id}>
-      <img className="img" src={img} alt="mini-img" />
+      <div
+        style={{
+          backgroundImage: `url(${image_url})`,
+        }}
+        className="img"
+      />
+
       <div className="text-box">
-        <p className="title">{name}</p>
-        <p className="commit">{commit}</p>
+        <p className="title">{names}</p>
+        <p className="commit">{sub_description}</p>
         <span className="price-box">
           <p>￦</p>
           <p>{Math.floor(price).toLocaleString()}</p>

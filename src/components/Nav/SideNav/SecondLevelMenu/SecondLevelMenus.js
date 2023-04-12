@@ -6,15 +6,22 @@ const SecondLevelMenus = ({ currentTopMenu, handleSubMenuClick }) => {
   const { headerLevelMenu } = menuData;
   return (
     <div>
-      {currentTopMenu === (1 || 2 || 3) &&
+      <div className="second-level-header">
+        {headerLevelMenu[currentTopMenu - 1].name}
+      </div>
+      {currentTopMenu &&
         headerLevelMenu[currentTopMenu - 1].sub.map(menu => (
-          <div
-            onClick={handleSubMenuClick}
-            key={menu.id}
-            className="second-level-menus"
-          >
-            {menu.name}
-          </div>
+          <React.Fragment key={menu.id}>
+            <div
+              onClick={() => {
+                console.log(menu.id, 'clicked');
+                handleSubMenuClick(menu.id);
+              }}
+              className="second-level-menus"
+            >
+              {menu.name}
+            </div>
+          </React.Fragment>
         ))}
     </div>
   );
