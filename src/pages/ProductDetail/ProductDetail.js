@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import Drawer from '../../components/Drawer/Drawer';
+import ReviewItem from './components/ReviewItem/ReviewItem';
 import { APIS } from '../../config';
 import './ProductDetail.scss';
 
@@ -12,14 +13,10 @@ function ProductDetail() {
 
   const [num, setNum] = useState(1);
 
-  //장바구니에 담은 수량 보내주기
-  //drawer가 열릴때(클릭할때) 리뷰달기가 나와야 됨
-
   const params = useParams();
   const detailPageId = params.id;
-
   useEffect(() => {
-    fetch(`${APIS.productDetail}${detailPageId}}`, {
+    fetch(`${APIS.productDetail}${detailPageId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -36,7 +33,9 @@ function ProductDetail() {
       <Drawer
         drawerOpen={drawerOpen}
         closeDrawer={() => setDrawerOpen(!drawerOpen)}
-      />
+      >
+        <ReviewItem detailPageId={detailPageId} />
+      </Drawer>
       <div className="product-detail-page">
         <div className="product-page">
           <div className="image-box">
@@ -88,7 +87,6 @@ function ProductDetail() {
               >
                 <div>
                   <span className="text">상품평</span>
-                  <span className="five-star">★★★★☆ (16)</span>
                 </div>
                 <button className="inner-btu">
                   <ArrowRight />

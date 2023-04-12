@@ -1,8 +1,8 @@
 // @import '../../styles/mixin';
-.review-window {
+.review-item {
   width: 500px;
   height: auto;
-  padding: 20px;
+  padding: 60px;
 
   .title-box {
     // width: 500px;
@@ -33,9 +33,16 @@
       display: flex;
 
       width: 100%;
-      height: 400px;
+      height: 270px;
       overflow: auto;
       overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: #ccc;
+      }
     }
 
     .review-ul {
@@ -76,6 +83,7 @@
         margin: 0 0 3px 10px;
         // padding-bottom: 2px;
         opacity: 0.2;
+
         &:hover {
           opacity: 1;
         }
@@ -83,14 +91,14 @@
     }
   }
 
-  .review-input {
-    .review-title {
-      padding: 5px 0;
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.5;
-    }
+  .review-title {
+    padding: 20px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
 
+  .review-input {
     .explane-text {
       padding: 5px 0;
       color: rgb(118, 118, 118);

@@ -5,6 +5,9 @@ import './StarRating.scss';
 const StarRating = () => {
   const [rating, setRating] = useState(0);
 
+  console.log('rating:', rating);
+  // console.log('index:', index);
+
   return (
     <div className="star-rating">
       {[...Array(5)].map((_, index) => {

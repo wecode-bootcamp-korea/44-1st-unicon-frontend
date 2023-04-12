@@ -1,46 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { APIS } from '../../../../config';
+import StarRating from '../StarRating/StarRating';
 import { Trash2 } from 'react-feather';
-import './ReviewWindow.scss';
+import './ReviewItem.scss';
 
-const ReviewBox = () => {
+const ReviewItem = ({ detailPageId }) => {
   const [inputValue, setInputValue] = useState('');
   const [reviewValue, setReviewValue] = useState([]);
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    fetch(`${APIS.review}${detailPageId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(result => {
+        setReviewValue(result);
+      });
+  }, []);
 
   let dateValue = new Intl.DateTimeFormat('kr').format(new Date());
 
   const addReview = () => {
-    return setReviewValue([
-      ...reviewValue,
-      {
-        id: setReviewValue[i],
-        date: dateValue,
-        text: inputValue,
+    fetch(`${APIS.review}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: token,
       },
-    ]);
+      body: JSON.stringify({
+        title: dateValue,
+        content: inputValue,
+        rating: 3,
+        productId: detailPageId,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        return result;
+      });
     setInputValue('');
   };
 
-  // const enterKeyCode = e => {
-  //   if (e.keycode === 13) {
-  //     e.preventDefault();
-  //     addReview();
-  //   }
-  // };
+  const addToEnter = e => {
+    if (e.keycode === 13) {
+      e.preventDefault();
+      addReview();
+    }
+  };
 
-  const removeReview = key => {
-    // console.log('대기하세요 아직 삭제 기능없어ㅓㅓ');
+  const deleteReview = id => {
     setReviewValue(
-      reviewValue.filter(inputValue => {
-        return inputValue.key !== key;
+      reviewValue.filter(review => {
+        return review.id !== id;
       })
     );
   };
 
-  console.log('inputValue:', inputValue);
-  console.log('reviewValue:', reviewValue);
-
   return (
-    <div className="review-window">
+    <div className="review-item">
       <div className="title-box">
         <p className="title">상품평을 작성해주세요.</p>
         <p className="content-text">
@@ -50,9 +72,10 @@ const ReviewBox = () => {
       </div>
       <div className="review-input">
         <div className="review-box">
+          <StarRating />
           <p className="review-title">상품평*</p>
           <input
-            // onKeyDown={enterKeyCode}
+            onKeyOn={addToEnter}
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
             className="input-value"
@@ -71,16 +94,19 @@ const ReviewBox = () => {
         <p className="review-title">리뷰 리스트*</p>
         <div className="review-wrap">
           <ul className="review-ul">
-            {reviewValue.map(({ id, text }) => {
+            {reviewValue?.map(({ id, title, content, rating }) => {
               return (
                 <div key={id} className="list-wrap">
                   <div className="list-nav">
-                    <p>별점 자리</p>
-                    <p>{id}</p>
+                    <p>{rating}</p>
+                    <p>{title}</p>
                   </div>
                   <div className="review">
-                    <li className="review-text">{text}</li>
-                    <Trash2 onClick={removeReview} className="trash-icon" />
+                    <li className="review-text">{content}</li>
+                    <Trash2
+                      onClick={() => deleteReview(id)}
+                      className="trash-icon"
+                    />
                   </div>
                 </div>
               );
@@ -92,4 +118,4 @@ const ReviewBox = () => {
   );
 };
 
-export default ReviewBox;
+export default ReviewItem;
