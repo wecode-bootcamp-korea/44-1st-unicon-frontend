@@ -22,7 +22,7 @@ const Cart = () => {
   useEffect(() => {
     fetch(`${APIS.cart}`, {
       method: 'GET',
-      heas: {
+      headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: token,
@@ -30,13 +30,16 @@ const Cart = () => {
     })
       .then(response => response.json())
       .then(result => {
+        console.log(result);
         setCartData(result);
       });
   }, []);
 
-  const totalCost = cartData
-    ?.map(({ quantity, price }) => quantity * price)
-    .reduce((acc, cur) => acc + cur, 0);
+  const totalCost =
+    cartData &&
+    cartData
+      .map(({ quantity, price }) => quantity * price)
+      .reduce((acc, cur) => acc + cur, 0);
 
   const handleAmountChange = (id, num) => {
     const updatedData = cartData?.map(item =>
@@ -52,24 +55,26 @@ const Cart = () => {
 
   const handleSubmit = () => {
     // TODO: 아래 fetch함수를 위한 변수 선언
-    // const bodyData = cartData?.map(item => {
-    //   return {
-    //     id: item.id,
-    //     quantity: item.quantity,
-    //   };
-    // });
+    const bodyData = cartData?.map(item => {
+      return {
+        id: item.id,
+        quantity: item.quantity,
+      };
+    });
+
+    console.log(bodyData);
 
     fetch(`${APIS.cart}`, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: token,
       },
-      body: {
+      body: JSON.stringify({
         // TODO: 백엔드가 받기 원하는 게 아이디와 수량뿐일 경우, 위 bodyData 변수를 사용
-        whateverthekeyis: cartData,
-      },
+        productList: bodyData,
+      }),
     })
       .then(response => response.json())
       .then(result => {

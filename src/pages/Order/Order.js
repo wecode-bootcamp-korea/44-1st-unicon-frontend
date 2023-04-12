@@ -6,7 +6,7 @@ import { APIS } from '../../config';
 import './Order.scss';
 
 const Order = () => {
-  const [orderData, setOrderData] = useState([]);
+  const [orderData, setOrderData] = useState();
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const Order = () => {
         Accept: 'application/json',
         Authorization: token,
       },
-      body: {},
+      body: JSON.stringify({}),
     })
       .then(response => response.json())
       .then(result => console.log(result));
@@ -58,7 +58,9 @@ const Order = () => {
 
   const formNotComplete = delivery === false || terms === false;
 
-  const { message } = orderData;
+  // const { message } = orderData;
+
+  console.log(orderData);
 
   return (
     <div className="order">
@@ -66,7 +68,7 @@ const Order = () => {
         <Modal
           modalOpen={() => setModalOpen(!modalOpen)}
           setModalOpen={setModalOpen}
-          data={message}
+          data={orderData}
         />
       )}
 
@@ -79,7 +81,7 @@ const Order = () => {
             <div className="step-header">배송과 픽업 방법</div>
           </div>
           <div className="delivery-address">배송지:</div>
-          <div className="address-text">{message?.userInfo[0].addresses}</div>
+          <div className="address-text">{orderData?.userInfo}</div>
           <div onClick={() => navigate('/cart')} className="fix-address">
             수정
           </div>
@@ -124,7 +126,7 @@ const Order = () => {
             <div className="cost">
               <div className="total">총 주문금액</div>
               <div className="cost-num">
-                ₩&nbsp;{message?.totalAmount.toLocaleString()}
+                ₩&nbsp;{orderData?.totalAmount.toLocaleString()}
               </div>
             </div>
             <div className="terms-wrapper">
@@ -163,7 +165,7 @@ const Order = () => {
                 <div className="fix-link">수정</div>
               </div>
               <div className="item-thumb-container">
-                {message?.imageUrl.map((link, i) => (
+                {orderData?.imageUrl.map((link, i) => (
                   <div
                     key={i}
                     style={{
@@ -179,7 +181,7 @@ const Order = () => {
               <div className="header">
                 <div className="sum-text">
                   <div>제품 가격 (배송비 제외)</div>
-                  <div>₩&nbsp;{message?.totalAmount.toLocaleString()}</div>
+                  <div>₩&nbsp;{orderData?.totalAmount.toLocaleString()}</div>
                 </div>
                 <div className="sum-text">
                   <div>배송비</div>
@@ -190,7 +192,7 @@ const Order = () => {
             <div className="cost">
               <div className="total">총 주문금액</div>
               <div className="cost-num">
-                ₩&nbsp;{message?.totalAmount.toLocaleString()}
+                ₩&nbsp;{orderData?.totalAmount.toLocaleString()}
               </div>
             </div>
             <div className="extra-info">
