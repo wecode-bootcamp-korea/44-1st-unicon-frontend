@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
 import { useSearchParams } from 'react-router-dom';
-import './Modal.scss';
+import './ChipModal.scss';
 
-const Modal = ({ openModalId, setOpenModalId, name, id }) => {
+const ChipModal = ({ openModalId, setOpenModalId, name, id }) => {
   const [check, setCheck] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,7 +19,7 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   };
 
   return (
-    <div className="modal">
+    <div className="chip-modal">
       <div className={name}>
         <button onClick={() => returnOpen(id)} className="button" id={id}>
           <span className="btn-text">{name}</span>
@@ -64,4 +64,4 @@ const Modal = ({ openModalId, setOpenModalId, name, id }) => {
   );
 };
 
-export default Modal;
+export default ChipModal;

@@ -2,22 +2,35 @@
 @import '../../../styles/variables';
 
 .mini-product {
-  width: 250px;
+  width: 200px;
+  min-width: 180px;
+  max-width: 250px;
   height: auto;
-  // margin: 20px;
+  margin: 20px;
 
   .img {
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    min-width: 180px;
+    max-width: 250px;
+    height: 200px;
+    min-height: 180px;
+    max-height: 250px;
     margin: 5px auto;
+    background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    cursor: pointer;
+
+    &:hover {
+      border: 1.5px solid $ikea-blue;
+    }
   }
 
   .text-box {
     margin: 10px;
 
     .title {
+      font-size: 19px;
       font-weight: 800;
     }
 
@@ -47,6 +60,7 @@
     align-items: center;
     justify-content: baseline;
   }
+
   .cart-wrap {
     margin-right: 10px;
 
@@ -74,5 +88,10 @@
     .heart {
       margin: 10px;
     }
+  }
+
+  .cart-link {
+    color: black;
+    text-decoration: none;
   }
 }

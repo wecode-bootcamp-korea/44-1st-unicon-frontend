@@ -72,8 +72,15 @@ function Login() {
       <div className="left">
         <div className="column-content">
           <div className="column-top">
-            <ArrowLeft className="arrow-left" />
-            <div className="wekea-logo-white" />
+            <div
+              onClick={() => {
+                navigate(-1);
+              }}
+              className="icon-btn-wrap"
+            >
+              <ArrowLeft className="arrow-left" />
+            </div>
+            <div onClick={() => navigate('/')} className="wekea-logo-white" />
           </div>
           <div className="hero-wrapper">
             <h1 className="title">로그인</h1>

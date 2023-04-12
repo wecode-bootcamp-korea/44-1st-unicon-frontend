@@ -14,7 +14,6 @@ const SecondLevelMenus = ({ currentTopMenu, handleSubMenuClick }) => {
           <React.Fragment key={menu.id}>
             <div
               onClick={() => {
-                console.log(menu.id, 'clicked');
                 handleSubMenuClick(menu.id);
               }}
               className="second-level-menus"
