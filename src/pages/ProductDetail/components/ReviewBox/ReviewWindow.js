@@ -12,7 +12,8 @@ const ReviewBox = () => {
     return setReviewValue([
       ...reviewValue,
       {
-        id: dateValue,
+        id: setReviewValue[i],
+        date: dateValue,
         text: inputValue,
       },
     ]);
@@ -29,8 +30,8 @@ const ReviewBox = () => {
   const removeReview = key => {
     // console.log('대기하세요 아직 삭제 기능없어ㅓㅓ');
     setReviewValue(
-      reviewValue.filter(() => {
-        key === key;
+      reviewValue.filter(inputValue => {
+        return inputValue.key !== key;
       })
     );
   };
