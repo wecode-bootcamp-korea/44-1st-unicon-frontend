@@ -1,8 +1,27 @@
 import React from 'react';
 import { Heart, ShoppingCart } from 'react-feather';
+import { APIS } from '../../../config';
 import './MiniProduct.scss';
 
 const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
+  const token = localStorage.getItem('token');
+
+  const handleAddCart = id => {
+    fetch(`${APIS.cart}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        productId: id,
+        quantity: 1,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
+  };
+
   return (
     <div className="mini-product" key={id}>
       <div
@@ -25,7 +44,13 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
 
         <div className="icon-box">
           <div className="cart-wrap">
-            <button className="cart-btn">
+            <button
+              onClick={() => {
+                console.log(id);
+                handleAddCart(id);
+              }}
+              className="cart-btn"
+            >
               <ShoppingCart className="cart-icon" />
             </button>
           </div>
