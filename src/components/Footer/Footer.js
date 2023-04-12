@@ -1,5 +1,6 @@
 import React from 'react';
 import { FOOTER_LINKS_DATA } from './footerData';
+import Icons from '../Icons/Icons';
 import './Footer.scss';
 
 const Footer = () => {
@@ -32,6 +33,22 @@ const Footer = () => {
               ))}
             </div>
           ))}
+        </div>
+      </div>
+      <div className="row-bottom">
+        <div className="social-container">
+          <div className="icon">
+            <Icons name="Facebook" width={20} height={20} />
+          </div>
+          <div className="icon">
+            <Icons name="Instagram" width={20} height={20} />
+          </div>
+          <div className="icon">
+            <Icons name="Youtube" width={20} height={20} />
+          </div>
+          <div className="icon">
+            <Icons name="MessageCircle" width={20} height={20} />
+          </div>
         </div>
       </div>
     </div>

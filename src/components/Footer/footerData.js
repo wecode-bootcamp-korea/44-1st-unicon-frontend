@@ -92,6 +92,44 @@ export const FOOTER_LINKS_DATA = [
     ],
   },
   {
+    id: 3,
+    header: '서비스',
+    subMenu: [
+      {
+        id: 1,
+        menu: 'wEKEA 서비스',
+      },
+      {
+        id: 2,
+        menu: '배송 서비스',
+      },
+      {
+        id: 3,
+        menu: '조립 서비스',
+      },
+      {
+        id: 4,
+        menu: '설치 서비스',
+      },
+      {
+        id: 5,
+        menu: '주방 서비스',
+      },
+      {
+        id: 6,
+        menu: '구매 상담 서비스',
+      },
+      {
+        id: 7,
+        menu: '인테리어 디자인 서비스',
+      },
+      {
+        id: 8,
+        menu: '바이백 서비스',
+      },
+    ],
+  },
+  {
     id: 4,
     header: 'WEKEA 이야기',
     subMenu: [
