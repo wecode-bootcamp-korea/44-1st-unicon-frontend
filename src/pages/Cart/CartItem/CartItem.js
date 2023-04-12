@@ -6,7 +6,6 @@ const CartItem = ({
   id,
   image_url,
   names,
-  image,
   sub_description,
   product_size,
   price,
