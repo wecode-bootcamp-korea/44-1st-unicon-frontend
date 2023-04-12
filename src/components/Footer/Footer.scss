@@ -64,4 +64,21 @@
       }
     }
   }
+
+  .row-bottom {
+    .social-container {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        @include flexCenter;
+        width: 36px;
+        height: 36px;
+        margin-right: 16px;
+        border: 1px solid #d1d1d1;
+        border-radius: 50%;
+        color: #444444;
+      }
+    }
+  }
 }

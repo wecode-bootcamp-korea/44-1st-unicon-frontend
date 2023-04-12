@@ -17,12 +17,22 @@ const Order = () => {
 
   const { delivery, terms } = requirements;
 
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      alert('먼저 로그인해주세요');
+      navigate('/login');
+    }
+  }, []);
+
   useEffect(() => {
     fetch(`${APIS.order}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: token,
       },
     })
       .then(response => response.json())
@@ -30,6 +40,21 @@ const Order = () => {
         setOrderData(result);
       });
   }, []);
+
+  const handleOpenPyamentModal = () => {
+    fetch(`${APIS.order}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token,
+      },
+      body: {},
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
+    setModalOpen(!modalOpen);
+  };
 
   const formNotComplete = delivery === false || terms === false;
 
@@ -113,7 +138,7 @@ const Order = () => {
               <div>이용 약관을 읽었으며 동의합니다.</div>
             </div>
             <div
-              onClick={() => setModalOpen(!modalOpen)}
+              onClick={handleOpenPyamentModal}
               className={`btn-purchase ${formNotComplete && `disabled`}`}
             >
               <div className="btn-content">
