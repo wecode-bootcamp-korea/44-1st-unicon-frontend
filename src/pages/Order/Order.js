@@ -71,7 +71,7 @@ const Order = () => {
       )}
 
       <div className="section-top">
-        <div className="logo" />
+        <div onClick={() => navigate('/')} className="logo" />
       </div>
       <div className="section-main">
         <div className="section-text">
