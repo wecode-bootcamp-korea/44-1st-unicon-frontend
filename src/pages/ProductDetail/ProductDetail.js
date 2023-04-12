@@ -9,11 +9,7 @@ import './ProductDetail.scss';
 function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const [num, setNum] = useState(1);
-
-  //장바구니에 담은 수량 보내주기
-  //drawer가 열릴때(클릭할때) 리뷰달기가 나와야 됨
 
   const params = useParams();
   const detailPageId = params.id;

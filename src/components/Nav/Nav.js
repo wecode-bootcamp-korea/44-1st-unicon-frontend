@@ -41,11 +41,13 @@ const Nav = () => {
     location.pathname === '/order';
 
   const token = localStorage.getItem('token');
+  const username = localStorage.getItem('username');
 
   const handleButton = () => {
     if (token) {
       if (window.confirm('정말 로그아웃하시겠습니까?')) {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
         navigate('/');
       }
     } else {
@@ -77,7 +79,7 @@ const Nav = () => {
               className="login-header"
             >
               <div className="header-text">
-                {token ? `Hej ${`정환`}!` : 'Hej · 안녕하세요!'}
+                {token ? `Hej ${username}!` : 'Hej · 안녕하세요!'}
               </div>
               <div onClick={handleButton} className="login-btn">
                 {token ? '로그아웃' : '로그인'}
@@ -211,7 +213,7 @@ const Nav = () => {
               className="icon-text-btn"
             >
               {token ? (
-                <p>{`Hej ${`정환`}!`}</p>
+                <p>{`Hej ${username}!`}</p>
               ) : (
                 <>
                   <Icons name="User" width={20} height={20} />
