@@ -14,19 +14,22 @@ const Nav = () => {
 
   const handleInput = event => {
     const { value } = event.target;
+
     setSearchInputValue(value);
 
-    fetch(`${APIS.search}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        word: value,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => setSearchData(result));
+    if (value) {
+      fetch(`${APIS.search}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          word: value,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => setSearchData(result));
+    }
   };
 
   const navigate = useNavigate();
@@ -165,39 +168,40 @@ const Nav = () => {
                   !searchInputValue.length && `hidden`
                 }`}
               >
-                {searchData.map(
-                  ({
-                    id,
-                    name,
-                    image_url,
-                    sub_description,
-                    subCategory,
-                    mainCategory,
-                  }) => (
-                    <Link
-                      key={id}
-                      to={`products/detail/${id}`}
-                      style={{
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <div className="search-result-item">
-                        <div
-                          style={{
-                            backgroundImage: `url(${image_url})`,
-                          }}
-                          className="image"
-                        />
-                        <div className="text-section">
-                          <div className="name">{name}</div>
-                          <div className="properties">
-                            {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                {searchData &&
+                  searchData.map(
+                    ({
+                      id,
+                      name,
+                      image_url,
+                      sub_description,
+                      subCategory,
+                      mainCategory,
+                    }) => (
+                      <Link
+                        key={id}
+                        to={`products/detail/${id}`}
+                        style={{
+                          textDecoration: 'none',
+                        }}
+                      >
+                        <div className="search-result-item">
+                          <div
+                            style={{
+                              backgroundImage: `url(${image_url})`,
+                            }}
+                            className="image"
+                          />
+                          <div className="text-section">
+                            <div className="name">{name}</div>
+                            <div className="properties">
+                              {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  )
-                )}
+                      </Link>
+                    )
+                  )}
               </div>
             </div>
           </div>

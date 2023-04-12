@@ -4,11 +4,12 @@ import './CartItem.scss';
 
 const CartItem = ({
   id,
-  name,
+  image_url,
+  names,
   image,
-  description,
-  dimension,
-  cost,
+  sub_description,
+  product_size,
+  price,
   quantity,
   handleAmountChange,
   handleDelete,
@@ -17,18 +18,18 @@ const CartItem = ({
     <div className="cart-item">
       <div
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${image_url[0]})`,
         }}
         className="image"
       />
       <div className="content">
         <div className="text">
           <div className="header">
-            <div>{name}</div>
-            <div>₩&nbsp;{(cost * quantity).toLocaleString()}</div>
+            <div>{names}</div>
+            <div>₩&nbsp;{(price * quantity).toLocaleString()}</div>
           </div>
-          <div className="subtext">{description}</div>
-          <div className="subtext">{dimension}</div>
+          <div className="subtext">{sub_description}</div>
+          <div className="subtext">{product_size}</div>
         </div>
         <div className="section-bottom">
           <div className="counter-component">

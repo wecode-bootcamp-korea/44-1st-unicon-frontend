@@ -1,19 +1,18 @@
 import React from 'react';
 import { Heart, AlertCircle, Truck, Package } from 'react-feather';
 import CountButton from '../components/CountButton/CountButton';
+import { APIS } from '../../../config';
 import './OrderBar.scss';
 
 const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
   const token = localStorage.getItem('token');
 
-  console.log(id, num);
-
   const handleCartSave = () => {
-    fetch('3000/cart', {
+    fetch(`${APIS.cart}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        AUthorization: token,
+        Authorization: token,
       },
       body: JSON.stringify({
         productId: id,
@@ -22,7 +21,7 @@ const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
     })
       .then(response => response.json())
       .then(data => {
-        localStorage.setItem('token', data.accessToken);
+        return data;
       });
   };
   return (
