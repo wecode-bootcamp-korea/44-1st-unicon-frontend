@@ -52,15 +52,13 @@ const Order = () => {
       body: JSON.stringify({}),
     })
       .then(response => response.json())
-      .then(result => console.log(result));
+      .then(result => {
+        return result;
+      });
     setModalOpen(!modalOpen);
   };
 
   const formNotComplete = delivery === false || terms === false;
-
-  // const { message } = orderData;
-
-  console.log(orderData);
 
   return (
     <div className="order">

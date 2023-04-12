@@ -19,7 +19,9 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log(result));
+      .then(result => {
+        return result;
+      });
   };
 
   return (
@@ -46,7 +48,6 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
           <div className="cart-wrap">
             <button
               onClick={() => {
-                console.log(id);
                 handleAddCart(id);
               }}
               className="cart-btn"

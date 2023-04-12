@@ -69,8 +69,6 @@ const Signup = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    // allValueValidated && console.log(inputs);
-
     allValueValidated &&
       fetch(`${APIS.signup}`, {
         method: 'POST',
@@ -88,7 +86,9 @@ const Signup = () => {
         }),
       })
         .then(response => response.json())
-        .then(result => console.log(result));
+        .then(result => {
+          return result;
+        });
   };
 
   return (
@@ -179,7 +179,7 @@ const Signup = () => {
               </label>
             </span>
           </fieldset>
-          <form onSubmit={() => console.log(inputs)}>
+          <form onSubmit={handleSubmit}>
             {USER_INPUT_INFO_LIST.map(
               ({ id, label, name, type, placeholder }) => {
                 return (
