@@ -3,7 +3,28 @@ import { Heart, AlertCircle, Truck, Package } from 'react-feather';
 import CountButton from '../components/CountButton/CountButton';
 import './OrderBar.scss';
 
-const OrderBar = ({ names, price, sub_description }) => {
+const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
+  const token = localStorage.getItem('token');
+
+  console.log(id, num);
+
+  const handleCartSave = () => {
+    fetch('3000/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        AUthorization: token,
+      },
+      body: JSON.stringify({
+        productId: id,
+        quantity: num,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem('token', data.accessToken);
+      });
+  };
   return (
     <div className="order-bar">
       <div className="order-top">
@@ -25,14 +46,6 @@ const OrderBar = ({ names, price, sub_description }) => {
         <div className="star-box">
           <div>★★★★☆ (16)</div>
         </div>
-        {/* TODO: 조명 디테일 페이지에서만 쓰일 코드입니다. 잠시 주석처리하겠습니다. */}
-        {/* <div className="caution">
-          <AlertCircle className="icon" />
-          <p>
-            조명은 별도구매입니다. LED전구 E14 구형 오팔 화이트 사용을
-            권장합니다.
-          </p>
-        </div> */}
       </div>
 
       <div className="how-to-box">
@@ -59,8 +72,10 @@ const OrderBar = ({ names, price, sub_description }) => {
         </div>
       </div>
       <div className="count-btn-box">
-        <CountButton className="count-btn" />
-        <button className="order-btn">구매하기</button>
+        <CountButton className="count-btn" num={num} setNum={setNum} />
+        <button onClick={handleCartSave} className="order-btn">
+          구매하기
+        </button>
       </div>
     </div>
   );

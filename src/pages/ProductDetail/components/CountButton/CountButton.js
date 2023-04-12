@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './CountButton.scss';
 
-const CountButton = () => {
-  const [num, setNum] = useState(1);
-
+const CountButton = ({ num, setNum }) => {
   const decrease = () => {
     if (num > 0) {
       setNum(num - 1);

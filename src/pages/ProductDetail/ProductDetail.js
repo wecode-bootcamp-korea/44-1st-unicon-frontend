@@ -10,11 +10,16 @@ function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const [num, setNum] = useState(1);
+
+  //장바구니에 담은 수량 보내주기
+  //drawer가 열릴때(클릭할때) 리뷰달기가 나와야 됨
+
   const params = useParams();
   const detailPageId = params.id;
 
   useEffect(() => {
-    fetch(`${APIS.productDetail}${detailPageId}}`, {
+    fetch(`http://10.58.52.225:3000/products/detail/${detailPageId}}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -67,31 +72,25 @@ function ProductDetail() {
               <div className="inner-menu-item">
                 <p>제품 설명</p>
 
-                <button
-                  onClick={() => setDrawerOpen(!drawerOpen)}
-                  className="inner-btu"
-                >
+                <button className="inner-btu">
                   <ArrowRight />
                 </button>
               </div>
               <div className="inner-menu-item">
                 <p>치수</p>
-                <button
-                  onClick={() => setDrawerOpen(!drawerOpen)}
-                  className="inner-btu"
-                >
+                <button className="inner-btu">
                   <ArrowRight />
                 </button>
               </div>
-              <div className="inner-menu-item">
+              <div
+                className="inner-menu-item"
+                onClick={() => setDrawerOpen(!drawerOpen)}
+              >
                 <div>
                   <span className="text">상품평</span>
                   <span className="five-star">★★★★☆ (16)</span>
                 </div>
-                <button
-                  onClick={() => setDrawerOpen(!drawerOpen)}
-                  className="inner-btu"
-                >
+                <button className="inner-btu">
                   <ArrowRight />
                 </button>
               </div>
@@ -99,7 +98,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      {detailData.id && <OrderBar {...detailData} />}
+      {detailData.id && <OrderBar {...detailData} num={num} setNum={setNum} />}
     </div>
   );
 }

@@ -32,42 +32,10 @@ const Products = () => {
       });
   }, [queryString]);
 
-  //location.search -> 백앤드가 보내준 주소 '?mainCategory=순번'
-  //주소의 순번 === TOP_TEXT의 id 번호
-  //바뀌어야 하는 값에 {}를 사용해서 동적으로 바꾸기
-
-  // const locationHandle = () => {
-  //   if (location.search === '?mainCategory=1') {
-  //     return '무었을 넣어야 할까..';
-  //   } else if (location.search === '?mainCategory=2') {
-  //     return '무었을 넣어야 할까..';
-  //   } else if (location.search === '?mainCategory=3') {
-  //     return '무었을 넣어야 할까..';
-  //   }
-  // };
-
-  // console.log(pricefilter);
-  // console.log(location.search);
-  console.log(Object.keys(TOP_TEXT));
-
   const currentCategory = searchParams.get('mainCategory');
-
-  console.log(currentCategory);
 
   return (
     <div className="products">
-      {/* {currentCategory === Object.keys(TOP_TEXT) &&
-        TOP_TEXT.map(({ id, title, sub_title, contents }) => {
-          return (
-            <div key={id} className="category-explain">
-              <h1 className="page-title">{title}</h1>
-              <div className="products-text-box">
-                <h2 className="semi-title">{sub_title}</h2>
-                <p className="semi-text">{contents}</p>
-              </div>
-            </div>
-          );
-        })} */}
       <div key={TOP_TEXT[currentCategory - 1].id} className="category-explain">
         <h1 className="page-title">{TOP_TEXT[currentCategory - 1].title}</h1>
         <div className="products-text-box">
@@ -77,51 +45,6 @@ const Products = () => {
           <p className="semi-text">{TOP_TEXT[currentCategory - 1].contents}</p>
         </div>
       </div>
-      {/* {TOP_TEXT.map(({ id, title }) => {
-        return (
-          <h1 key={id} className="page-title">
-            {title}
-          </h1>
-        );
-      })}
-
-      <div className="products-text-box">
-        {TOP_TEXT.map(({ id, sub_title }) => {
-          return (
-            <h2 key={id} className="semi-title">
-              {sub_title}
-            </h2>
-          );
-        })}
-        {TOP_TEXT.map(({ id, contents }) => {
-          return (
-            <p key={id} className="semi-text">
-              {contents}
-            </p>
-          );
-        })}
-      </div> */}
-
-      {/* <div className="category-explain">
-        <h1 className="page-title">
-          {location.search === '?mainCategory=1' && TOP_TEXT[1].title}
-          {location.search === '?mainCategory=2' && TOP_TEXT[2].title}
-          {location.search === '?mainCategory=3' && TOP_TEXT[3].title}
-        </h1>
-
-        <div className="products-text-box">
-          <h2 className="semi-title">
-            {location.search === '?mainCategory=1' && TOP_TEXT[1].sub_title}
-            {location.search === '?mainCategory=2' && TOP_TEXT[2].sub_title}
-            {location.search === '?mainCategory=3' && TOP_TEXT[3].sub_title}
-          </h2>
-          <p className="semi-text">
-            {location.search === '?mainCategory=1' && TOP_TEXT[1].contents}
-            {location.search === '?mainCategory=2' && TOP_TEXT[2].contents}
-            {location.search === '?mainCategory=3' && TOP_TEXT[3].contents}
-          </p>
-        </div>
-      </div> */}
 
       <div className="chip-modal-box">
         {FILTER_BTN.map(data => {
@@ -151,6 +74,7 @@ const Products = () => {
                     sub_description={sub_description}
                     price={price}
                     image_url={image_url}
+                    productsData={productsData}
                   />
                 </Link>
               </div>
