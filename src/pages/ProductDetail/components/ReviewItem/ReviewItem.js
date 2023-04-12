@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { APIS } from '../../../../config';
 import StarRating from '../StarRating/StarRating';
 import { Trash2 } from 'react-feather';
@@ -7,9 +8,9 @@ import './ReviewItem.scss';
 const ReviewItem = ({ detailPageId }) => {
   const [inputValue, setInputValue] = useState('');
   const [reviewValue, setReviewValue] = useState([]);
+  const [meaningless, setMeaningless] = useState(false);
 
   const token = localStorage.getItem('token');
-
   useEffect(() => {
     fetch(`${APIS.review}${detailPageId}`, {
       method: 'GET',
@@ -21,7 +22,7 @@ const ReviewItem = ({ detailPageId }) => {
       .then(result => {
         setReviewValue(result);
       });
-  }, []);
+  }, [meaningless]);
 
   let dateValue = new Intl.DateTimeFormat('kr').format(new Date());
 
@@ -44,6 +45,7 @@ const ReviewItem = ({ detailPageId }) => {
         return result;
       });
     setInputValue('');
+    setMeaningless(!meaningless);
   };
 
   const addToEnter = e => {
@@ -54,11 +56,18 @@ const ReviewItem = ({ detailPageId }) => {
   };
 
   const deleteReview = id => {
-    setReviewValue(
-      reviewValue.filter(review => {
-        return review.id !== id;
-      })
-    );
+    fetch(`${APIS.review}${detailPageId}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: token,
+      },
+    })
+      .then(response => response.json())
+      .then(result => {
+        return result;
+      });
+    setMeaningless(!meaningless);
   };
 
   return (
@@ -94,23 +103,24 @@ const ReviewItem = ({ detailPageId }) => {
         <p className="review-title">리뷰 리스트*</p>
         <div className="review-wrap">
           <ul className="review-ul">
-            {reviewValue?.map(({ id, title, content, rating }) => {
-              return (
-                <div key={id} className="list-wrap">
-                  <div className="list-nav">
-                    <p>{rating}</p>
-                    <p>{title}</p>
+            {reviewValue.length > 0 &&
+              reviewValue.map(({ id, title, content, rating }) => {
+                return (
+                  <div key={id} className="list-wrap">
+                    <div className="list-nav">
+                      <p>{rating}</p>
+                      <p>{title}</p>
+                    </div>
+                    <div className="review">
+                      <li className="review-text">{content}</li>
+                      <Trash2
+                        onClick={() => deleteReview(id)}
+                        className="trash-icon"
+                      />
+                    </div>
                   </div>
-                  <div className="review">
-                    <li className="review-text">{content}</li>
-                    <Trash2
-                      onClick={() => deleteReview(id)}
-                      className="trash-icon"
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </ul>
         </div>
       </div>

@@ -28,6 +28,7 @@ function ProductDetail() {
 
   const { id, names, price, sub_description, image_url, detail, descriptions } =
     detailData;
+
   return (
     <div className="product-detail">
       <Drawer
