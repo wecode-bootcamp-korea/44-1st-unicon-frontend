@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Heart, ShoppingCart } from 'react-feather';
 import './MiniProduct.scss';
 
@@ -23,14 +25,16 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
           <span className="star">★★★★☆ (16)</span>
         </div>
 
-        <div className="icon-box">
-          <div className="cart-wrap">
-            <button className="cart-btn">
-              <ShoppingCart className="cart-icon" />
-            </button>
+        <Link to={`/products/detail/${id}`}>
+          <div className="icon-box">
+            <div className="cart-wrap">
+              <button className="cart-btn">
+                <ShoppingCart className="cart-icon" />
+              </button>
+            </div>
+            <Heart className="heart" />
           </div>
-          <Heart className="heart" />
-        </div>
+        </Link>
       </div>
     </div>
   );

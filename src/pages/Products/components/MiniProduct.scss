@@ -60,6 +60,7 @@
     align-items: center;
     justify-content: baseline;
   }
+
   .cart-wrap {
     margin-right: 10px;
 
@@ -87,5 +88,10 @@
     .heart {
       margin: 10px;
     }
+  }
+
+  .cart-link {
+    color: black;
+    text-decoration: none;
   }
 }

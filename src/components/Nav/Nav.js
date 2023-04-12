@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Drawer from '../Drawer/Drawer';
 import Icons from '../Icons/Icons';
+import { APIS } from '../../config';
 import './Nav.scss';
 
 const Nav = () => {
@@ -15,7 +16,7 @@ const Nav = () => {
     const { value } = event.target;
     setSearchInputValue(value);
 
-    fetch('http://10.58.52.225:3000/products/search', {
+    fetch(`${APIS.search}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -29,12 +30,18 @@ const Nav = () => {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const pagesWithNoNav =
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    location.pathname === '/order';
 
   const token = localStorage.getItem('token');
 
   const handleButton = () => {
     if (token) {
-      if (window.confirm('정말 로그아웃하시겠습니?')) {
+      if (window.confirm('정말 로그아웃하시겠습니까?')) {
         localStorage.removeItem('token');
         navigate('/');
       }
@@ -42,6 +49,8 @@ const Nav = () => {
       navigate('/login');
     }
   };
+
+  if (pagesWithNoNav) return null;
 
   return (
     <div className="nav">
