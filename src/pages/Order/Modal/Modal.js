@@ -40,7 +40,9 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
       body: {},
     })
       .then(response => response.json())
-      .then(result => console.log(result));
+      .then(result => {
+        return result;
+      });
     setPaymentComplete(true);
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, CheckCircle } from 'react-feather';
 import { APIS } from '../../config';
 import './Signup.scss';
@@ -24,6 +24,8 @@ const Signup = () => {
   const { terms, privacy } = checkboxes;
 
   const { name, birth, phone, gender, email, address, password } = inputs;
+
+  const navigate = useNavigate();
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -67,8 +69,6 @@ const Signup = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    // allValueValidated && console.log(inputs);
-
     allValueValidated &&
       fetch(`${APIS.signup}`, {
         method: 'POST',
@@ -86,7 +86,9 @@ const Signup = () => {
         }),
       })
         .then(response => response.json())
-        .then(result => console.log(result));
+        .then(result => {
+          return result;
+        });
   };
 
   return (
@@ -94,8 +96,15 @@ const Signup = () => {
       <div className="section-left">
         <div className="column-content">
           <div className="column-top">
-            <ArrowLeft className="arrow-left" />
-            <div className="wekea-logo" />
+            <div
+              onClick={() => {
+                navigate(-1);
+              }}
+              className="icon-btn-wrap"
+            >
+              <ArrowLeft className="arrow-left" />
+            </div>
+            <div onClick={() => navigate('/')} className="wekea-logo" />
           </div>
           <h1 className="title">
             <span className="ikea-blue">WEKEA Family</span> 회원 가입
@@ -170,7 +179,7 @@ const Signup = () => {
               </label>
             </span>
           </fieldset>
-          <form onSubmit={() => console.log(inputs)}>
+          <form onSubmit={handleSubmit}>
             {USER_INPUT_INFO_LIST.map(
               ({ id, label, name, type, placeholder }) => {
                 return (

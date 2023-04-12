@@ -14,6 +14,10 @@ import {
   Home,
   X,
   ChevronRight,
+  Facebook,
+  Instagram,
+  Youtube,
+  MessageCircle,
 } from 'react-feather';
 
 const Icons = ({ name, width, height, className = '' }) => {
@@ -41,6 +45,14 @@ const Icons = ({ name, width, height, className = '' }) => {
     Tool: <Tool width={width} height={height} className={className} />,
     ShoppingBag: (
       <ShoppingBag width={width} height={height} className={className} />
+    ),
+    Facebook: <Facebook width={width} height={height} className={className} />,
+    Instagram: (
+      <Instagram width={width} height={height} className={className} />
+    ),
+    Youtube: <Youtube width={width} height={height} className={className} />,
+    MessageCircle: (
+      <MessageCircle width={width} height={height} className={className} />
     ),
   };
 
