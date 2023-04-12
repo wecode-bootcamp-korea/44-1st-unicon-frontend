@@ -12,12 +12,15 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
   });
   const { point, terms } = checkboxes;
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     fetch(`${APIS.payment}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: token,
       },
     })
       .then(response => response.json())
@@ -25,6 +28,21 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
         setPaymentData(result);
       });
   }, []);
+
+  const handleClick = () => {
+    fetch(`${APIS.payment}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token,
+      },
+      body: {},
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
+    setPaymentComplete(true);
+  };
 
   const navigate = useNavigate();
   return (
@@ -105,7 +123,7 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
               <span>결제조건 확인 및 정보 제공</span>에 동의합니다.
             </div>
             <button
-              onClick={() => setPaymentComplete(true)}
+              onClick={handleClick}
               className={`cta-btn ${
                 (point === false || terms === false) && `disabled`
               }`}
