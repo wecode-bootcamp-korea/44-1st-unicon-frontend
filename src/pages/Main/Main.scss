@@ -179,8 +179,14 @@
       margin: 100px 0;
       overflow: auto;
       overflow-x: scroll;
-
       white-space: nowrap;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: #ccc;
+      }
     }
 
     .event-slide {
@@ -217,8 +223,14 @@
     justify-content: baseline;
     overflow: auto;
     overflow-x: scroll;
-
     white-space: nowrap;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background: #ccc;
+    }
 
     .items {
       cursor: pointer;

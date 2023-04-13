@@ -6,8 +6,6 @@ import './OrderBar.scss';
 const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
   const token = localStorage.getItem('token');
 
-  console.log(id, num);
-
   const handleCartSave = () => {
     fetch('3000/cart', {
       method: 'POST',
@@ -22,7 +20,7 @@ const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
     })
       .then(response => response.json())
       .then(data => {
-        localStorage.setItem('token', data.accessToken);
+        return data;
       });
   };
   return (
