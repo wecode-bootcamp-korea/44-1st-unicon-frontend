@@ -55,9 +55,7 @@
       }
 
       .code {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexCenter;
         width: 90px;
         height: 20px;
         background-color: black;

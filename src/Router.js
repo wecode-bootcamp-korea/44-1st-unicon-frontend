@@ -10,7 +10,11 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
 import Showroom from './pages/Showroom/Showroom';
 import Order from './pages/Order/Order';
+<<<<<<< HEAD
 import PurchasedItems from './pages/PurchasedItems/PurchasedItems';
+=======
+// import ReviewItem from './pages/ProductDetail/components/ReviewItem/ReviewItem';
+>>>>>>> main
 
 const Router = () => {
   return (
