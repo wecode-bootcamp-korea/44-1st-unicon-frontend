@@ -12,6 +12,15 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
+    .new-tag {
+      display: inline-block;
+      padding: 6px 6px;
+      background-color: #f41f49;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+    }
   }
 
   .text-box {

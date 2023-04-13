@@ -4,11 +4,7 @@
 
 .products {
   width: 100%;
-<<<<<<< HEAD
   padding: 0 90px 0 180px;
-=======
-  padding-left: 180px;
->>>>>>> main
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 
@@ -69,12 +65,6 @@
   .products-box {
     display: flex;
     flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(4, 1fr);
-
-    // min-width: 600px;
-    // max-width: 1200px;
-    // overflow: hidden;
     width: 100%;
   }
 

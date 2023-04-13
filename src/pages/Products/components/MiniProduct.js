@@ -3,7 +3,14 @@ import { Heart, ShoppingCart } from 'react-feather';
 import { APIS } from '../../../config';
 import './MiniProduct.scss';
 
-const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
+const MiniProduct = ({
+  id,
+  is_new,
+  names,
+  sub_description,
+  price,
+  image_url,
+}) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseEnter = () => {
@@ -44,7 +51,9 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
             : `url(${image_url[0]})`,
         }}
         className="img"
-      />
+      >
+        {is_new && <div className="new-tag">새로 나온 제품</div>}
+      </div>
       <div className="text-box">
         <p className="title">{names}</p>
         <p className="commit">{sub_description}</p>

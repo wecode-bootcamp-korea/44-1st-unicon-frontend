@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { APIS } from '../../config';
-import Icons from '../../components/Icons/Icons';
 import './PurchasedItems.scss';
 
 const PurchasedItems = () => {
@@ -10,7 +9,6 @@ const PurchasedItems = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // fetch(`${APIS.puchasedItems}`, {
     fetch('/data/purchasedItemsData.json', {
       method: 'GET',
       headers: {
@@ -22,8 +20,6 @@ const PurchasedItems = () => {
       .then(response => response.json())
       .then(result => setPurchasedItemsData(result));
   }, []);
-
-  console.log(purchasedItemsData);
 
   return (
     <div className="purchased-items">
