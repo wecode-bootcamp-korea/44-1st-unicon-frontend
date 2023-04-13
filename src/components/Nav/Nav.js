@@ -14,19 +14,22 @@ const Nav = () => {
 
   const handleInput = event => {
     const { value } = event.target;
+
     setSearchInputValue(value);
 
-    fetch(`${APIS.search}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        word: value,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => setSearchData(result));
+    if (value) {
+      fetch(`${APIS.search}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          word: value,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => setSearchData(result));
+    }
   };
 
   const navigate = useNavigate();
@@ -38,11 +41,13 @@ const Nav = () => {
     location.pathname === '/order';
 
   const token = localStorage.getItem('token');
+  const username = localStorage.getItem('username');
 
   const handleButton = () => {
     if (token) {
       if (window.confirm('정말 로그아웃하시겠습니까?')) {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
         navigate('/');
       }
     } else {
@@ -74,7 +79,7 @@ const Nav = () => {
               className="login-header"
             >
               <div className="header-text">
-                {token ? `Hej ${`정환`}!` : 'Hej · 안녕하세요!'}
+                {token ? `Hej ${username}!` : 'Hej · 안녕하세요!'}
               </div>
               <div onClick={handleButton} className="login-btn">
                 {token ? '로그아웃' : '로그인'}
@@ -165,39 +170,40 @@ const Nav = () => {
                   !searchInputValue.length && `hidden`
                 }`}
               >
-                {searchData.map(
-                  ({
-                    id,
-                    name,
-                    image_url,
-                    sub_description,
-                    subCategory,
-                    mainCategory,
-                  }) => (
-                    <Link
-                      key={id}
-                      to={`products/detail/${id}`}
-                      style={{
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <div className="search-result-item">
-                        <div
-                          style={{
-                            backgroundImage: `url(${image_url})`,
-                          }}
-                          className="image"
-                        />
-                        <div className="text-section">
-                          <div className="name">{name}</div>
-                          <div className="properties">
-                            {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                {searchData &&
+                  searchData.map(
+                    ({
+                      id,
+                      name,
+                      image_url,
+                      sub_description,
+                      subCategory,
+                      mainCategory,
+                    }) => (
+                      <Link
+                        key={id}
+                        to={`products/detail/${id}`}
+                        style={{
+                          textDecoration: 'none',
+                        }}
+                      >
+                        <div className="search-result-item">
+                          <div
+                            style={{
+                              backgroundImage: `url(${image_url})`,
+                            }}
+                            className="image"
+                          />
+                          <div className="text-section">
+                            <div className="name">{name}</div>
+                            <div className="properties">
+                              {`${sub_description}, ${subCategory}, ${mainCategory}`}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  )
-                )}
+                      </Link>
+                    )
+                  )}
               </div>
             </div>
           </div>
@@ -207,7 +213,7 @@ const Nav = () => {
               className="icon-text-btn"
             >
               {token ? (
-                <p>{`Hej ${`정환`}!`}</p>
+                <p>{`Hej ${username}!`}</p>
               ) : (
                 <>
                   <Icons name="User" width={20} height={20} />

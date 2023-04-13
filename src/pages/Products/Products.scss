@@ -4,7 +4,7 @@
 
 .products {
   width: 100%;
-  padding-left: 180px;
+  padding: 0 90px 0 180px;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 
@@ -63,11 +63,9 @@
   }
 
   .products-box {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    min-width: 600px;
-    max-width: 1200px;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .mini-product-link {

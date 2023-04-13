@@ -30,6 +30,7 @@ const Cart = () => {
     })
       .then(response => response.json())
       .then(result => {
+        console.log(result);
         setCartData(result);
       });
   }, []);

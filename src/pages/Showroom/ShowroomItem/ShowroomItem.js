@@ -31,7 +31,7 @@ const ShowroomItem = ({
                 <div className="item-wrapper">
                   <div
                     style={{
-                      backgroundImage: `url(${image_url})`,
+                      backgroundImage: `url(${image_url[0]})`,
                     }}
                     className="item-thumb"
                   />

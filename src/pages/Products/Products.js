@@ -34,6 +34,8 @@ const Products = () => {
 
   const currentCategory = searchParams.get('mainCategory');
 
+  console.log(productsData);
+
   return (
     <div className="products">
       <div key={TOP_TEXT[currentCategory - 1].id} className="category-explain">
@@ -62,7 +64,7 @@ const Products = () => {
       <div className="products-box">
         {productsData.length > 0 &&
           productsData.map(
-            ({ id, names, sub_description, price, image_url }) => (
+            ({ id, is_new, names, sub_description, price, image_url }) => (
               <div key={id}>
                 <Link
                   to={`/products/detail/${id}`}
@@ -70,6 +72,7 @@ const Products = () => {
                 >
                   <MiniProduct
                     id={id}
+                    is_new={is_new}
                     names={names}
                     sub_description={sub_description}
                     price={price}
