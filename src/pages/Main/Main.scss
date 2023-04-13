@@ -1,5 +1,6 @@
-/* stylelint-disable max-nesting-depth */
 @import '/src/styles/variables';
+@import '../../styles/mixin';
+
 .main {
   width: 100%;
   padding: 0 90px 0 180px;
@@ -75,13 +76,25 @@
 
     .mapping-box {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
-      height: 100%;
       overflow: auto;
       overflow-x: scroll;
-
       white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        height: 5px;
+
+        &:hover {
+          background: #e8e8e88c;
+        }
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: #ccc;
+
+        &:hover {
+          background-color: black;
+        }
+      }
     }
 
     .color-card-map {
@@ -90,7 +103,7 @@
       align-items: center;
       width: 230px;
       height: 320px;
-      margin: 25px;
+      margin: 20px;
       padding: 40px;
       background-color: #ca5009;
       background-size: cover;
@@ -111,9 +124,7 @@
         }
 
         .right-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexCenter;
           width: 50px;
           height: 50px;
           padding: 10px;
@@ -136,9 +147,7 @@
         height: 100%;
 
         .color-box-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexCenter;
           width: auto;
           height: 45px;
           padding: 10px;
@@ -156,9 +165,7 @@
   }
 
   .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     width: 50px;
     height: 50px;
     padding: 10px;
@@ -175,17 +182,26 @@
   .event-box {
     .event-wrap {
       display: flex;
-      justify-content: baseline;
-      margin: 100px 0;
+      margin-bottom: 100px;
+      padding: 20px;
       overflow: auto;
       overflow-x: scroll;
       white-space: nowrap;
+
       &::-webkit-scrollbar {
-        width: 4px;
+        height: 5px;
+
+        &:hover {
+          background: #e8e8e88c;
+        }
       }
       &::-webkit-scrollbar-thumb {
         border-radius: 2px;
         background: #ccc;
+
+        &:hover {
+          background-color: black;
+        }
       }
     }
 
@@ -218,18 +234,32 @@
       }
     }
   }
+
+  .recommended-product {
+    margin-bottom: 100px;
+  }
+
   .components {
     display: flex;
     justify-content: baseline;
     overflow: auto;
     overflow-x: scroll;
     white-space: nowrap;
+
     &::-webkit-scrollbar {
-      width: 4px;
+      height: 5px;
+
+      &:hover {
+        background: #e8e8e88c;
+      }
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 2px;
       background: #ccc;
+
+      &:hover {
+        background-color: black;
+      }
     }
 
     .items {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, AlertCircle, Truck, Package } from 'react-feather';
+import { Heart, Truck, Package } from 'react-feather';
 import CountButton from '../components/CountButton/CountButton';
 import './OrderBar.scss';
 

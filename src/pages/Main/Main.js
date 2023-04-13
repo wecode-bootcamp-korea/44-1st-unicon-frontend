@@ -118,7 +118,7 @@ function Main() {
           })}
         </div>
       </div>
-      <div>
+      <div className="recommended-product">
         <h2>추천 제품</h2>
         <div className="components">
           {productsData?.map(

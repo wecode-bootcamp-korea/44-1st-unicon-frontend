@@ -9,7 +9,6 @@ const ChipModal = ({ openModalId, setOpenModalId, name, id }) => {
 
   const returnOpen = id => {
     openModalId === id ? setOpenModalId(0) : setOpenModalId(id);
-    // setOpenModalId(id);
   };
 
   const handleChange = value => {
