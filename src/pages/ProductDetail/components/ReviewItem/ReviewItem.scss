@@ -1,22 +1,24 @@
-// @import '../../styles/mixin';
+@import '../../../../styles/mixin';
 .review-item {
   width: 500px;
-  height: auto;
-  padding: 60px;
+  width: 100%;
+  height: 100%;
+  padding: 50px 30px 0 40px;
+  overflow: auto;
+  // overscroll-behavior: contain;
+  overflow-y: scroll;
+  @include scrollStyle;
 
   .title-box {
-    // width: 500px;
-    // height: 700px;
-
     .title {
-      margin: 10px 0;
+      // margin: 10px 0;
       font-size: 25px;
       font-weight: 700;
     }
 
     .content-text {
       margin: 10px 0;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       font-weight: 300;
       line-height: 1.571;
     }
@@ -24,25 +26,16 @@
 
   .review-list {
     height: auto;
-    // max-height: 400px;
     padding: 10px;
-    padding-top: 60px;
-    // border: 1px solid black;
 
     .review-wrap {
       display: flex;
-
       width: 100%;
-      height: 270px;
+      height: 350px;
       overflow: auto;
+      // overscroll-behavior: contain;
       overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 4px;
-      }
-      &::-webkit-scrollbar-thumb {
-        border-radius: 2px;
-        background: #ccc;
-      }
+      @include scrollStyle;
     }
 
     .review-ul {
@@ -64,7 +57,6 @@
       .review {
         display: flex;
         align-items: center;
-        // justify-content: space-around;
         font-size: 0.75rem;
         font-weight: 700;
         line-height: 1.5;
@@ -81,7 +73,6 @@
       .trash-icon {
         width: 17px;
         margin: 0 0 3px 10px;
-        // padding-bottom: 2px;
         opacity: 0.2;
 
         &:hover {
@@ -92,7 +83,7 @@
   }
 
   .review-title {
-    padding: 20px 0 10px 0;
+    padding: 10px 0;
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5;
@@ -107,7 +98,7 @@
     }
 
     .review-box {
-      padding: 20px 10px;
+      padding: 30px 10px;
 
       .input-value {
         width: 100%;
@@ -119,7 +110,7 @@
 
     .btn {
       width: 100%;
-      height: 60px;
+      height: 50px;
 
       border: none;
       border-radius: 40px;
