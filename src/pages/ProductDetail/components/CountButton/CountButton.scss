@@ -1,27 +1,35 @@
 @import '../../../../styles/variables';
+@import '../../../../styles/mixin';
 .count-button {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 150px;
-  height: 70px;
+
   margin: 10px;
-  border: 1px solid $gray-opacity;
-  border-radius: 40px;
+  // border: 1px solid $gray-opacity;
+  border-radius: 55px;
 
   .num {
+    padding: 0 12px;
     font-size: 26px;
+    font-weight: 700;
   }
 
   .button {
-    margin: 5px;
+    @include flexCenter;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    transition: 0.3s;
     border: none;
-    background-color: rgba(1, 1, 1, 0);
-    color: rgb(211, 211, 211);
+    border-radius: 15px;
+    background-color: #eaeaea;
+    color: #898989;
     font-size: 40px;
+    cursor: pointer;
 
     &:hover {
-      color: black;
+      background-color: rgb(134, 134, 134);
+      color: #ffffff;
     }
   }
 }

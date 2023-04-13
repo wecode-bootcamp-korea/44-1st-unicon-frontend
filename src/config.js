@@ -11,6 +11,6 @@ export const APIS = {
   productDetail: `${BASE_URL}/products/detail/`,
   products: `${BASE_URL}/products`,
   showRoom: `${BASE_URL}/products/showRoom`,
-  puchasedItems: `${BASE_URL}/purchaseditems`,
+  purchasedItems: `${BASE_URL}/order/purchaseditems`,
   review: `${BASE_URL}/review/`,
 };

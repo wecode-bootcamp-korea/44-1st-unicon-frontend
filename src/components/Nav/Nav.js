@@ -181,6 +181,10 @@ const Nav = () => {
                       mainCategory,
                     }) => (
                       <Link
+                        onClick={() => {
+                          setSearchInputValue('');
+                          setSearchData([]);
+                        }}
                         key={id}
                         to={`products/detail/${id}`}
                         style={{

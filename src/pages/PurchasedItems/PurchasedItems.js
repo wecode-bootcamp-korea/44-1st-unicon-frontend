@@ -9,7 +9,7 @@ const PurchasedItems = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('/data/purchasedItemsData.json', {
+    fetch(`${APIS.purchasedItems}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
