@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Star } from 'react-feather';
 import './StarRating.scss';
 
-const StarRating = () => {
-  const [rating, setRating] = useState(0);
-
+const StarRating = ({ rating, setRating }) => {
   return (
     <div className="star-rating">
       {[...Array(5)].map((_, index) => {

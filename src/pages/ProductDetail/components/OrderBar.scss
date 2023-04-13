@@ -1,17 +1,9 @@
 @import '../../../styles/mixin';
 @import '../../../styles/variables';
 .order-bar {
-  // box-sizing: content-box;
   width: auto;
   height: 500px;
   padding-top: 20px;
-
-  // .order-top {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: space-around;
-  //   height: 230px;
-  // }
 
   .title-wrap {
     display: flex;
@@ -27,10 +19,6 @@
       height: 100px;
       font-size: 20px;
 
-      // p {
-      //   margin: 7px;
-      // }
-
       .text-weight {
         font-size: 22px;
         font-weight: 800;
@@ -45,7 +33,6 @@
   }
 
   .price-box {
-    // margin: 10px 0;
     display: flex;
     width: 400px;
     height: auto;
@@ -77,7 +64,6 @@
   }
 
   .how-border-font {
-    // margin-top: 30px;
     padding: 15px 7px;
     font-size: 18px;
     font-weight: 700;
@@ -96,7 +82,6 @@
     .how-to-border-box {
       width: 400px;
       height: auto;
-      // margin: 10px 7px;
       border: 1px solid $gray-opacity;
       border-radius: 5px;
     }
@@ -125,7 +110,6 @@
     display: grid;
     grid-gap: 2px;
     grid-template-columns: 1fr;
-    // margin: 2px 15px;
   }
 
   .count-btn-box {
