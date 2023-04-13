@@ -16,6 +16,10 @@ function Main() {
   const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
+  useEffect(() => {
     fetch(`${APIS.productsMain}`, {
       method: 'GET',
       headers: {

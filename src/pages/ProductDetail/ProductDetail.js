@@ -10,13 +10,16 @@ import './ProductDetail.scss';
 function ProductDetail() {
   const [detailData, setDetailData] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const [num, setNum] = useState(1);
 
   const params = useParams();
   const detailPageId = params.id;
   useEffect(() => {
-    fetch(`${APIS.productDetail}${detailPageId}`, {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    fetch(`${APIS.productDetail}${detailPageId}}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

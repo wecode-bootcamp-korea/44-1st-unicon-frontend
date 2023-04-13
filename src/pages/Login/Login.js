@@ -41,7 +41,9 @@ function Login() {
     setPasswordVisible(prev => !prev);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+
     allInputValid &&
       fetch(`${APIS.signin}`, {
         method: 'POST',
@@ -57,6 +59,7 @@ function Login() {
         .then(result => {
           if (result.accesstoken) {
             localStorage.setItem('token', result.accesstoken);
+            localStorage.setItem('username', result.names);
             navigate('/');
           }
         });
@@ -100,72 +103,74 @@ function Login() {
           </span>
         </div>
       </div>
-      <div className="right">
-        <div className="right-content-container">
-          <label>
-            이메일 또는 확인된 핸드폰 번호
-            <input
-              onChange={handleInput}
-              onBlur={() => {
-                handleWarningMsg(userIdValid, 'idIncorrect');
-              }}
-              value={userId}
-              name="userId"
-              type="text"
-              placeholder="아이디를 입력해주세요"
-            />
-          </label>
-          <div className="feature-otp">
-            <p>다른 로그인 방법: &nbsp; </p>
-            <span className="underline">일회용 코드로 로그인</span>
-          </div>
-          {idIncorrect && (
-            <div className="warning">
-              <AlertCircle className="icon" /> 올바른 아이디를 입력해주세요.
+      <form onClick={handleSubmit}>
+        <div className="right">
+          <div className="right-content-container">
+            <label>
+              이메일 또는 확인된 핸드폰 번호
+              <input
+                onChange={handleInput}
+                onBlur={() => {
+                  handleWarningMsg(userIdValid, 'idIncorrect');
+                }}
+                value={userId}
+                name="userId"
+                type="text"
+                placeholder="아이디를 입력해주세요"
+              />
+            </label>
+            <div className="feature-otp">
+              <p>다른 로그인 방법: &nbsp; </p>
+              <span className="underline">일회용 코드로 로그인</span>
             </div>
-          )}
-          <label>
-            비밀번호
-            <input
-              onChange={handleInput}
-              value={password}
-              onBlur={() => {
-                handleWarningMsg(passwordValid, 'pwIncorrect');
-              }}
-              name="password"
-              type={passwordVisible ? 'text' : 'password'}
-              placeholder="비밀번호를 입력해주세요"
-            />
-          </label>
-          <div onClick={handleClick} className="reveal-container">
-            <Eye height={20} width={20} />
-            <p>비밀번호 확인하기</p>
-          </div>
-          {pwIncorrect && (
-            <div className="warning">
-              <AlertCircle className="icon" /> 올바른 비밀번호를 입력해주세요.
+            {idIncorrect && (
+              <div className="warning">
+                <AlertCircle className="icon" /> 올바른 아이디를 입력해주세요.
+              </div>
+            )}
+            <label>
+              비밀번호
+              <input
+                onChange={handleInput}
+                value={password}
+                onBlur={() => {
+                  handleWarningMsg(passwordValid, 'pwIncorrect');
+                }}
+                name="password"
+                type={passwordVisible ? 'text' : 'password'}
+                placeholder="비밀번호를 입력해주세요"
+              />
+            </label>
+            <div onClick={handleClick} className="reveal-container">
+              <Eye height={20} width={20} />
+              <p>비밀번호 확인하기</p>
             </div>
-          )}
-          <div className="checkbox-container">
-            <input className="checkbox" type="checkbox" />
-            <span className="label">로그인 상태 유지</span>
-          </div>
-          <button
-            onClick={handleSubmit}
-            className={`submit-btn ${!allInputValid && 'disabled'}`}
-          >
-            로그인
-          </button>
-          <div className="signup">
-            <div className="text">
-              IKEA 계정이 없으신가요? 지금 바로 만들어보세요.
+            {pwIncorrect && (
+              <div className="warning">
+                <AlertCircle className="icon" /> 올바른 비밀번호를 입력해주세요.
+              </div>
+            )}
+            <div className="checkbox-container">
+              <input className="checkbox" type="checkbox" />
+              <span className="label">로그인 상태 유지</span>
             </div>
-            <button onClick={() => navigate('/signup')} className="btn">
-              회원 가입하기
+            <button
+              onClick={handleSubmit}
+              className={`submit-btn ${!allInputValid && 'disabled'}`}
+            >
+              로그인
             </button>
+            <div className="signup">
+              <div className="text">
+                IKEA 계정이 없으신가요? 지금 바로 만들어보세요.
+              </div>
+              <button onClick={() => navigate('/signup')} className="btn">
+                회원 가입하기
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

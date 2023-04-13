@@ -1,17 +1,18 @@
 import React from 'react';
 import { Heart, Truck, Package } from 'react-feather';
 import CountButton from '../components/CountButton/CountButton';
+import { APIS } from '../../../config';
 import './OrderBar.scss';
 
 const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
   const token = localStorage.getItem('token');
 
   const handleCartSave = () => {
-    fetch('3000/cart', {
+    fetch(`${APIS.cart}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        AUthorization: token,
+        Authorization: token,
       },
       body: JSON.stringify({
         productId: id,
@@ -72,7 +73,7 @@ const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
       <div className="count-btn-box">
         <CountButton className="count-btn" num={num} setNum={setNum} />
         <button onClick={handleCartSave} className="order-btn">
-          구매하기
+          장바구니에 담기
         </button>
       </div>
     </div>

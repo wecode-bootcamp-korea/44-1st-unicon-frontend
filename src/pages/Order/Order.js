@@ -27,6 +27,10 @@ const Order = () => {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetch(`${APIS.order}`, {
       method: 'GET',
       headers: {
@@ -160,7 +164,9 @@ const Order = () => {
             <div className="order-item-container">
               <div className="title-wrapper">
                 <div className="title">주문 정보</div>
-                <div className="fix-link">수정</div>
+                <div onClick={() => navigate('/cart')} className="fix-link">
+                  수정
+                </div>
               </div>
               <div className="item-thumb-container">
                 {orderData?.imageUrl.map((link, i) => (

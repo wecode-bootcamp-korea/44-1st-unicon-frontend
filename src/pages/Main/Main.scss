@@ -1,11 +1,13 @@
 /* stylelint-disable max-nesting-depth */
 @import '/src/styles/variables';
 @import '../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
 
 .main {
   width: 100%;
   padding: 0 90px 0 180px;
   background-color: white;
+  font-family: 'Noto Sans', sans-serif;
 
   .semi-menu {
     width: auto;

@@ -64,6 +64,7 @@
         margin-bottom: 16px;
 
         .item-thumb {
+          flex-shrink: 0;
           width: 120px;
           height: 120px;
           margin-right: 16px;

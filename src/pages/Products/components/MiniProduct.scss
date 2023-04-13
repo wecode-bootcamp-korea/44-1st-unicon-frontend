@@ -1,42 +1,50 @@
 @import '../../../styles/mixin';
 @import '../../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
 
 .mini-product {
-  width: 200px;
-  min-width: 180px;
-  max-width: 250px;
   height: auto;
-  margin: 20px;
+  margin: 36px;
 
   .img {
-    width: 200px;
-    min-width: 180px;
-    max-width: 250px;
-    height: 200px;
-    min-height: 180px;
-    max-height: 250px;
-    margin: 5px auto;
+    width: 300px;
+    height: 300px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    cursor: pointer;
 
-    &:hover {
-      border: 1.5px solid $ikea-blue;
+    .new-tag {
+      display: inline-block;
+      padding: 6px 6px;
+      background-color: #f41f49;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
     }
   }
 
   .text-box {
-    margin: 10px;
+    margin-top: 20px;
 
     .title {
-      font-size: 19px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .won {
+      margin-right: 4px;
+      font-size: 10px;
+    }
+
+    .price {
+      font-size: 24px;
     }
 
     .commit {
       margin: 10px 0;
-      font-size: 15px;
+      color: #484848;
+      font-size: 14px;
+      font-weight: 400;
     }
 
     .price-box {
@@ -49,9 +57,9 @@
   }
 
   .star-wrap {
-    margin: 20px 0;
+    margin: 12px 0 24px 0;
     .star {
-      font-size: 15px;
+      font-size: 12px;
     }
   }
 
@@ -61,21 +69,40 @@
     justify-content: baseline;
   }
 
+  .available {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+
+    .circle {
+      width: 10px;
+      height: 10px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background-color: rgb(10, 138, 0);
+    }
+
+    .text {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
   .cart-wrap {
-    margin-right: 10px;
+    margin-right: 18px;
 
     .cart-btn {
       @include flexCenter;
-      width: 50px;
-      height: 50px;
+      width: 46px;
+      height: 46px;
+      transition: 0.3s;
       border: none;
       border-radius: 70%;
-      opacity: 0.6;
+      opacity: 0.8;
       background-color: $ikea-blue;
 
       &:hover {
         opacity: 1;
-        background-color: $ikea-blue;
       }
     }
 
@@ -86,7 +113,7 @@
     }
 
     .heart {
-      margin: 10px;
+      color: #484848;
     }
   }
 
