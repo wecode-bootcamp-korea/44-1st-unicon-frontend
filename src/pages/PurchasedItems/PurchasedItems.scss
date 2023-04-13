@@ -1,0 +1,101 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+.purchased-items {
+  padding: 40px 90px 40px 180px;
+  font-family: 'Noto Sans', sans-serif;
+  user-select: none;
+
+  .page-header {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  .items-container {
+    margin-top: 36px;
+
+    .purhcased-link {
+      color: #111111;
+      text-decoration: none;
+    }
+
+    .item-wrapper {
+      display: flex;
+      padding: 24px;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(242, 242, 242);
+      }
+
+      .item-image {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        background-position: center center;
+        background-size: cover;
+      }
+    }
+
+    .section-right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .text-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 24px;
+
+        .item-name {
+          margin-bottom: 6px;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .description {
+          font-size: 16px;
+        }
+
+        .price-count-wrapper {
+          display: flex;
+          align-items: center;
+
+          .price {
+            padding-top: 8px;
+            color: #484848;
+            font-size: 14px;
+          }
+
+          .separator {
+            padding: 0 8px;
+            color: #d8d8d8;
+          }
+        }
+        .total-price {
+          margin-top: 8px;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+
+      .purchased-btn {
+        padding: 16px 24px;
+        transition: 0.3s;
+        border-radius: 45px;
+        background-color: #111111;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+
+        &:hover {
+          background-color: $ikea-blue;
+        }
+      }
+    }
+  }
+}

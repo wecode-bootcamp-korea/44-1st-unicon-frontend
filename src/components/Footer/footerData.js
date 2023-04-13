@@ -97,7 +97,7 @@ export const FOOTER_LINKS_DATA = [
     subMenu: [
       {
         id: 1,
-        menu: 'wEKEA 서비스',
+        menu: 'WEKEA 서비스',
       },
       {
         id: 2,

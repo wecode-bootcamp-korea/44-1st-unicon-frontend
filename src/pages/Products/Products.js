@@ -34,6 +34,8 @@ const Products = () => {
 
   const currentCategory = searchParams.get('mainCategory');
 
+  console.log(productsData);
+
   return (
     <div className="products">
       <div key={TOP_TEXT[currentCategory - 1].id} className="category-explain">

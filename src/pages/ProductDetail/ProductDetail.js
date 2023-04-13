@@ -15,6 +15,10 @@ function ProductDetail() {
   const detailPageId = params.id;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetch(`${APIS.productDetail}${detailPageId}}`, {
       method: 'GET',
       headers: {

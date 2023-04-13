@@ -1,8 +1,11 @@
 @import '../../styles/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
 .product-detail {
   display: flex;
   justify-content: center;
   margin: 0 100px 0 80px;
+  font-family: 'Noto Sans', sans-serif;
 
   .image-box {
     width: 100%;

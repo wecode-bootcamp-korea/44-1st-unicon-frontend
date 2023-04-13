@@ -4,9 +4,7 @@
 
 .products {
   width: 100%;
-  padding-left: 180px;
-
-  // padding: 0 90px 0 180px;
+  padding: 0 90px 0 180px;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 
@@ -65,45 +63,19 @@
   }
 
   .products-box {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    // width: 970px;
-    min-width: 600px;
-    max-width: 1200px;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    // display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+
+    // min-width: 600px;
+    // max-width: 1200px;
+    // overflow: hidden;
+    width: 100%;
   }
 
   .mini-product-link {
     color: black;
     text-decoration: none;
   }
-
-  // .cart-wrap {
-  //   margin-right: 10px;
-
-  //   .cart-btn {
-  //     @include flexCenter;
-  //     width: 50px;
-  //     height: 50px;
-  //     border: none;
-  //     border-radius: 70%;
-  //     opacity: 0.6;
-  //     background-color: $ikea-blue;
-
-  //     &:hover {
-  //       opacity: 1;
-  //       background-color: $ikea-blue;
-  //     }
-  //   }
-
-  //   .cart-icon {
-  //     width: 18px;
-  //     height: 18px;
-  //     color: white;
-  //   }
-
-  //   .heart {
-  //     margin: 10px;
-  //   }
-  // }
 }

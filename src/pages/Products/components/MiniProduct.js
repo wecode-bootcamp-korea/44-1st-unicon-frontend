@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heart, ShoppingCart } from 'react-feather';
 import { APIS } from '../../../config';
 import './MiniProduct.scss';
 
 const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   const token = localStorage.getItem('token');
 
   const handleAddCart = id => {
@@ -26,10 +35,13 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
 
   return (
     <div className="mini-product" key={id}>
-      -
       <div
+        onMouseOver={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: `url(${image_url})`,
+          backgroundImage: isHovering
+            ? `url(${image_url[1]})`
+            : `url(${image_url[0]})`,
         }}
         className="img"
       />
@@ -37,12 +49,12 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
         <p className="title">{names}</p>
         <p className="commit">{sub_description}</p>
         <span className="price-box">
-          <p>￦</p>
-          <p>{Math.floor(price).toLocaleString()}</p>
+          <p className="won">￦</p>
+          <p className="price">{Math.floor(price).toLocaleString()}</p>
         </span>
-        <div className="star-wrap">
-          <span className="star">★★★★☆ (16)</span>
-        </div>
+        {/* <div className="star-wrap">
+          <span className="star">★★★★☆ ({Math.floor(Math.random() * 50)})</span>
+        </div> */}
 
         <div className="icon-box">
           <div className="cart-wrap">
@@ -55,7 +67,11 @@ const MiniProduct = ({ id, names, sub_description, price, image_url }) => {
               <ShoppingCart className="cart-icon" />
             </button>
           </div>
-          <Heart className="heart" />
+          <Heart width={20} height={20} className="heart" />
+        </div>
+        <div className="available">
+          <div className="circle" />
+          <div className="text">재고 있음</div>
         </div>
       </div>
     </div>

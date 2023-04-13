@@ -73,7 +73,7 @@ const OrderBar = ({ id, names, price, sub_description, num, setNum }) => {
       <div className="count-btn-box">
         <CountButton className="count-btn" num={num} setNum={setNum} />
         <button onClick={handleCartSave} className="order-btn">
-          구매하기
+          장바구니에 담기
         </button>
       </div>
     </div>
