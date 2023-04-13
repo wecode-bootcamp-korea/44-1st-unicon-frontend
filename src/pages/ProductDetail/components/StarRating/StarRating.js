@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Star } from 'react-feather';
 import './StarRating.scss';
 

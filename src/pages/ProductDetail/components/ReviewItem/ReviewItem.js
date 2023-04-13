@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
 import { APIS } from '../../../../config';
 import StarRating from '../StarRating/StarRating';
 import { Trash2 } from 'react-feather';
@@ -62,6 +61,10 @@ const ReviewItem = ({ detailPageId }) => {
     }
   };
 
+  const onSubmit = e => {
+    e.preventDefault();
+  };
+
   const deleteReview = id => {
     fetch(`${APIS.review}${detailPageId}/${id}`, {
       method: 'DELETE',
@@ -77,8 +80,6 @@ const ReviewItem = ({ detailPageId }) => {
       }
     });
   };
-
-  console.log('rating:', rating);
 
   return (
     <div className="review-item">
@@ -117,12 +118,12 @@ const ReviewItem = ({ detailPageId }) => {
           </div>
         </div>
 
-        <div className="review-input">
+        <form className="review-form" onSubmit={onSubmit}>
           <div className="review-box">
             <StarRating rating={rating} setRating={setRating} />
             <p className="review-title">상품평*</p>
             <input
-              onKeyOn={addToEnter}
+              onKeyDown={addToEnter}
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
               className="input-value"
@@ -136,7 +137,7 @@ const ReviewItem = ({ detailPageId }) => {
           <button className="btn" onClick={addReview}>
             상품 리뷰 올리기
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
