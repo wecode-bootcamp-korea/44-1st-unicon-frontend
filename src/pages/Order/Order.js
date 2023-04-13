@@ -42,6 +42,9 @@ const Order = () => {
       .then(response => response.json())
       .then(result => {
         setOrderData(result);
+        const { orderNumber } = result;
+        console.log(orderNumber);
+        sessionStorage.setItem('orderNumber', orderNumber);
       });
   }, []);
 

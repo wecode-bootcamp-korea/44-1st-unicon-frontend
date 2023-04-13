@@ -61,6 +61,8 @@ const Cart = () => {
       };
     });
 
+    console.log(bodyData);
+
     fetch(`${APIS.cart}`, {
       method: 'PUT',
       headers: {
@@ -78,6 +80,7 @@ const Cart = () => {
         navigate('/order');
       });
   };
+
   return (
     <div className="cart">
       <div className="container">

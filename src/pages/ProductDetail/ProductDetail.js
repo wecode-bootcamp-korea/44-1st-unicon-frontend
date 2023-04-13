@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import Drawer from '../../components/Drawer/Drawer';
@@ -16,6 +16,15 @@ function ProductDetail() {
   const detailPageId = params.id;
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  const location = useLocation();
+  console.log(location);
+
+  useEffect(() => {
+    if (location.state === 'review') {
+      setDrawerOpen(true);
+    }
   }, []);
 
   useEffect(() => {

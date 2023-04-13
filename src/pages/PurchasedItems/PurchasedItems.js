@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { APIS } from '../../config';
 import './PurchasedItems.scss';
 
 const PurchasedItems = () => {
   const [purchasedItemsData, setPurchasedItemsData] = useState([]);
-
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -57,7 +57,15 @@ const PurchasedItems = () => {
                         <div className="total-price">₩&nbsp;총 가격</div>
                       </span>
                     </div>
-                    <div className="purchased-btn">리뷰 쓰기</div>
+                    <div
+                      className="purchased-btn"
+                      onClick={e => {
+                        e.stopPropagation();
+                        navigate(`/products/detail/${id}`, { state: 'review' });
+                      }}
+                    >
+                      리뷰 쓰기
+                    </div>
                   </div>
                 </div>
               </Link>
