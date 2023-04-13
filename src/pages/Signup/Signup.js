@@ -84,11 +84,12 @@ const Signup = () => {
           birth: inputs.birth,
           gender: inputs.gender,
         }),
-      })
-        .then(response => response.json())
-        .then(result => {
-          return result;
-        });
+      }).then(response => {
+        if (response.ok) {
+          alert('회원가입이 완료되었습니다.');
+          navigate('/');
+        }
+      });
   };
 
   return (
@@ -107,7 +108,7 @@ const Signup = () => {
             <div onClick={() => navigate('/')} className="wekea-logo" />
           </div>
           <h1 className="title">
-            <span className="ikea-blue">WEKEA Family</span> 회원 가입
+            <span className="WEKEA-blue">WEKEA Family</span> 회원 가입
           </h1>
           <div className="login">
             <p>이미 가입하셨나요?&nbsp;</p>
@@ -152,7 +153,7 @@ const Signup = () => {
       <div className="section-right">
         <div className="column-content">
           <fieldset>
-            <legend className="legend">IKEA Family에 가입하시겠어요?</legend>
+            <legend className="legend">WEKEA Family에 가입하시겠어요?</legend>
             <span>
               <input
                 name="family-signup"
@@ -162,7 +163,7 @@ const Signup = () => {
                 value="family-signup"
               />
               <label htmlFor="family-signup">
-                예, IKEA Family의 다양한 혜택 및 할인을 즐기고 싶습니다! IKEA
+                예, WEKEA Family의 다양한 혜택 및 할인을 즐기고 싶습니다! WEKEA
                 Family 혜택
               </label>
             </span>
@@ -174,7 +175,7 @@ const Signup = () => {
                 value="family-no"
               />
               <label htmlFor="family-no">
-                아니요, 추가 혜택 없이 온라인 몰만 가입하고 싶습니다. IKEA
+                아니요, 추가 혜택 없이 온라인 몰만 가입하고 싶습니다. WEKEA
                 Family 혜택
               </label>
             </span>

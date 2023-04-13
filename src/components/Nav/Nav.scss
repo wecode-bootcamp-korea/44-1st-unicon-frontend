@@ -11,7 +11,7 @@
 
     .section-top {
       padding: 48px;
-      background-color: $ikea-blue;
+      background-color: $WEKEA-blue;
 
       .close-container {
         display: flex;
@@ -52,7 +52,7 @@
       justify-content: space-between;
       padding: 20px 48px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
-      background-color: $ikea-blue;
+      background-color: $WEKEA-blue;
 
       .signup-link {
         color: #ffffff;
@@ -154,7 +154,7 @@
         background-color: #efefef;
 
         &:focus {
-          border: 2px solid $ikea-blue;
+          border: 2px solid $WEKEA-blue;
         }
       }
 

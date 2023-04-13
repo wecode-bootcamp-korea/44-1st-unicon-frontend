@@ -60,6 +60,8 @@ function Login() {
           if (result.accesstoken) {
             localStorage.setItem('token', result.accesstoken);
             localStorage.setItem('username', result.names);
+            const username = localStorage.getItem('username');
+            alert(`안녕하세요 ${username}님!`);
             navigate('/');
           }
         });
@@ -162,7 +164,7 @@ function Login() {
             </button>
             <div className="signup">
               <div className="text">
-                IKEA 계정이 없으신가요? 지금 바로 만들어보세요.
+                WEKEA 계정이 없으신가요? 지금 바로 만들어보세요.
               </div>
               <button onClick={() => navigate('/signup')} className="btn">
                 회원 가입하기

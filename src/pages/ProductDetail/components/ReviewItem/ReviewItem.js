@@ -74,9 +74,11 @@ const ReviewItem = ({ detailPageId }) => {
       },
     }).then(response => {
       if (response.ok) {
-        getReviewList();
+        if (window.confirm('정말 삭제하시겠습니까?')) {
+          getReviewList();
+        }
       } else {
-        alert('다시 시도해주세요');
+        alert('작성자가 아니면 삭제할 수 없습니다!');
       }
     });
   };

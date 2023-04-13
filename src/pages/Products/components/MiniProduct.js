@@ -61,10 +61,6 @@ const MiniProduct = ({
           <p className="won">￦</p>
           <p className="price">{Math.floor(price).toLocaleString()}</p>
         </span>
-        {/* <div className="star-wrap">
-          <span className="star">★★★★☆ ({Math.floor(Math.random() * 50)})</span>
-        </div> */}
-
         <div className="icon-box">
           <div className="cart-wrap">
             <button

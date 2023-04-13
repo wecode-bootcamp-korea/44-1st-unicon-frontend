@@ -1,9 +1,10 @@
 import React from 'react';
+import { Plus, Minus } from 'react-feather';
 import './CountButton.scss';
 
 const CountButton = ({ num, setNum }) => {
   const decrease = () => {
-    if (num > 0) {
+    if (num > 1) {
       setNum(num - 1);
     }
   };
@@ -14,13 +15,13 @@ const CountButton = ({ num, setNum }) => {
 
   return (
     <div className="count-button">
-      <button onClick={decrease} className="button">
-        &nbsp;-&nbsp;
-      </button>
+      <div onClick={decrease} className="button">
+        <Minus />
+      </div>
       <p className="num">{num}</p>
-      <button onClick={increase} className="button">
-        &nbsp;+&nbsp;
-      </button>
+      <div onClick={increase} className="button">
+        <Plus />
+      </div>
     </div>
   );
 };

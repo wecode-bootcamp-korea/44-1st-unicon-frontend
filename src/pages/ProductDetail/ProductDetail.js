@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import OrderBar from './components/OrderBar';
 import { ArrowRight } from 'react-feather';
 import Drawer from '../../components/Drawer/Drawer';
@@ -18,6 +18,15 @@ function ProductDetail() {
     window.scrollTo(0, 0);
   }, []);
 
+  const location = useLocation();
+  console.log(location);
+
+  useEffect(() => {
+    if (location.state === 'review') {
+      setDrawerOpen(true);
+    }
+  }, []);
+
   useEffect(() => {
     fetch(`${APIS.productDetail}${detailPageId}}`, {
       method: 'GET',
@@ -32,6 +41,8 @@ function ProductDetail() {
   const { id, names, price, sub_description, image_url, detail, descriptions } =
     detailData;
 
+  console.log(detailData);
+
   return (
     <div className="product-detail">
       <Drawer
@@ -45,28 +56,38 @@ function ProductDetail() {
           <div className="image-box">
             <div className="img-border">
               <div className="img-wrap">
-                {image_url?.map((image, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="img"
-                      style={{
-                        background: `url(${image})`,
-                        backgroundSize: 'cover',
-                      }}
-                    />
-                  );
-                })}
+                {image_url?.length === 1 ? (
+                  <div
+                    className="img full"
+                    style={{
+                      background: `url(${image_url && image_url[0]})`,
+                      backgroundSize: 'cover',
+                    }}
+                  />
+                ) : (
+                  image_url?.map((image, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className="img"
+                        style={{
+                          background: `url(${image})`,
+                          backgroundSize: 'cover',
+                        }}
+                      />
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
           <div className="detail-box">
             <div className="detail-text-box">
-              <p className="detail-text"> {sub_description}</p>
+              <p className="detail-text"> {detail}</p>
               <div className="product-code-box">
                 <div className="product-code-wrap">
                   <p className="text">제품번호</p>
-                  <p className="code">{id}</p>
+                  <div className="code">{id}</div>
                 </div>
               </div>
             </div>
@@ -92,7 +113,10 @@ function ProductDetail() {
                 <div>
                   <span className="text">상품평</span>
                 </div>
-                <button className="inner-btu">
+                <button
+                  onClick={() => setDrawerOpen(!drawerOpen)}
+                  className="inner-btu"
+                >
                   <ArrowRight />
                 </button>
               </div>

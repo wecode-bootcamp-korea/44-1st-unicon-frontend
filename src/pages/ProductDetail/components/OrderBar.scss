@@ -1,34 +1,35 @@
 @import '../../../styles/mixin';
 @import '../../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
 .order-bar {
-  width: auto;
-  height: 500px;
-  padding-top: 20px;
+  margin-left: 40px;
 
   .title-wrap {
     display: flex;
     width: 400px;
-    height: 100px;
-    padding: 7px;
 
     .title-text {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      width: 300px;
-      height: 100px;
+      flex-grow: 1;
       font-size: 20px;
 
       .text-weight {
-        font-size: 22px;
-        font-weight: 800;
+        margin-bottom: 12px;
+        font-size: 18px;
+        font-weight: 700;
       }
-    }
 
-    .heart-icon {
-      width: 25px;
-      height: 25px;
-      margin: 7px;
+      .sub-info {
+        display: flex;
+        align-items: center;
+        .sub {
+          color: #484848;
+          font-size: 18px;
+          font-weight: 300;
+        }
+      }
     }
   }
 
@@ -36,15 +37,15 @@
     display: flex;
     width: 400px;
     height: auto;
-    padding: 20px 0 10px 0;
+    padding: 24px 0;
 
-    span {
-      padding: 10px 5px;
-      font-size: 25px;
+    .won {
+      margin-right: 8px;
+      font-size: 18px;
     }
 
     .price-num {
-      font-size: 35px;
+      font-size: 30px;
       font-weight: 800;
     }
   }
@@ -64,20 +65,39 @@
   }
 
   .how-border-font {
-    padding: 15px 7px;
-    font-size: 18px;
+    padding: 24px 0;
+    font-size: 16px;
     font-weight: 700;
   }
 
   .border-font {
-    margin: 0;
+    font-size: 16px;
     font-weight: 700;
+  }
+  .border-sub {
+    padding-top: 6px;
+    font-size: 14px;
+    font-weight: 300;
   }
 
   .how-to-box {
     width: 400px;
-
     padding: 10px 0;
+
+    .choose-size {
+      padding: 24px 0;
+      border-top: 1px solid #e4e4e4;
+      border-bottom: 1px solid #e4e4e4;
+      font-size: 16px;
+      font-weight: 700;
+
+      .size {
+        margin-top: 8px;
+        color: #484848;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
 
     .how-to-border-box {
       width: 400px;
@@ -114,17 +134,19 @@
 
   .count-btn-box {
     display: flex;
-    justify-content: baseline;
 
     .order-btn {
-      width: 150px;
-      height: 70px;
+      width: 100%;
+      height: 60px;
       margin: 10px;
+      transition: 0.3s;
       border: none;
       border-radius: 40px;
       background-color: rgb(80, 148, 211);
       color: white;
+      font-size: 16px;
       font-weight: 700;
+      cursor: pointer;
     }
     .order-btn:hover {
       background-color: rgb(1, 88, 170);

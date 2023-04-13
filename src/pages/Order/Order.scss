@@ -125,7 +125,7 @@
       }
 
       .active {
-        border: 2px solid $ikea-blue;
+        border: 2px solid $WEKEA-blue;
       }
 
       .inactive {
@@ -184,7 +184,7 @@
         padding: 40px 24px;
         transition: 0.3s;
         border-radius: 5px;
-        background-color: $ikea-blue;
+        background-color: $WEKEA-blue;
         font-size: 18px;
         font-weight: 700;
         cursor: pointer;
@@ -206,7 +206,7 @@
         }
 
         .arrow {
-          color: $ikea-blue;
+          color: $WEKEA-blue;
         }
 
         &:hover {

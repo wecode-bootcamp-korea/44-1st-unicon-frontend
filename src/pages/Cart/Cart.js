@@ -49,6 +49,19 @@ const Cart = () => {
   };
 
   const handleDelete = id => {
+    fetch(`${APIS.cart}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token,
+      },
+    })
+      .then(response => response.json())
+      .then(result => {
+        return result;
+      });
+
     const updatedData = cartData.filter(item => item.id !== id);
     window.confirm('정말 삭제하시겠습니까?') && setCartData(updatedData);
   };
@@ -60,6 +73,8 @@ const Cart = () => {
         quantity: item.quantity,
       };
     });
+
+    console.log(bodyData);
 
     fetch(`${APIS.cart}`, {
       method: 'PUT',
@@ -78,6 +93,7 @@ const Cart = () => {
         navigate('/order');
       });
   };
+
   return (
     <div className="cart">
       <div className="container">
@@ -129,8 +145,8 @@ const Cart = () => {
               <div className="text-wrap">
                 <div className="service-title">조립 서비스</div>
                 <p className="service-content">
-                  IKEA에게 조립을 맡기고 소중한 시간을 아끼세요. 공식 협력업체가
-                  제공하는 조립 서비스는 3만원부터 시작합니다.
+                  WEKEA에게 조립을 맡기고 소중한 시간을 아끼세요. 공식
+                  협력업체가 제공하는 조립 서비스는 3만원부터 시작합니다.
                 </p>
                 <p className="service-caption">
                   우편 번호를 추가하여 예약 가능 여부 및 가격 확인

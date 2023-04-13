@@ -42,18 +42,26 @@ const Order = () => {
       .then(response => response.json())
       .then(result => {
         setOrderData(result);
+        const { orderNumber } = result;
+        sessionStorage.setItem('orderNumber', orderNumber);
       });
   }, []);
 
-  const handleOpenPyamentModal = () => {
-    fetch(`${APIS.order}`, {
+  const orderNumber = sessionStorage.getItem('orderNumber');
+
+  console.log(orderNumber);
+
+  const handleOpenPaymentModal = () => {
+    fetch(`${APIS.payment}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: token,
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        orderNumber: orderNumber,
+      }),
     })
       .then(response => response.json())
       .then(result => {
@@ -142,7 +150,7 @@ const Order = () => {
               <div>이용 약관을 읽었으며 동의합니다.</div>
             </div>
             <div
-              onClick={handleOpenPyamentModal}
+              onClick={handleOpenPaymentModal}
               className={`btn-purchase ${formNotComplete && `disabled`}`}
             >
               <div className="btn-content">

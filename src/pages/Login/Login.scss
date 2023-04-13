@@ -12,7 +12,7 @@
     justify-content: center;
     height: 100vh;
     padding: 32px 120px;
-    background-color: $ikea-blue;
+    background-color: $WEKEA-blue;
 
     .column-top {
       display: flex;
@@ -41,7 +41,7 @@
           cursor: pointer;
 
           &:hover {
-            color: $ikea-blue;
+            color: $WEKEA-blue;
           }
         }
       }
@@ -63,7 +63,7 @@
       .hero-wrapper {
         .title {
           margin-bottom: 16px;
-          color: $ikea-yellow;
+          color: $WEKEA-yellow;
           font-size: 32px;
           font-weight: 700;
         }
@@ -156,7 +156,7 @@
     .reveal-container {
       display: flex;
       align-items: center;
-      color: $ikea-blue;
+      color: $WEKEA-blue;
       font-size: 14px;
       cursor: pointer;
       user-select: none;
@@ -200,7 +200,7 @@
       transition: 0.3s;
       border: 0;
       border-radius: 64px;
-      background-color: $ikea-blue;
+      background-color: $WEKEA-blue;
       color: #ffffff;
       font-size: 14px;
       font-weight: 700;
@@ -216,10 +216,12 @@
     }
 
     .signup {
+      display: block;
       margin-top: 80px;
       .text {
         font-size: 14px;
         font-weight: 700;
+        text-align: center;
       }
       .btn {
         width: 100%;

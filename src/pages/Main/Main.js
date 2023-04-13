@@ -42,7 +42,7 @@ function Main() {
             <span className="main-small-text">
               집안 어디서든 간편하게 봄을 시작해보세요.
               <br />
-              새로운 계절, 집에서 시작될 푸르른 행복을 IKEA가 응원합니다.
+              새로운 계절, 집에서 시작될 푸르른 행복을 WEKEA가 응원합니다.
             </span>
             <Link to="/showroom" className="product-link">
               <button className="main-img-btn">온라인 쇼룸 보러가기</button>
@@ -57,7 +57,7 @@ function Main() {
           <div className="mapping-box">
             <div className="color-card-map">
               <div className="card-contents-first">
-                <span>IKEA 신제품 보러가기</span>
+                <span>WEKEA 신제품 보러가기</span>
                 <ArrowRight className="btn" />
               </div>
             </div>

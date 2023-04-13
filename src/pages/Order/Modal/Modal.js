@@ -13,18 +13,23 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
   const { point, terms } = checkboxes;
 
   const token = localStorage.getItem('token');
+  const orderNumber = sessionStorage.getItem('orderNumber');
 
   useEffect(() => {
     fetch(`${APIS.payment}`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: token,
       },
+      body: JSON.stringify({
+        orderNumber: orderNumber,
+      }),
     })
       .then(response => response.json())
       .then(result => {
+        console.log(result);
         setPaymentData(result);
       });
   }, []);
@@ -37,7 +42,6 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
         Accept: 'application/json',
         Authorization: token,
       },
-      body: {},
     })
       .then(response => response.json())
       .then(result => {
@@ -109,9 +113,7 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
             {point && (
               <div className="total-wrapper">
                 <div className="label">결제 후 잔여 WEKEA points:</div>
-                <div className="point">
-                  {paymentData?.message.remainingPoints}
-                </div>
+                <div className="point">{paymentData?.updatePoint}</div>
               </div>
             )}
 

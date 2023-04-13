@@ -3,31 +3,39 @@
 
 .product-detail {
   display: flex;
-  justify-content: center;
-  margin: 0 100px 0 80px;
+  padding: 60px 90px 0 180px;
   font-family: 'Noto Sans', sans-serif;
+  user-select: none;
+
+  .product-detail-page {
+    width: 60%;
+  }
 
   .image-box {
     width: 100%;
     height: 100%;
+
     .img-border {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       height: 100%;
-      padding: 20px;
     }
 
     .img-wrap {
-      display: grid;
-      grid-gap: 5px;
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
-      width: 630px;
-      height: 630px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 800px;
+      height: 800px;
 
       .img {
-        width: 300px;
-        height: 300px;
+        width: 50%;
+        height: 50%;
+      }
+
+      .full {
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -39,7 +47,9 @@
       width: 100%;
       height: 100%;
       padding: 30px 0;
-      font-size: 15px;
+      color: #444444;
+      font-size: 20px;
+      line-height: 1.4;
     }
 
     .product-code-box {
@@ -47,20 +57,23 @@
       align-items: center;
       width: 100%;
       height: 50px;
+      margin-bottom: 20px;
 
       .text {
         display: flex;
         align-items: center;
+        padding-bottom: 10px;
         font-size: 13px;
       }
 
       .code {
         @include flexCenter;
         width: 90px;
-        height: 20px;
+        padding: 4px;
         background-color: black;
         color: white;
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 700;
       }
     }
   }
@@ -72,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 700px;
+      width: 800px;
       height: 100px;
       padding: 30px 0;
       border-top: 1px solid rgba(128, 128, 128, 0.45);
@@ -84,6 +97,7 @@
       border: none;
       background-color: rgba(128, 128, 128, 0);
       color: gray;
+      cursor: pointer;
     }
 
     .inner-btu:hover {

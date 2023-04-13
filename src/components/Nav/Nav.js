@@ -95,7 +95,7 @@ const Nav = () => {
                 }}
                 className="signup-link"
               >
-                IKEA 계정 생성하기
+                WEKEA 계정 생성하기
               </div>
               <div
                 onClick={() => {
@@ -109,7 +109,7 @@ const Nav = () => {
             </div>
           )}
           <div className="signup-link-container">
-            <div className="signup-link">IKEA Business Network 가입하기</div>
+            <div className="signup-link">WEKEA Business Network 가입하기</div>
             <div className="drawer-icon-btn">
               <Icons name="ChevronRight" width={24} height={24} />
             </div>
@@ -185,6 +185,10 @@ const Nav = () => {
                         to={`products/detail/${id}`}
                         style={{
                           textDecoration: 'none',
+                        }}
+                        onClick={() => {
+                          setSearchInputValue('');
+                          setSearchData([]);
                         }}
                       >
                         <div className="search-result-item">
