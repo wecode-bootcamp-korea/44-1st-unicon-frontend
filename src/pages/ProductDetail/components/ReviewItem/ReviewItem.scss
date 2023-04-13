@@ -1,17 +1,16 @@
 @import '../../../../styles/mixin';
+
 .review-item {
   width: 500px;
   width: 100%;
   height: 100%;
   padding: 50px 30px 0 40px;
   overflow: auto;
-  // overscroll-behavior: contain;
   overflow-y: scroll;
   @include scrollStyle;
 
   .title-box {
     .title {
-      // margin: 10px 0;
       font-size: 25px;
       font-weight: 700;
     }
@@ -33,7 +32,6 @@
       width: 100%;
       height: 350px;
       overflow: auto;
-      // overscroll-behavior: contain;
       overflow-y: scroll;
       @include scrollStyle;
     }
@@ -89,7 +87,7 @@
     line-height: 1.5;
   }
 
-  .review-input {
+  .review-form {
     .explane-text {
       padding: 5px 0;
       color: rgb(118, 118, 118);

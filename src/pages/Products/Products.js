@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Link,
-  useLocation,
-  useSearchParams,
-  ShoppingCart,
-} from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import MiniProduct from '../Products/components/MiniProduct';
 import ChipModal from './components/ChipModal';
 import { APIS } from '../../config';
