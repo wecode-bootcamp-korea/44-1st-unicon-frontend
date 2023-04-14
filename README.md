@@ -9,9 +9,7 @@
 - 최선영 <a href="https://github.com/suny0ung">
 
 
-<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/eslint-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/prettier-icon.svg" alt="icon" width="65" height="65" /><img src="https://miro.medium.com/v2/resize:fit:480/1*Iohnw2aOQ5EBghVoqKA7VA.png" alt="icon" width="55" height="55" />
-
-- <a href="https://github.com/wecode-bootcamp-korea/42-2nd-OneOhOne-frontend"><img src="https://img.shields.io/badge/FrontEnd Repo-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/wecode-bootcamp-korea/42-2nd-OneOhOne-frontend"/></a>
+<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" />
 
 
 ## BackEnd
@@ -19,30 +17,12 @@
 - **Project** Manager - 이홍열 <a href="https://github.com/hongyeollee"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/hongyeollee"/></a>
 - 최원경 <a href="https://github.com/wkc28"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/wkc28"/></a>
 
-<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/jest-icon.svg" alt="icon" width="65" height="65" />
+<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="65" height="65" />
 
-- <a href="https://github.com/wecode-bootcamp-korea/42-2nd-OneOhOne-backend"><img src="https://img.shields.io/badge/BackEnd Repo-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/wecode-bootcamp-korea/42-2nd-OneOhOne-backend"/></a>
-
-
-## 협업툴
-
-* <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
-* <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=White"/>
-* <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor={로고 색깔}"/>
-* <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white"/>
-* <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/>
-* <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=Trello&logoColor=white"/>
-* <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
-
-* **커뮤니케이션 방법**
-  - 매일 오전 Agile 프로세스 기반으로 미팅 진행
-  - 미팅간 작업 진행상황 공유, Blocker 및 Blocker 해결방안 공유, 당일 진행할 작업 내용 공유
-  - Postman을 통해 백엔드 명세서 공유
-
-
+  
 <br/>
 
-# OneOhOne (O.O.O.)
+# WEKEA - 가구 e-commerce 클론 코딩 프로젝트
 
 - 이 제품이 전달하고자 하는 가치와 그 의미는 무엇인가?
   - **컨텐츠 크리에이터**에겐 지적 재산을 공유 할 수 있는 기회를 제공해주고
@@ -63,16 +43,11 @@
 <br/>
 
 # 🖥️ 구현 화면 목록
-1. 로그인 (F준현,B원경)
-2. 메인 (F준현,B홍열)
-3. 상세 (F혜린,B홍열)
-4. 콘텐츠 플레이어 (F혜린,B원경)
-5. 호스팅 (F유진,B홍열)
+1. 로그인 (정환)
+2. 메인 (선영)
+3. 상세 (선영)
 
-(시연영상이 재생되지 않을 시, 이미지를 클릭하면 확인하실 수 있습니다.)
 
-| 구현화면                      | 시연영상 | 구현기능                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **1. 로그인/회원가입**        | <img alt="social_login" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225576937-52dd5753-b5b6-42ac-a82c-22e86adf34df.gif"/> <br> <img width="500" height="300" alt="login" src="https://user-images.githubusercontent.com/84219519/225693807-d5555a93-525a-4edd-8f1f-b81dce1c8ce7.png"> | **F준현님, B원경님**<br>**[공통]**<br>- 신규 유저 유입 허들을 낮추기 위해서 소셜 로그인을 도입함 <br>- 우리나라 기준으로 카카오톡 유저가 제일 많기 때문에 카카오 로그인을 최상단위 위치함 (이후 유저가 많은 SNS 순서로 배치)<br>- 회원가입 버튼이 최하위에 위치한 이유는 데이터베이스에 들어가는 리소스를 최소화하기 위함 <br>- 소셜 로그인으로 신규 유저 정보를 얻는 이유는 이미 기반이 잘 잡힌 기업에 인증 권한을 위임하는 게 안전하기 때문.<br>**[FrontEnd]**<br>- 카카오 API를 통해 Token을 요청하고 서버로 전달하는 로직을 구현<br>- 뒷 배경을 어둡게 해서 로그인 창을 좀 더 강조하고자 함<br>**[BackEnd]**<br>- 소셜 로그인 API에서 유저 닉네임과 이메일 동의를 구하기로 정함<br>- 리소스를 최소화하기 위함<br>- 소셜로그인으로 가입하면 비밀번호가 Null값으로 들어옴 → 자사 사이트에서 회원가입을 한 사람은 비밀번호 데이터가 있음 <br>- 유저별 이벤트 등에 활용 가능 (소셜로그인 회원 / 순수 사이트 가입 회원)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | **2. 메인 페이지**            | <img alt="main" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225578150-fb903031-55a8-4ff5-98a3-91ad323fab09.gif"/> <br> <img alt="nav" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225694353-57d16bcc-8a57-405f-8df9-a64c9e42840c.gif"/> | **F준현님, B홍열님**<br>**[공통]**<br>- 강의의 다양성을 강조하기 위해 카테고리별 강의들을 메인 화면에 나타내고 있음<br>- 다양한 관심사를 가진 유저들을 최대한 많이 유입하기 위함<br>- 최상단에 위치한 메인 배너는 사이트가 가장 강조하고 싶은 강의 및 정보를 노출<br>- 유저가 사이트 접속 시 제일 먼저 보게 되는 위치에 있기 때문<br>**[FrontEnd]**<br>- 카테고리별 캐러셀 기능 구현해서 최대한 다양한 카테고리별 강의들을 노출<br>- Nav바에 전체 카테고리 드롭다운을 생성해서 전체 카테고리 목록을 한번에 확인할 수 있도록 구현<br>**[BackEnd]**<br>- 카테고리별 조회 API 와 전체 조회 API를 하나로 묶어서 기능을 구현<br>- 두 가지 기능을 하나로 묶어서 리소스를 줄이고 효율성을 극대화 (필요 시에만 카테고리별 API 를 get 해올 수 있음)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **3. 상세 페이지**            | <img alt="detail" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225584755-a5fea55f-a9ef-4992-838e-30d50a8d4e52.gif"/> <br> <img alt="contents_button" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225694528-ac408330-0b0b-4556-ac8d-29ed6cab1942.gif"/> | **F혜린님, B홍열님**<br>**[공통]**<br>- 관심(좋아요) 수를 통해 얼마나 많은 고객들이 해당 강의에 관심을 보이고 있는지를 나타내고 있고 유저의 ‘관심목록’에 추가한다. <br>- 해당 수치로 강의에 대한 관심도 및 인기도를 가늠해볼 수 있음. <br>- 하트를 누른 유저는 마이페이지에서 관심 있는 강의 목록에서 확인할 수 있음 + 관심 있는 강의 바탕 알람 전송 (노출증가)<br>- 공유하기, 선물하기 버튼<br>- 관심 있을 거 같은 지인에게 공유하기 및 선물하기 버튼을 통해 해당 강의를 널리 퍼뜨릴 수 있음 → 바이럴 효과, 유저 유입 증가 목표<br>**[FrontEnd]**<br>- 가장 먼저 나타나는 썸네일은 유저가 강조하고 싶은 이미지이기 때문에 제일 큰 사이즈로 구성<br>- ‘구독하기’ 버튼을 포함한 Aside 바는 화면을 스크롤해도 계속해서 쫓아다닌다.<br>- 클래스에 대한 정보를 알아보는 과정 속에서도 구독하기를 계속해서 유도할 수 있음. <br>- 가장 중요한 ‘구독하기(결제)’ 버튼이 유저의 UI에 계속 노출되도록 `position:sticky`사용<br>- 메뉴바 순서 - 후기> 클래스 소개>커리큘럼>크리에이터>환불정책<br>- 클래스명을 보고 클릭을 해서 상세페이지로 넘어온 유저는 적어도 클래스명만으로도 관심을 갖고 누른 유저일 가능성 ↑<br>- 해당 클래스의 신빙성을 따지기 위해서 제일 먼저 확인하는 척도는 후기인 경우가 많음<br>- 후기를 확인한 이후에는 클래스에 대한 자세한 소개글을 보며 유저가 기대한 내용이 맞는지를 확인할 수 있음<br>- 이후에 커리큘럼 및 크리에이터 소개글을 통해 더 자세한 내용을 확인하고 구독/결제로 유도하게끔 기획<br>**[BackEnd]**<br>- 하나의 페이지에서 해당 강의에 대한 모든 정보를 유저에게 전달할 수 있게 유저의 니즈를 충족해줄 수 있는 데이터들을 하나의 API로 구현 |
