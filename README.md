@@ -5,7 +5,7 @@
 
 ## FrontEnd
 
-- **Product** Manager - 김정환 <a href="https://github.com/ggkim0614"></a>
+- 김정환 <a href="https://github.com/ggkim0614"></a>
 - 최선영 <a href="https://github.com/suny0ung">
 
 
@@ -14,7 +14,7 @@
 
 ## BackEnd
 
-- **Project** Manager - 이홍열 <a href="https://github.com/hongyeollee"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/hongyeollee"/></a>
+- 김민서 <a href="https://github.com/minseoya"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/hongyeollee"/></a>
 - 최원경 <a href="https://github.com/wkc28"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/wkc28"/></a>
 
 <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="65" height="65" />
@@ -24,28 +24,17 @@
 
 # WEKEA - 가구 e-commerce 클론 코딩 프로젝트
 
-- 이 제품이 전달하고자 하는 가치와 그 의미는 무엇인가?
-  - **컨텐츠 크리에이터**에겐 지적 재산을 공유 할 수 있는 기회를 제공해주고
-  - **강의 수강자**에게는 원하는 강의를 선택하여 수강할 수 있게끔 해준다. (시간, 공간적 제약 없이)
-- 얼마나 많은 사람이 자주 사용하는가?
-  - **이코노미적 관점** : 시간과 장소에 구애 받지 않는 교육 플랫폼을 제공한다.
-- 서비스적 문제가 발생했을 때 어떤 일이 생기는가? (e.g. Server Down, 데이터 소실)
-  - 구독서비스를 하고 있는 소비자에게 불편함을 초래해 구독자를 잃을 수 있다.
-  - 강의 제공자 입장에서는 수익을 block시킬 수 있다.
-    → 백엔드는 이런 **데이터 유실 가능성을 최소화**하고 **자율성을 극대화**할 수 있는 방안을 찾으며 데이터베이스 구조를 설계하고자 함
-- 우리의 웹 서비스 기획은 매출 | 수익 관점에서 어떤 영향을 어떻게 미치는가?
-  - 구독서비스를 계속적으로 유도한다. (구독 광고 웹사이트가 따로 존재)
-  - **구독 버튼**을 fixed로 메인 화면에 계속 노출시켜 구독을 유도한다.
-  - **카테고리별 노출을 극대화**하여 소비자가 원하는 컨텐츠를 바로 찾아볼 수 있도록 한다. (이렇게 많은 카테고리들 중 하나쯤엔 너의 취향이 있겠지! 전략)
-    - 카테고리 드롭다운 최상단에 위치
-    - 카테고리별 캐러셀들을 메인 레이아웃으로 선정
+- 이 프로젝트는 Wecode 코딩 부트캠프 커리큘럼의 일부로써 제작되었습니다.
 
 <br/>
 
-# 🖥️ 구현 화면 목록
-1. 로그인 (정환)
-2. 메인 (선영)
-3. 상세 (선영)
+# 👨‍💻 구현 화면 목록
+1. 로그인 페이지 (정환)
+2. 메인 페이지 (선영)
+3. 상품 리스트 페이지 (선영)
+4. 상품 상세 페이지 (선영)
+5. 장바구니 페이지 (정환)
+6. 주문/결제 페이지 (정환)
 
 
 | **1. 로그인/회원가입**        | <img alt="social_login" width="500" height="300" src="https://user-images.githubusercontent.com/84219519/225576937-52dd5753-b5b6-42ac-a82c-22e86adf34df.gif"/> <br> <img width="500" height="300" alt="login" src="https://user-images.githubusercontent.com/84219519/225693807-d5555a93-525a-4edd-8f1f-b81dce1c8ce7.png"> | **F준현님, B원경님**<br>**[공통]**<br>- 신규 유저 유입 허들을 낮추기 위해서 소셜 로그인을 도입함 <br>- 우리나라 기준으로 카카오톡 유저가 제일 많기 때문에 카카오 로그인을 최상단위 위치함 (이후 유저가 많은 SNS 순서로 배치)<br>- 회원가입 버튼이 최하위에 위치한 이유는 데이터베이스에 들어가는 리소스를 최소화하기 위함 <br>- 소셜 로그인으로 신규 유저 정보를 얻는 이유는 이미 기반이 잘 잡힌 기업에 인증 권한을 위임하는 게 안전하기 때문.<br>**[FrontEnd]**<br>- 카카오 API를 통해 Token을 요청하고 서버로 전달하는 로직을 구현<br>- 뒷 배경을 어둡게 해서 로그인 창을 좀 더 강조하고자 함<br>**[BackEnd]**<br>- 소셜 로그인 API에서 유저 닉네임과 이메일 동의를 구하기로 정함<br>- 리소스를 최소화하기 위함<br>- 소셜로그인으로 가입하면 비밀번호가 Null값으로 들어옴 → 자사 사이트에서 회원가입을 한 사람은 비밀번호 데이터가 있음 <br>- 유저별 이벤트 등에 활용 가능 (소셜로그인 회원 / 순수 사이트 가입 회원)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
