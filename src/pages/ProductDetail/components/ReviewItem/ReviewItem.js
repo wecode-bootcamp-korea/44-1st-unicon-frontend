@@ -47,7 +47,7 @@ const ReviewItem = ({ detailPageId }) => {
       if (response.ok) {
         getReviewList();
       } else {
-        alert('다시 시도해주세요');
+        alert('구매기록이 없으면 리뷰를 다실 수 없습니다!');
       }
     });
 

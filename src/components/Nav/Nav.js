@@ -115,6 +115,18 @@ const Nav = () => {
             </div>
           </div>
           <div className="drawer-extra">
+            {token && (
+              <div
+                onClick={() => {
+                  navigate('/purchaseditems');
+                  setDrawerOpen(false);
+                }}
+                className="extra-link"
+              >
+                구매 내역
+              </div>
+            )}
+
             {DRAWER_EXTRA_LINKS.map(link => (
               <div key={link.id} className="extra-link">
                 {link.title}
@@ -181,14 +193,14 @@ const Nav = () => {
                       mainCategory,
                     }) => (
                       <Link
+                        onClick={() => {
+                          setSearchInputValue('');
+                          setSearchData([]);
+                        }}
                         key={id}
                         to={`products/detail/${id}`}
                         style={{
                           textDecoration: 'none',
-                        }}
-                        onClick={() => {
-                          setSearchInputValue('');
-                          setSearchData([]);
                         }}
                       >
                         <div className="search-result-item">
@@ -295,18 +307,14 @@ const NAV_FILTER_LINKS = [
 const DRAWER_EXTRA_LINKS = [
   {
     id: 1,
-    title: '구매 내역',
-  },
-  {
-    id: 2,
     title: '위시리스트',
   },
   {
-    id: 3,
+    id: 2,
     title: '플래너',
   },
   {
-    id: 4,
+    id: 3,
     title: '배송 조회',
   },
 ];

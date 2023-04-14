@@ -50,6 +50,8 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
     setPaymentComplete(true);
   };
 
+  console.log(paymentData);
+
   const navigate = useNavigate();
   return (
     <>
@@ -62,8 +64,8 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
             <div className="complete-text">결제가 완료되었습니다</div>
             <div className="purchased-label">결제 상품 정보</div>
             <div className="complete-items">
-              <div>XXXXX 외 2개</div>
-              <div>₩ {data?.totalAmount.toLocaleString()}</div>
+              <div>{paymentData?.productName.names} 외 상품들</div>
+              <div>₩ {paymentData?.totalAmount.toLocaleString()}</div>
             </div>
             <div className="purchased-label">
               결제 상품 정보 및 주문 내역은 <span>주문 내역</span>에서 확인할 수
@@ -78,7 +80,9 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
             <div className="header">결제</div>
             <div className="total-wrapper">
               <div className="label">총 결제 금액:</div>
-              <div className="cost">₩ {data?.totalAmount.toLocaleString()}</div>
+              <div className="cost">
+                ₩ {paymentData?.totalAmount.toLocaleString()}
+              </div>
             </div>
             <div className="payment-type">결제 방식:</div>
             <div className="option-wrapper">
@@ -97,23 +101,21 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
             {point && (
               <div className="total-wrapper">
                 <div className="label">보유 중인 WEKEA points:</div>
-                <div className="point">
-                  {paymentData?.message.currentPoints}
-                </div>
+                <div className="point">{paymentData?.updatePoint.points}</div>
               </div>
             )}
 
             <div className="subtract-value">
               <div className="label">결제할 금액:</div>
               <div className="subtract">
-                -&nbsp;{data?.totalAmount.toLocaleString()}
+                -&nbsp;{paymentData?.totalAmount.toLocaleString()}
               </div>
             </div>
             <div className="divider" />
             {point && (
               <div className="total-wrapper">
                 <div className="label">결제 후 잔여 WEKEA points:</div>
-                <div className="point">{paymentData?.updatePoint}</div>
+                <div className="point">{paymentData?.updatePoint.points}</div>
               </div>
             )}
 
@@ -132,7 +134,7 @@ const Modal = ({ modalOpen, setModalOpen, data }) => {
                 (point === false || terms === false) && `disabled`
               }`}
             >
-              79,000원 결제하기
+              {`${paymentData?.totalAmount.toLocaleString()}원 결제하기`}
             </button>
           </>
         )}

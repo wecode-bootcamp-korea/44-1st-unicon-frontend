@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { APIS } from '../../config';
 import './PurchasedItems.scss';
 
 const PurchasedItems = () => {
   const [purchasedItemsData, setPurchasedItemsData] = useState([]);
-
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('/data/purchasedItemsData.json', {
+    fetch(`${APIS.purchasedItems}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,9 +27,9 @@ const PurchasedItems = () => {
       <div className="items-container">
         {purchasedItemsData.length > 0 ? (
           purchasedItemsData.map(
-            ({ id, names, quantity, price, sub_description, image_url }) => (
+            ({ id, names, quantity, price, sub_description, image_url }, i) => (
               <Link
-                key={id}
+                key={i}
                 to={`/products/detail/${id}`}
                 className="purhcased-link"
               >
@@ -54,10 +54,17 @@ const PurchasedItems = () => {
                             개당 가격:&nbsp;₩&nbsp;{price}
                           </div>
                         </div>
-                        <div className="total-price">₩&nbsp;총 가격</div>
                       </span>
                     </div>
-                    <div className="purchased-btn">리뷰 쓰기</div>
+                    <div
+                      className="purchased-btn"
+                      onClick={e => {
+                        e.stopPropagation();
+                        navigate(`/products/detail/${id}`, { state: 'review' });
+                      }}
+                    >
+                      리뷰 쓰기
+                    </div>
                   </div>
                 </div>
               </Link>

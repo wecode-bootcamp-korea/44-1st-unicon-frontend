@@ -150,12 +150,12 @@ export default SideNav;
 const FURNITURE_PAGES_LINK = [
   {
     id: 1,
-    name: '의자',
+    name: '소파',
     path: '/products?mainCategory=1',
   },
   {
     id: 2,
-    name: '소파',
+    name: '의자',
     path: '/products?mainCategory=2',
   },
   {

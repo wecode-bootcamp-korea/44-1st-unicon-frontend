@@ -113,10 +113,7 @@ function ProductDetail() {
                 <div>
                   <span className="text">상품평</span>
                 </div>
-                <button
-                  onClick={() => setDrawerOpen(!drawerOpen)}
-                  className="inner-btu"
-                >
+                <button className="inner-btu">
                   <ArrowRight />
                 </button>
               </div>
