@@ -5,12 +5,12 @@
 
 ## FrontEnd
 
-- 김정환 <a href="https://github.com/ggkim0614"></a>
-- 최선영 <a href="https://github.com/suny0ung"></a>
+- <a href="https://github.com/ggkim0614">김정환</a>
+- <a href="https://github.com/suny0ung">최선영</a>
 - 
 <br />
 
-Special Thanks to - 박세익 <a href="https://github.com/parkseyik"></a>
+Special Thanks to - <a href="https://github.com/parkseyik">박세익</a>
 
 
 <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" />
