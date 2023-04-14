@@ -1,11 +1,12 @@
-# ✦ Team OneOhOne(O.O.O.) - Class101 motive coding ✦
+# Team WEKEA - IKEA-motivated clone coding project
 
-![001](https://user-images.githubusercontent.com/84219519/225594409-502b9e32-f782-438a-95e2-49fa35e312ea.png)
+![Vector](https://user-images.githubusercontent.com/37966668/231981782-1a7b1e36-cd42-47d7-b17d-b7ea62ad328e.png)
+
 
 ## FrontEnd
 
-- **Product** Manager - 신혜린 <a href="https://github.com/shinheylynn"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/shinheylynn"/></a>
-- 박준현 <a href="https://github.com/jhp4986"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/jhp4986"/></a>, 이유진 <a href="https://github.com/yujinni"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/yujinni"/></a>
+- **Product** Manager - 김정환 <a href="https://github.com/ggkim0614"></a>
+- 최선영 <a href="https://github.com/suny0ung">
 
 |                                             JavaScript                                             |                                               React.js                                                |                                                 Eslint                                                 |                                                 Prettier                                                 |                                                   Styled-components                                                    |
 | :------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
