@@ -1,6 +1,6 @@
 # Team WEKEA - IKEA-motivated clone coding project
 
-![Vector](https://user-images.githubusercontent.com/37966668/231981782-1a7b1e36-cd42-47d7-b17d-b7ea62ad328e.png)
+![Vector](https://user-images.githubusercontent.com/37966668/231990989-8fcaec4a-bf09-435d-b47a-36296dd16ac0.png)
 
 
 ## FrontEnd
