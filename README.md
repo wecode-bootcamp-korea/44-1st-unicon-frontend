@@ -1,10 +1,12 @@
 # WEKEA : IKEA-motivated clone coding project
 
-![Vector](https://user-images.githubusercontent.com/37966668/231990989-8fcaec4a-bf09-435d-b47a-36296dd16ac0.png)
+![Vector](https://user-images.githubusercontent.com/37966668/232393450-f45f8d99-6001-4ce0-9e19-c2c0bebd19ae.png)
+
+https://user-images.githubusercontent.com/37966668/232393310-8fac8323-ec72-4b3f-9837-fd7e0fa09382.mov
 
 <br />
 
-![Frame 6](https://user-images.githubusercontent.com/37966668/232391629-68521693-a31d-48fe-966a-dfd5ac82099f.png)
+![Group 3](https://user-images.githubusercontent.com/37966668/232392845-3958e8f3-0bfc-4734-8423-cd8a47ba55a3.png)
 
 ## Team uniC5n - FrontEnd
 
