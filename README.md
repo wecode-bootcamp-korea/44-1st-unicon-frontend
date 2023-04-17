@@ -29,7 +29,7 @@ Special Thanks to - <a href="https://github.com/parkseyik">박세익 <img src="h
   
 <br/>
 
-# WEKEA - 가구 e-commerce 클론 코딩 프로젝트
+# WEKEA - 가구 e-commerce 플랫폼 클론 코딩 프로젝트
 
 - 이 프로젝트는 Wecode 코딩 부트캠프 커리큘럼의 일부로써 제작되었습니다.
 
