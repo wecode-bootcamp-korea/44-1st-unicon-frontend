@@ -23,13 +23,15 @@
 
 <div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="52" height="52" /></div>
 
+<br />
+
 Special Thanks to - <a href="https://github.com/parkseyik">박세익 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/parkseyik"/></a>
 
 <br/>
 
 # WEKEA - 가구 e-commerce 플랫폼 클론 코딩 프로젝트
 
-- 이 프로젝트는 Wecode 코딩 부트캠프 커리큘럼의 일부로써 제작되었습니다.
+- 이 프로젝트는 <a href="https://github.com/wecode-bootcamp-korea">Wecode 코딩 부트캠프</a> 커리큘럼의 일부로써 제작되었습니다.
 
 <br/>
 
@@ -109,7 +111,7 @@ https://user-images.githubusercontent.com/37966668/232386906-437d0a4a-12de-4964-
 
 https://user-images.githubusercontent.com/37966668/232387897-96f1cba1-d256-44ee-8933-32db6449efbc.mov
 
-
+<br />
 
 
 
