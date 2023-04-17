@@ -4,8 +4,7 @@
 
 https://user-images.githubusercontent.com/37966668/232393310-8fac8323-ec72-4b3f-9837-fd7e0fa09382.mov
 
-
-![adding-buying(top)](https://user-images.githubusercontent.com/37966668/232394044-c28db13a-5194-4560-818f-75783f3d0214.gif)
+<iframe src="https://giphy.com/embed/DZAegh2mIIV9JUtYVw" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/DZAegh2mIIV9JUtYVw">via GIPHY</a></p>
 
 <br />
 
