@@ -48,10 +48,10 @@ Special Thanks to - <a href="https://github.com/parkseyik">박세익 <img src="h
 
 **1. 로그인/회원가입**<br>- 우리나라 기준으로 카카오톡 유저가 제일 많기 때문에 카카오 로그인을 최상단위 위치함 (이후 유저가 많은 SNS 순서로 배치)<br>- 회원가입 버튼이 최하위에 위치한 이유는 데이터베이스에 들어가는 리소스를 최소화하기 위함                                                                                                                                                                                                                                                                                                        
 
-<div style="display: flex; align-items: flex-start;">
+
 https://user-images.githubusercontent.com/37966668/232360969-961bce36-2904-4a2a-bff8-55f712371490.mov
 https://user-images.githubusercontent.com/37966668/232361004-cde3fa02-0019-4541-a264-1b11b847047c.mov
-</div>
+
 
 
 
