@@ -1,4 +1,4 @@
-# Team WEKEA - IKEA-motivated clone coding project
+# WEKEA : IKEA-motivated clone coding project
 
 ![Vector](https://user-images.githubusercontent.com/37966668/231990989-8fcaec4a-bf09-435d-b47a-36296dd16ac0.png)
 
