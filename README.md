@@ -4,6 +4,8 @@
 
 https://user-images.githubusercontent.com/37966668/232393310-8fac8323-ec72-4b3f-9837-fd7e0fa09382.mov
 
+![adding-buying(top)](https://user-images.githubusercontent.com/37966668/232393677-16669e02-8c3b-4eea-8f1e-0f5c27c69caa.gif)
+
 <br />
 
 ![Group 3](https://user-images.githubusercontent.com/37966668/232392845-3958e8f3-0bfc-4734-8423-cd8a47ba55a3.png)
