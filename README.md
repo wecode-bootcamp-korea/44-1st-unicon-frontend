@@ -21,12 +21,10 @@
 
 <br />
 
-Special Thanks to - <a href="https://github.com/parkseyik">박세익 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/parkseyik"/></a>
-
-
 <div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="52" height="52" /></div>
 
-  
+Special Thanks to - <a href="https://github.com/parkseyik">박세익 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/parkseyik"/></a>
+
 <br/>
 
 # WEKEA - 가구 e-commerce 플랫폼 클론 코딩 프로젝트
@@ -56,6 +54,7 @@ https://user-images.githubusercontent.com/37966668/232360969-961bce36-2904-4a2a-
 
 https://user-images.githubusercontent.com/37966668/232361004-cde3fa02-0019-4541-a264-1b11b847047c.mov
 
+<br />
 
 #### ** 2. 랜딩 페이지 **<br>
 
@@ -70,16 +69,46 @@ https://user-images.githubusercontent.com/37966668/232379658-8921f658-8999-41a2-
 
 https://user-images.githubusercontent.com/37966668/232379785-4304a413-f12d-4f0c-a582-3aff6e79cf36.mov
 
+<br />
+
 #### ** 3. 쇼룸 페이지 **<br>
 
 가구가 조합으로 배치됐을 때의 사진을 보여주고, 측면에 사진 내부에 배치된 개별의 가구들을 사이드 캐러셀로 배치한 페이지. 캐러셀의 아이템들을 누르면 해당 제품의 상세 페이지로 이동할 수 있게 동적 라우팅 구현.
 
 https://user-images.githubusercontent.com/37966668/232380673-85340074-ad54-403c-90f7-4c7edb4b3e87.mov
 
+<br />
 
 #### ** 4. 상품 리스트 페이지 **<br>
 
 **가격 낮은순/높은순 필터 기능** - 리스트 페이지에 맵핑된 상품들을 동적으로 쿼리 스트링으로 요청하여 맵핑 순서 재배치.
+
+https://user-images.githubusercontent.com/37966668/232383804-1432ed20-cad6-4cf0-b63b-40c0a642b446.mov
+
+<br />
+
+#### ** 5. 상품 상세 페이지 **<br>
+
+제품의 상세 정보가 구현된 페이지. 동적 라우팅으로 같은 상세 페이지 컴포넌트 내에서 쿼리한 값에 따라 다른 아이디의, 해당 제품의 정보값을 나열, 해당 상품의 리뷰 유무 및 내용도 확인 가능.
+
+https://user-images.githubusercontent.com/37966668/232384212-2c71ce5b-e667-4e98-97e5-1034e97962fe.mov
+
+<br />
+
+#### ** 6. 장바구니-주문-결제 페이지(플로우) **<br>
+
+장바구니에서 제품 수량 변경, 삭제, 결제 시 보유 포인트에서 결제 가격 차감 기능까지 구현. 모든 요청은 헤더에 유저의 고유 토큰 값이 담겨야 반환되며, 구매한 상품은 구매내역 페이지에서 확인 가능하게 구현.
+
+https://user-images.githubusercontent.com/37966668/232386906-437d0a4a-12de-4964-ba1a-a6e0d69213cf.mov
+
+<br />
+
+#### ** 7. 구매한 상품 / 리뷰 남기기/삭제 기능 **<br>
+
+유저가 해당 상품을 구매한 이력이 있다면, 리뷰 남기기가 가능하고, 구매한 이력이 없다면 가능하지 않도록 구현. 
+
+https://user-images.githubusercontent.com/37966668/232387897-96f1cba1-d256-44ee-8933-32db6449efbc.mov
+
 
 
 
