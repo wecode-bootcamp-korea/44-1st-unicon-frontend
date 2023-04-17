@@ -2,8 +2,11 @@
 
 ![Vector](https://user-images.githubusercontent.com/37966668/231990989-8fcaec4a-bf09-435d-b47a-36296dd16ac0.png)
 
+<br />
 
-## FrontEnd
+![Frame 6](https://user-images.githubusercontent.com/37966668/232391629-68521693-a31d-48fe-966a-dfd5ac82099f.png)
+
+## Team uniC5n - FrontEnd
 
 - <a href="https://github.com/ggkim0614">김정환 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/hongyeollee"/></a>
 - <a href="https://github.com/suny0ung">최선영 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/hongyeollee"/></a>
@@ -13,7 +16,7 @@
 <div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/sass-icon.svg" alt="icon" width="52" height="52" /><img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="52" height="52" /></div>
 
 
-## BackEnd
+## Team uniC5n - BackEnd
 
 - <a href="https://github.com/minseoya">김민서 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/minseoya"/></a>
 - <a href="https://github.com/lsg622">임성근<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white&link=https://github.com/lsg622"/></a>
