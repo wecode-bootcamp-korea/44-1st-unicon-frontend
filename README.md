@@ -2,10 +2,6 @@
 
 ![Vector](https://user-images.githubusercontent.com/37966668/232393450-f45f8d99-6001-4ce0-9e19-c2c0bebd19ae.png)
 
-https://user-images.githubusercontent.com/37966668/232393310-8fac8323-ec72-4b3f-9837-fd7e0fa09382.mov
-
-<iframe src="https://giphy.com/embed/DZAegh2mIIV9JUtYVw" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/DZAegh2mIIV9JUtYVw">via GIPHY</a></p>
-
 ![giphy](https://user-images.githubusercontent.com/37966668/232397033-2bbaa8d7-382f-494b-9a8d-d7a3180d966c.gif)
 
 <br />
